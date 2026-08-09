@@ -1,0 +1,97 @@
+:root {
+    --bg-color: #28022f;
+    --accent-gold: #c6a24f;
+    --text-white: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-gold: rgba(198, 162, 79, 0.3);
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid var(--border-gold);
+    background-color: var(--bg-color);
+}
+
+.logo {
+    max-height: 45px;
+    width: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--accent-gold);
+}
+
+/* Botón destacado */
+.btn-gold {
+    background-color: transparent;
+    color: var(--accent-gold) !important;
+    border: 1px solid var(--accent-gold);
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-color) !important;
+}
+
+/* Formularios y Tarjetas */
+.auth-card, .quiz-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 450px;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1.2rem 0;
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    outline: none;
+}
+
+input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
