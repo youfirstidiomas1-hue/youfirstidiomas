@@ -5,13 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouFirst Idiomas</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* Estilos directos de respaldo para fijar la estructura */
+        body {
+            background-color: #28022f !important;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            background-color: #28022f;
+            border-bottom: 1px solid rgba(198, 162, 79, 0.3);
+        }
+        /* Ajuste fino del tamaño y ubicación del logo */
+        .logo-container img {
+            height: 50px; /* Controla la altura fija */
+            width: auto;
+            max-width: 280px; /* Evita que el banner se desborde */
+            object-fit: contain;
+            display: block;
+        }
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .main-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .btn-gold {
+            border: 1px solid #c6a24f;
+            color: #c6a24f !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html">
-                <img src="./assets/logo.png" alt="YouFirst Idiomas" class="logo">
+                <img src="./assets/logo.png" alt="YouFirst Idiomas">
             </a>
         </div>
         <nav class="main-nav">
@@ -24,15 +72,16 @@
         </nav>
     </header>
 
-    <main class="hero-section">
-        <h1 style="font-size: 2.8rem; margin-bottom: 1rem; color: #ffffff;">Aprende idiomas a tu ritmo</h1>
-        <p style="font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
+    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; padding: 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #ffffff;">Aprende idiomas a tu ritmo</h1>
+        <p style="font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.8);">
             Metodología adaptada a tus objetivos. Descubre tu nivel e inicia tu camino con nuestro desafío de admisión.
         </p>
-        <a href="challenge.html" class="btn-gold" style="font-size: 1.1rem; padding: 0.8rem 2rem;">
+        <a href="challenge.html" class="btn-gold" style="font-size: 1.1rem; padding: 0.8rem 2rem; background-color: transparent;">
             Iniciar Admission Challenge
         </a>
     </main>
 
 </body>
+</html>
 </html>
