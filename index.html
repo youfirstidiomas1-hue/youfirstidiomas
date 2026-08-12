@@ -1,370 +1,563 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouFirst Idiomas - Professional Language Training</title>
-    <style>
-        :root {
-            --bg-purple: #1e0224;
-            --bg-darker: #130117;
-            --accent-gold: #c6a24f;
-            --gold-glow: #e8c56e;
-            --text-white: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.85);
-            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You First Idiomas | Admission Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+      background-color: #2f0039;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        body {
-            background-color: var(--bg-purple);
-            color: var(--text-white);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-        /* ----- HEADER ----- */
-        .main-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 5%;
-            background-color: var(--bg-darker);
-            border-bottom: 1px solid rgba(198, 162, 79, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* CAPTURA 1: HERO / INTRODUCCIÓN */
+    .section-captura1 {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #2f0039 0%, #2c0439 100%);
+      border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+    }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+    .section-captura1 h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+    }
 
-        .lang-selector {
-            background: transparent;
-            border: 1px solid var(--accent-gold);
-            color: var(--text-white);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
+    .section-captura1 p {
+      font-size: 20px;
+      color: #e2d1f0;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-weight: 400;
+    }
 
-        .logo-container img {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
+    /* CAPTURA 2: SOBRE EL MÉTODO / DETALLES */
+    .section-captura2 {
+      padding: 60px 20px;
+      background: #2c0439;
+      border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+    }
 
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
+    .section-captura2 .content-box {
+      background: rgba(157, 78, 221, 0.08);
+      border: 1px solid rgba(157, 78, 221, 0.3);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 850px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-        .main-nav a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
+    .section-captura2 h2 {
+      font-size: 28px;
+      color: #9d4edd;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
 
-        .main-nav a:hover {
-            color: var(--accent-gold);
-        }
+    .section-captura2 p {
+      font-size: 17px;
+      color: #ffffff;
+      margin-bottom: 15px;
+      opacity: 0.95;
+    }
 
-        .btn-aluno {
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold) !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
+    /* CAPTURA 3: DESAFÍO Y QUIZ */
+    .section-captura3 {
+      padding: 60px 20px;
+      background: #2f0039;
+    }
 
-        .btn-aluno:hover {
-            background-color: var(--accent-gold);
-            color: var(--bg-purple) !important;
-        }
+    .section-captura3 .challenge-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-        /* ----- HERO SECTION ----- */
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1.5rem 2rem 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .section-captura3 .challenge-header h2 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 10px rgba(157, 78, 221, 0.5);
+    }
 
-        .hero-title {
-            font-size: 1.8rem;
-            font-weight: 400;
-            line-height: 1.4;
-            color: var(--text-white);
-            margin-bottom: 3rem;
-        }
+    .section-captura3 .challenge-header p {
+      font-size: 18px;
+      color: #d8b4fe;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-        .highlight-gold {
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
+    /* CUESTIONARIO Y QUIZ STYLES */
+    .quiz-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        /* ----- CARDS SECTION ----- */
-        .cards-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
+    .question-card {
+      background: #2c0439;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 40px rgba(157, 78, 221, 0.3), 0 0 0 1px rgba(157, 78, 221, 0.2);
+      max-width: 700px;
+      width: 100%;
+      display: none;
+      position: relative;
+      min-height: 300px;
+      border: 1px solid rgba(157, 78, 221, 0.3);
+    }
 
-        .program-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            width: 320px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+    .question-card.active {
+      display: block;
+      animation: fadeInScale 0.5s ease;
+    }
 
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(198, 162, 79, 0.25);
-        }
+    .question-card.answered .question-content {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
 
-        .card-title-english {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            background: linear-gradient(180deg, #ffffff, #c6a24f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
+    .question-card.answered .feedback {
+      opacity: 1;
+      display: block;
+      position: relative;
+      z-index: 10;
+    }
 
-        .card-title-espanol {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            background: linear-gradient(180deg, #ffffff, #c6a24f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
+    .question-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(157, 78, 221, 0.5);
+      box-shadow: 0 2px 10px rgba(157, 78, 221, 0.3);
+    }
 
-        .card-subtitle {
-            font-family: 'Brush Script MT', cursive, sans-serif;
-            font-size: 1.8rem;
-            color: var(--text-white);
-            font-style: italic;
-        }
+    .question-text {
+      font-size: 22px;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
 
-        /* ----- SUBTEXT ----- */
-        .sub-hero-text {
-            font-size: 1.2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
-            color: var(--text-muted);
-        }
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
 
-        /* ----- ADMISSION CHALLENGE SECTION ----- */
-        .challenge-section {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(198, 162, 79, 0.3);
-            border-radius: 16px;
-            max-width: 700px;
-            margin: 0 auto 5rem auto;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
+    .answer-btn {
+      flex: 1;
+      padding: 16px 24px;
+      border: 2px solid rgba(157, 78, 221, 0.4);
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(157, 78, 221, 0.2);
+    }
 
-        .challenge-title {
-            color: var(--accent-gold);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
+    .answer-btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, rgba(123, 44, 191, 0.2) 100%);
+      box-shadow: 0 6px 20px rgba(157, 78, 221, 0.4);
+      border-color: rgba(157, 78, 221, 0.6);
+    }
 
-        .quiz-option-btn {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(198, 162, 79, 0.4);
-            color: var(--text-white);
-            padding: 1rem;
-            margin-top: 0.8rem;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+    .answer-btn.yes {
+      border-color: #48bb78;
+    }
 
-        .quiz-option-btn:hover {
-            background: var(--accent-gold);
-            color: var(--bg-purple);
-            font-weight: bold;
-        }
+    .answer-btn.yes:hover,
+    .answer-btn.yes.selected {
+      background: #48bb78;
+      color: #ffffff;
+      border-color: #48bb78;
+    }
 
-        .btn-next {
-            background-color: var(--accent-gold);
-            color: var(--bg-purple);
-            border: none;
-            padding: 0.9rem 2rem;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 1.8rem;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
+    .answer-btn.no {
+      border-color: #f56565;
+    }
 
-        .btn-next:hover {
-            background-color: var(--gold-glow);
-        }
+    .answer-btn.no:hover,
+    .answer-btn.no.selected {
+      background: #f56565;
+      color: #ffffff;
+      border-color: #f56565;
+    }
 
-        @media (max-width: 768px) {
-            .main-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .hero-title {
-                font-size: 1.4rem;
-            }
-            .cards-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    .feedback {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+      border-left: 4px solid #9d4edd;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #2d3748;
+      line-height: 1.6;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
+      border: 1px solid rgba(157, 78, 221, 0.2);
+    }
+
+    .next-button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none;
+      box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+      border: 1px solid rgba(157, 78, 221, 0.5);
+    }
+
+    .next-button:hover {
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+    }
+
+    .question-card.answered .next-button {
+      display: inline-block;
+    }
+
+    .result-card {
+      background: linear-gradient(135deg, #2c0439 0%, #3d0552 100%);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 50px rgba(157, 78, 221, 0.4), 0 0 0 1px rgba(157, 78, 221, 0.3);
+      max-width: 700px;
+      width: 100%;
+      display: none;
+      border: 1px solid rgba(157, 78, 221, 0.4);
+    }
+
+    .result-card.show {
+      display: block;
+      animation: fadeInScale 0.6s ease;
+    }
+
+    .result-title {
+      font-size: 32px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .result-subtitle {
+      font-size: 20px;
+      margin-bottom: 25px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .result-subtitle.high-performance {
+      color: #48bb78;
+    }
+
+    .result-subtitle.transformation {
+      color: #ed8936;
+    }
+
+    .result-text {
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      text-align: center;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 18px 32px;
+      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(157, 78, 221, 0.4);
+      border: 2px solid rgba(157, 78, 221, 0.6);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+      box-shadow: 0 10px 35px rgba(157, 78, 221, 0.6);
+      border-color: rgba(157, 78, 221, 0.8);
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-captura1 h1 { font-size: 30px; }
+      .section-captura1 p { font-size: 16px; }
+      .section-captura2 h2 { font-size: 24px; }
+      .section-captura3 .challenge-header h2 { font-size: 26px; }
+      .question-card { padding: 25px; }
+      .question-text { font-size: 18px; }
+      .button-group { flex-direction: column; }
+      .result-title { font-size: 26px; }
+      .result-subtitle { font-size: 18px; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="main-header">
-        <div class="header-left">
-            <button class="lang-selector">🌐 PT ▾</button>
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="./assets/logo.png" alt="YouFirst Idiomas">
-                </a>
+  <!-- CAPTURA 1 -->
+  <section class="section-captura1">
+    <div class="container">
+      <h1>Acelere sua Fluência com Coaching de Idiomas</h1>
+      <p>Descubra uma metodologia focada em resultados rápidos, autoconfiança e comunicação estratégica para o mercado global.</p>
+    </div>
+  </section>
+
+  <!-- CAPTURA 2 -->
+  <section class="section-captura2">
+    <div class="container">
+      <div class="content-box">
+        <h2>Como Funciona a Mentoria Premium</h2>
+        <p>Ao contrário dos métodos tradicionales que focam apenas em gramática repetitiva, nosso acompanhamento desenvolve as soft skills e a segurança necessária para reuniões, apresentações e negociações internacionais.</p>
+        <p>Desenvolva hiperfoco, elimine o travamento ao falar e alcance o próximo nivel em sua carreira.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPTURA 3 & CUESTIONARIO -->
+  <section class="section-captura3">
+    <div class="container">
+      
+      <!-- Título de la Captura 3 -->
+      <div class="challenge-header">
+        <h2>Admission Challenge: Você tem o perfil Premium?</h2>
+        <p>Responda às 5 perguntas abaixo para avaliar seu perfil de aprendizagem e descobrir se está pronto para o Coaching Premium.</p>
+      </div>
+
+      <!-- Cuestionario Interactivo -->
+      <div class="quiz-container">
+        
+        <!-- Pergunta 1 -->
+        <div class="question-card active" data-question="0">
+          <div class="question-content">
+            <div class="question-number">Pergunta 1 de 5</div>
+            <div class="question-text">Disciplina: Você consegue manter uma rotina mínima de contato com o idioma?</div>
+            <div class="button-group">
+              <button class="answer-btn yes" onclick="handleAnswer(0, true)">SIM</button>
+              <button class="answer-btn no" onclick="handleAnswer(0, false)">NÃO</button>
             </div>
+          </div>
+          <div class="feedback" id="feedback-0"></div>
+          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#programas">Programas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="#challenge">Admission Challenge</a></li>
-                <li><a href="aluno.html" class="btn-aluno">Área do Aluno</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- Hero Section con Texto de la Captura -->
-        <section class="hero-section">
-            <h1 class="hero-title">
-                Acelere sua projeção internacional com o domínio técnico do 
-                <span class="highlight-gold">inglês</span> ou 
-                <span class="highlight-gold">espanhol</span>. 
-                Uma abordagem de alto rendimento para líderes e profissionais que buscam eficácia acima da teoria acadêmica.
-            </h1>
-
-            <!-- Tarjetas de Idiomas -->
-            <div id="programas" class="cards-container">
-                <div class="program-card">
-                    <div class="card-title-english">ENGLISH</div>
-                    <div class="card-subtitle">for Real Life!</div>
-                </div>
-                <div class="program-card">
-                    <div class="card-title-espanol">ESPAÑOL</div>
-                    <div class="card-subtitle">para tu Vida!</div>
-                </div>
+        <!-- Pergunta 2 -->
+        <div class="question-card" data-question="1">
+          <div class="question-content">
+            <div class="question-number">Pergunta 2 de 5</div>
+            <div class="question-text">Autonomia: Você se sente confortável em buscar soluções antes de pedir ajuda?</div>
+            <div class="button-group">
+              <button class="answer-btn yes" onclick="handleAnswer(1, true)">SIM</button>
+              <button class="answer-btn no" onclick="handleAnswer(1, false)">NÃO</button>
             </div>
+          </div>
+          <div class="feedback" id="feedback-1"></div>
+          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+        </div>
 
-            <p class="sub-hero-text">
-                Vá além do básico. Nossas soluções linguísticas são <strong class="highlight-gold">100% personalizadas</strong> e desenhadas para a sua realidade profissional e pessoal.
-            </p>
-        </section>
-
-        <!-- Admission Challenge Integrado -->
-        <section id="challenge" class="challenge-section">
-            <h2 id="quiz-title" class="challenge-title">Admission Challenge</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Descubra seu perfil e receba um plano de estudo sob medida:</p>
-
-            <div id="quiz-box">
-                <h3 id="quiz-question" style="font-size: 1.1rem; margin-bottom: 1rem;">1. Qual é o seu nível atual no idioma escolhido?</h3>
-                <div id="quiz-options">
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Iniciante (Começando do zero)</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Básico (Entendo palavras e frases simples)</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Intermediário (Consigo conversar com algum esforço)</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Avançado (Busco fluência e vocabulário técnico)</button>
-                </div>
+        <!-- Pergunta 3 -->
+        <div class="question-card" data-question="2">
+          <div class="question-content">
+            <div class="question-number">Pergunta 3 de 5</div>
+            <div class="question-text">Foco: Em uma reunião importante, você consegue manter a atenção no objetivo da fala?</div>
+            <div class="button-group">
+              <button class="answer-btn yes" onclick="handleAnswer(2, true)">SIM</button>
+              <button class="answer-btn no" onclick="handleAnswer(2, false)">NÃO</button>
             </div>
+          </div>
+          <div class="feedback" id="feedback-2"></div>
+          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+        </div>
 
-            <button id="quiz-next-btn" class="btn-next" style="display: none;" onclick="nextStep()">Próxima Etapa</button>
-        </section>
-    </main>
+        <!-- Pergunta 4 -->
+        <div class="question-card" data-question="3">
+          <div class="question-content">
+            <div class="question-number">Pergunta 4 de 5</div>
+            <div class="question-text">O Medo: Você sente que o medo de errar trava sua fala em momentos decisivos?</div>
+            <div class="button-group">
+              <button class="answer-btn yes" onclick="handleAnswer(3, true)">SIM</button>
+              <button class="answer-btn no" onclick="handleAnswer(3, false)">NÃO</button>
+            </div>
+          </div>
+          <div class="feedback" id="feedback-3"></div>
+          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+        </div>
 
-    <script>
-        let currentStep = 1;
+        <!-- Pergunta 5 -->
+        <div class="question-card" data-question="4">
+          <div class="question-content">
+            <div class="question-number">Pergunta 5 de 5</div>
+            <div class="question-text">Priorização: Você consegue identificar o que é essencial comunicar, mesmo sem saber todas as palavras?</div>
+            <div class="button-group">
+              <button class="answer-btn yes" onclick="handleAnswer(4, true)">SIM</button>
+              <button class="answer-btn no" onclick="handleAnswer(4, false)">NÃO</button>
+            </div>
+          </div>
+          <div class="feedback" id="feedback-4"></div>
+          <button class="next-button" onclick="nextQuestion()">Ver Resultado →</button>
+        </div>
 
-        function selectOption(btn) {
-            const options = document.querySelectorAll('.quiz-option-btn');
-            options.forEach(o => {
-                o.style.background = 'rgba(255, 255, 255, 0.05)';
-                o.style.color = '#ffffff';
-            });
-            btn.style.background = '#c6a24f';
-            btn.style.color = '#1e0224';
-            btn.style.fontWeight = 'bold';
-            
-            document.getElementById('quiz-next-btn').style.display = 'block';
-        }
+        <!-- Tarjeta de Resultado -->
+        <div class="result-card" id="result-card">
+          <div class="result-title" id="result-title"></div>
+          <div class="result-subtitle" id="result-subtitle"></div>
+          <div class="result-text" id="result-text"></div>
+          <a href="https://www.youfirstidiomas.com/onboarding" class="cta-button" id="cta-button" target="_blank" rel="noopener noreferrer">Comece agora!</a>
+        </div>
 
-        function nextStep() {
-            currentStep++;
-            const questionEl = document.getElementById('quiz-question');
-            const optionsEl = document.getElementById('quiz-options');
-            const nextBtn = document.getElementById('quiz-next-btn');
+      </div>
+    </div>
+  </section>
 
-            nextBtn.style.display = 'none';
+  <!-- LÓGICA DE JAVASCRIPT -->
+  <script>
+    const answers = [null, null, null, null, null];
+    let currentQuestion = 0;
 
-            if (currentStep === 2) {
-                questionEl.textContent = '2. Qual é o seu principal objetivo profissional?';
-                optionsEl.innerHTML = `
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Entrevistas de emprego em multinacionais</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Reuniões e apresentações de negócios</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Viagens e networking internacional</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Certificações e pós-graduação</button>
-                `;
-            } else if (currentStep === 3) {
-                questionEl.textContent = '3. Quanto tempo por semana você pode dedicar?';
-                optionsEl.innerHTML = `
-                    <button class="quiz-option-btn" onclick="selectOption(this)">1 a 2 horas por semana</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">3 a 5 horas por semana</button>
-                    <button class="quiz-option-btn" onclick="selectOption(this)">Mais de 5 horas por semana</button>
-                `;
-            } else {
-                document.getElementById('quiz-box').innerHTML = `
-                    <h3 style="color: #c6a24f; font-size: 1.4rem; margin-bottom: 1rem;">Desafio Concluído com Sucesso!</h3>
-                    <p style="color: rgba(255,255,255,0.9);">Analisamos suas respostas. Nosso time entrará em contato para apresentar sua trilha personalizada.</p>
-                `;
-            }
-        }
-    </script>
+    const questions = [
+      {
+        yes: "Excelente! Disciplina é a base. Se um dia ficar difícil, aplique a \"regra dos 15 min\" com o café ou um vinho para nunca perder o ritmo.",
+        no: "Não se preocupe! Vou te ajudar: se você estudar apenas 15 min com o café da manhã ou uma taça de vinho à noite, manterá a rotina sem esforço."
+      },
+      {
+        yes: "Perfeito! A autonomia é o que diferencia um estudante de um profissional fluente. Vamos potencializar essa sua independência.",
+        no: "É normal depender do professor no sistema antigo. No meu método, vou te ensinar a usar ferramentas que te darão liberdade e velocidade."
+      },
+      {
+        yes: "Ótimo! Manter o foco no resultado é essencial. Vamos refinar isso para que sua comunicação seja sempre certeira e estratégica.",
+        no: "O medo costuma roubar nosso foco. Vou te ensinar técnicas de \"hiperfoco seletivo\" para você focar na mensagem, não no erro gramatical."
+      },
+      {
+        no: "Incrível! A autoconfiança é metade da fluência. Vamos usar essa coragem para dominar vocabulários mais complexos e técnicos.",
+        yes: "O sistema escolar te puniu pelo erro. Aqui, o erro é dado e aprendizado. Vou te ajudar a ressignificar isso para você falar com autoridade."
+      },
+      {
+        yes: "Isso é inteligência linguística! Vamos refinar essa habilidade para que você nunca perca o fio da meada em uma negociação.",
+        no: "Isso é falta de estratégia, não de vocabulário! Vou te ensinar a \"técnica do contorno\": como ser entendido e passar autoridade usando o que você já sabe."
+      }
+    ];
+
+    function handleAnswer(questionIndex, isYes) {
+      answers[questionIndex] = isYes;
+
+      const currentCard = document.querySelector(`.question-card[data-question="${questionIndex}"]`);
+      const buttons = currentCard.querySelectorAll('.answer-btn');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      
+      const selectedButton = isYes ? buttons[0] : buttons[1];
+      selectedButton.classList.add('selected');
+
+      const feedback = document.getElementById(`feedback-${questionIndex}`);
+      feedback.textContent = isYes ? questions[questionIndex].yes : questions[questionIndex].no;
+      feedback.style.display = 'block';
+      
+      setTimeout(() => {
+        feedback.style.opacity = '1';
+      }, 10);
+
+      currentCard.classList.add('answered');
+    }
+
+    function nextQuestion() {
+      const currentCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
+      currentCard.classList.remove('active');
+      
+      currentQuestion++;
+      
+      if (currentQuestion < 5) {
+        const nextCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
+        nextCard.classList.add('active');
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const yesCount = answers.filter(answer => answer === true).length;
+      const resultCard = document.getElementById('result-card');
+      const resultTitle = document.getElementById('result-title');
+      const resultSubtitle = document.getElementById('result-subtitle');
+      const resultText = document.getElementById('result-text');
+
+      if (yesCount >= 3) {
+        resultTitle.textContent = "🎯 Parabéns!";
+        resultSubtitle.textContent = "Perfil de Alto Desempenho";
+        resultSubtitle.className = "result-subtitle high-performance";
+        resultText.textContent = "Você possui as habilidades fundamentais para o Coaching Premium. Seu perfil é o que buscamos para resultados explosivos em curto prazo. Como você já tem a mentalidade certa, nosso trabalho será focar 100% na sua urgência profissional. Vamos começar?";
+      } else {
+        resultTitle.textContent = "💪 Vamos juntos!";
+        resultSubtitle.textContent = "Perfil de Transformação";
+        resultSubtitle.className = "result-subtitle transformation";
+        resultText.textContent = "Você ainda não desenvolveu algumas habilidades interpessoais, mas a culpa não é sua: é de um sistema educacional que negligenciou esses pontos. Se você aceitar o desafio, focaremos especialmente em fortalecer sua confiança e rotina. Será um desafio, mas garanto que valerá a pena. Aceita?";
+      }
+
+      resultCard.classList.add('show');
+    }
+  </script>
 </body>
 </html>
