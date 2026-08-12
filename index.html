@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You First Idiomas | Admission Challenge</title>
+  <title>You First Idiomas | Coaching de Idiomas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -15,87 +15,137 @@
     }
 
     body {
-      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
-      background-color: #2f0039;
-      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #2c0439;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    /* 1. MENÚ SUPERIOR / HEADER EN BLANCO CON LOGO */
+    .header-nav {
+      width: 100%;
+      background-color: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    /* CAPTURA 1: HERO / INTRODUCCIÓN */
-    .section-captura1 {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(180deg, #2f0039 0%, #2c0439 100%);
-      border-bottom: 1px solid rgba(157, 78, 221, 0.2);
-    }
-
-    .section-captura1 h1 {
-      font-size: 40px;
+    .header-logo {
+      font-size: 24px;
       font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      text-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+      color: #2c0439;
+      text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
-    .section-captura1 p {
-      font-size: 20px;
-      color: #e2d1f0;
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      font-weight: 400;
+    .header-logo span {
+      color: #9d4edd;
     }
 
-    /* CAPTURA 2: SOBRE EL MÉTODO / DETALLES */
-    .section-captura2 {
-      padding: 60px 20px;
-      background: #2c0439;
-      border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+    /* 2. HERO CON DEGRADÉ MORADO Y TEXTOS EN MORADO OSCURO */
+    .hero-section {
+      background: linear-gradient(180deg, #f7f0fa 0%, #e8d5f2 100%);
+      padding: 80px 20px 60px 20px;
+      text-align: center;
     }
 
-    .section-captura2 .content-box {
-      background: rgba(157, 78, 221, 0.08);
-      border: 1px solid rgba(157, 78, 221, 0.3);
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #2c0439;
+      line-height: 1.5;
+      margin-bottom: 50px;
+    }
+
+    /* CUADROS DE CURSOS */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .course-card {
+      background: #ffffff;
       border-radius: 16px;
-      padding: 40px;
+      padding: 35px 25px;
+      box-shadow: 0 10px 30px rgba(44, 4, 57, 0.08);
+      border: 2px solid rgba(157, 78, 221, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(157, 78, 221, 0.15);
+      border-color: #9d4edd;
+    }
+
+    .course-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c0439;
+      margin-bottom: 15px;
+    }
+
+    .course-card p {
+      font-size: 15px;
+      color: #4a5568;
+      line-height: 1.6;
+    }
+
+    /* 3. SECCIÓN VÁ ALÉM DO BÁSICO */
+    .beyond-section {
+      padding: 80px 20px;
+      background-color: #ffffff;
+    }
+
+    .beyond-container {
       max-width: 850px;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .section-captura2 h2 {
-      font-size: 28px;
-      color: #9d4edd;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .section-captura2 p {
-      font-size: 17px;
-      color: #ffffff;
-      margin-bottom: 15px;
-      opacity: 0.95;
-    }
-
-    /* CAPTURA 3: DESAFÍO Y QUIZ */
-    .section-captura3 {
-      padding: 60px 20px;
-      background: #2f0039;
-    }
-
-    .section-captura3 .challenge-header {
+    .beyond-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #2c0439;
+      margin-bottom: 25px;
       text-align: center;
-      margin-bottom: 40px;
     }
 
-    .section-captura3 .challenge-header h2 {
+    .beyond-content p {
+      font-size: 17px;
+      color: #4a5568;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* 4. SECCIÓN COACHING PREMIUM & ADMISSION CHALLENGE */
+    .challenge-section {
+      background-color: #2f0039;
+      color: #ffffff;
+      padding: 80px 20px;
+    }
+
+    .challenge-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .challenge-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .challenge-intro h2 {
       font-size: 34px;
       font-weight: 800;
       color: #ffffff;
@@ -103,7 +153,7 @@
       text-shadow: 0 2px 10px rgba(157, 78, 221, 0.5);
     }
 
-    .section-captura3 .challenge-header p {
+    .challenge-intro p {
       font-size: 18px;
       color: #d8b4fe;
       max-width: 700px;
@@ -198,10 +248,7 @@
       border-color: rgba(157, 78, 221, 0.6);
     }
 
-    .answer-btn.yes {
-      border-color: #48bb78;
-    }
-
+    .answer-btn.yes { border-color: #48bb78; }
     .answer-btn.yes:hover,
     .answer-btn.yes.selected {
       background: #48bb78;
@@ -209,10 +256,7 @@
       border-color: #48bb78;
     }
 
-    .answer-btn.no {
-      border-color: #f56565;
-    }
-
+    .answer-btn.no { border-color: #f56565; }
     .answer-btn.no:hover,
     .answer-btn.no.selected {
       background: #f56565;
@@ -292,13 +336,8 @@
       font-weight: 600;
     }
 
-    .result-subtitle.high-performance {
-      color: #48bb78;
-    }
-
-    .result-subtitle.transformation {
-      color: #ed8936;
-    }
+    .result-subtitle.high-performance { color: #48bb78; }
+    .result-subtitle.transformation { color: #ed8936; }
 
     .result-text {
       font-size: 18px;
@@ -346,50 +385,63 @@
     }
 
     @media (max-width: 640px) {
-      .section-captura1 h1 { font-size: 30px; }
-      .section-captura1 p { font-size: 16px; }
-      .section-captura2 h2 { font-size: 24px; }
-      .section-captura3 .challenge-header h2 { font-size: 26px; }
+      .header-nav { padding: 15px 20px; }
+      .hero-text { font-size: 18px; }
+      .beyond-title { font-size: 26px; }
+      .challenge-intro h2 { font-size: 26px; }
       .question-card { padding: 25px; }
       .question-text { font-size: 18px; }
       .button-group { flex-direction: column; }
-      .result-title { font-size: 26px; }
-      .result-subtitle { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- CAPTURA 1 -->
-  <section class="section-captura1">
-    <div class="container">
-      <h1>Acelere sua Fluência com Coaching de Idiomas</h1>
-      <p>Descubra uma metodologia focada em resultados rápidos, autoconfiança e comunicação estratégica para o mercado global.</p>
-    </div>
-  </section>
+  <!-- 1. MENÚ EN BLANCO, CON EL LOGO (SIN BOTÓN DE IDIOMA) -->
+  <header class="header-nav">
+    <a href="#" class="header-logo">YOU FIRST <span>IDIOMAS</span></a>
+  </header>
 
-  <!-- CAPTURA 2 -->
-  <section class="section-captura2">
-    <div class="container">
-      <div class="content-box">
-        <h2>Como Funciona a Mentoria Premium</h2>
-        <p>Ao contrário dos métodos tradicionales que focam apenas em gramática repetitiva, nosso acompanhamento desenvolve as soft skills e a segurança necessária para reuniões, apresentações e negociações internacionais.</p>
-        <p>Desenvolva hiperfoco, elimine o travamento ao falar e alcance o próximo nivel em sua carreira.</p>
+  <!-- 2. DEGRADÉ MORADO + TEXTO EN MORADO OSCURO + CUADROS DE CURSOS -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <p class="hero-text">
+        Acelere sua projeção internacional com o domínio técnico do inglês ou espanhol. Uma abordagem de alto rendimento para líderes e profissionais que buscam eficácia acima da teoria acadêmica.
+      </p>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <h3>Inglês para Negócios</h3>
+          <p>Treinamento intensivo focado em negociações, reuniões internacionais, oratória e termos técnicos corporativos.</p>
+        </div>
+        <div class="course-card">
+          <h3>Espanhol Corporativo</h3>
+          <p>Domine o idioma mais estratégico da América Latina para expansão de negócios, liderança e comunicação formal.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CAPTURA 3 & CUESTIONARIO -->
-  <section class="section-captura3">
-    <div class="container">
+  <!-- 3. SECCIÓN "VÁ ALÉM DO BÁSICO..." -->
+  <section class="beyond-section">
+    <div class="beyond-container">
+      <h2 class="beyond-title">Vá além do básico...</h2>
+      <div class="beyond-content">
+        <p>No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade.</p>
+        <p>Desenvolvemos uma metodologia que alinha fluência linguística e técnicas de inteligência emocional para desbloquear seu potencial comunicativo diante de qualquer desafio global.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COACHING PREMIUM & ADMISSION CHALLENGE (QUIZ) -->
+  <section class="challenge-section">
+    <div class="challenge-container">
       
-      <!-- Título de la Captura 3 -->
-      <div class="challenge-header">
+      <div class="challenge-intro">
         <h2>Admission Challenge: Você tem o perfil Premium?</h2>
         <p>Responda às 5 perguntas abaixo para avaliar seu perfil de aprendizagem e descobrir se está pronto para o Coaching Premium.</p>
       </div>
 
-      <!-- Cuestionario Interactivo -->
       <div class="quiz-container">
         
         <!-- Pergunta 1 -->
@@ -462,7 +514,7 @@
           <button class="next-button" onclick="nextQuestion()">Ver Resultado →</button>
         </div>
 
-        <!-- Tarjeta de Resultado -->
+        <!-- Resultado -->
         <div class="result-card" id="result-card">
           <div class="result-title" id="result-title"></div>
           <div class="result-subtitle" id="result-subtitle"></div>
@@ -474,7 +526,7 @@
     </div>
   </section>
 
-  <!-- LÓGICA DE JAVASCRIPT -->
+  <!-- LÓGICA JAVASCRIPT DEL CHALLENGE -->
   <script>
     const answers = [null, null, null, null, null];
     let currentQuestion = 0;
