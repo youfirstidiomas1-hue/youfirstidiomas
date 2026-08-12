@@ -1,3 +1,9 @@
+.logo {
+    max-width: 200px; /* Ajusta este valor si lo quieres más grande o más pequeño */
+    height: auto;
+    display: block;
+}
+
 :root {
     --bg-color: #28022f;
     --accent-gold: #c6a24f;
