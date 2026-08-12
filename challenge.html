@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Challenge - YouFirst Idiomas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="./assets/logo.png" alt="YouFirst Idiomas" class="logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="aluno.html" class="btn-gold">Área do Aluno</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 2rem;">
+        <div id="quiz-card" class="quiz-card">
+            <h2 id="question-title" style="color: var(--accent-gold); margin-bottom: 1rem;">Admission Challenge</h2>
+            <div id="quiz-content"></div>
+            <div style="margin-top: 2rem;">
+                <button id="next-btn" class="btn-gold" style="width: 100%;">Siguiente</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/challenge.js"></script>
+</body>
+</html>
