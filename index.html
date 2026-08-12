@@ -3,406 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You First Idiomas | Coaching de Idiomas</title>
+  <title>You First Idiomas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #2c0439; line-height: 1.6; }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #ffffff;
-      color: #2c0439;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* 1. MENÚ SUPERIOR / HEADER EN BLANCO CON LOGO */
+    /* Header en blanco con toque de degradé del logo */
     .header-nav {
       width: 100%;
-      background-color: #ffffff;
+      background: #ffffff;
       padding: 20px 40px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, #9d4edd, #2c0439) 1;
     }
+    .header-logo { font-size: 24px; font-weight: 800; color: #2c0439; text-decoration: none; }
+    .header-logo span { color: #9d4edd; }
 
-    .header-logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: #2c0439;
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-
-    .header-logo span {
-      color: #9d4edd;
-    }
-
-    /* 2. HERO CON DEGRADÉ MORADO Y TEXTOS EN MORADO OSCURO */
+    /* Hero */
     .hero-section {
-      background: linear-gradient(180deg, #f7f0fa 0%, #e8d5f2 100%);
-      padding: 80px 20px 60px 20px;
+      background: linear-gradient(180deg, #f7f0fa 0%, #ffffff 100%);
+      padding: 60px 20px;
       text-align: center;
     }
+    .hero-container { max-width: 900px; margin: 0 auto; }
+    .hero-text { font-size: 20px; font-weight: 600; color: #2c0439; margin-bottom: 40px; }
 
-    .hero-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-text {
-      font-size: 22px;
-      font-weight: 600;
-      color: #2c0439;
-      line-height: 1.5;
-      margin-bottom: 50px;
-    }
-
-    /* CUADROS DE CURSOS */
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 20px;
-    }
-
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .course-card {
       background: #ffffff;
       border-radius: 16px;
-      padding: 35px 25px;
+      padding: 30px;
       box-shadow: 0 10px 30px rgba(44, 4, 57, 0.08);
-      border: 2px solid rgba(157, 78, 221, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(157, 78, 221, 0.2);
       text-align: left;
     }
+    .course-card h3 { font-size: 22px; color: #2c0439; margin-bottom: 10px; }
 
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(157, 78, 221, 0.15);
-      border-color: #9d4edd;
+    /* Section "Vá além..." */
+    .beyond-section { padding: 60px 20px; max-width: 850px; margin: 0 auto; }
+    .beyond-title { font-size: 28px; font-weight: 800; color: #2c0439; margin-bottom: 20px; text-align: center; }
+
+    /* Sección Programa Premium (Segunda Captura) */
+    .premium-section {
+      background-color: #2c0439;
+      color: #ffffff;
+      padding: 60px 20px;
     }
-
-    .course-card h3 {
-      font-size: 24px;
-      font-weight: 700;
+    .premium-container { max-width: 800px; margin: 0 auto; }
+    .gold-banner {
+      background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
       color: #2c0439;
-      margin-bottom: 15px;
-    }
-
-    .course-card p {
-      font-size: 15px;
-      color: #4a5568;
-      line-height: 1.6;
-    }
-
-    /* 3. SECCIÓN VÁ ALÉM DO BÁSICO */
-    .beyond-section {
-      padding: 80px 20px;
-      background-color: #ffffff;
-    }
-
-    .beyond-container {
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .beyond-title {
+      text-align: center;
+      padding: 15px;
       font-size: 32px;
       font-weight: 800;
-      color: #2c0439;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .beyond-content p {
-      font-size: 17px;
-      color: #4a5568;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
-    /* 4. SECCIÓN COACHING PREMIUM & ADMISSION CHALLENGE */
-    .challenge-section {
-      background-color: #2f0039;
-      color: #ffffff;
-      padding: 80px 20px;
-    }
-
-    .challenge-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .challenge-intro {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .challenge-intro h2 {
-      font-size: 34px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 15px;
-      text-shadow: 0 2px 10px rgba(157, 78, 221, 0.5);
-    }
-
-    .challenge-intro p {
-      font-size: 18px;
-      color: #d8b4fe;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* CUESTIONARIO Y QUIZ STYLES */
-    .quiz-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .question-card {
-      background: #2c0439;
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 10px 40px rgba(157, 78, 221, 0.3), 0 0 0 1px rgba(157, 78, 221, 0.2);
-      max-width: 700px;
-      width: 100%;
-      display: none;
-      position: relative;
-      min-height: 300px;
-      border: 1px solid rgba(157, 78, 221, 0.3);
-    }
-
-    .question-card.active {
-      display: block;
-      animation: fadeInScale 0.5s ease;
-    }
-
-    .question-card.answered .question-content {
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-    }
-
-    .question-card.answered .feedback {
-      opacity: 1;
-      display: block;
-      position: relative;
-      z-index: 10;
-    }
-
-    .question-number {
-      display: inline-block;
-      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 8px 16px;
-      border-radius: 20px;
-      margin-bottom: 15px;
-      border: 1px solid rgba(157, 78, 221, 0.5);
-      box-shadow: 0 2px 10px rgba(157, 78, 221, 0.3);
-    }
-
-    .question-text {
-      font-size: 22px;
-      color: #ffffff;
-      font-weight: 600;
-      margin-bottom: 25px;
-      line-height: 1.4;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .answer-btn {
-      flex: 1;
-      padding: 16px 24px;
-      border: 2px solid rgba(157, 78, 221, 0.4);
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%);
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(157, 78, 221, 0.2);
-    }
-
-    .answer-btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, rgba(157, 78, 221, 0.2) 0%, rgba(123, 44, 191, 0.2) 100%);
-      box-shadow: 0 6px 20px rgba(157, 78, 221, 0.4);
-      border-color: rgba(157, 78, 221, 0.6);
-    }
-
-    .answer-btn.yes { border-color: #48bb78; }
-    .answer-btn.yes:hover,
-    .answer-btn.yes.selected {
-      background: #48bb78;
-      color: #ffffff;
-      border-color: #48bb78;
-    }
-
-    .answer-btn.no { border-color: #f56565; }
-    .answer-btn.no:hover,
-    .answer-btn.no.selected {
-      background: #f56565;
-      color: #ffffff;
-      border-color: #f56565;
-    }
-
-    .feedback {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
-      border-left: 4px solid #9d4edd;
-      padding: 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      color: #2d3748;
-      line-height: 1.6;
-      display: none;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      box-shadow: 0 4px 15px rgba(157, 78, 221, 0.2);
-      border: 1px solid rgba(157, 78, 221, 0.2);
-    }
-
-    .next-button {
-      margin-top: 20px;
-      padding: 14px 28px;
-      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: none;
-      box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
-      border: 1px solid rgba(157, 78, 221, 0.5);
-    }
-
-    .next-button:hover {
-      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
-    }
-
-    .question-card.answered .next-button {
-      display: inline-block;
-    }
-
-    .result-card {
-      background: linear-gradient(135deg, #2c0439 0%, #3d0552 100%);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 15px 50px rgba(157, 78, 221, 0.4), 0 0 0 1px rgba(157, 78, 221, 0.3);
-      max-width: 700px;
-      width: 100%;
-      display: none;
-      border: 1px solid rgba(157, 78, 221, 0.4);
-    }
-
-    .result-card.show {
-      display: block;
-      animation: fadeInScale 0.6s ease;
-    }
-
-    .result-title {
-      font-size: 32px;
-      color: #ffffff;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .result-subtitle {
-      font-size: 20px;
-      margin-bottom: 25px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .result-subtitle.high-performance { color: #48bb78; }
-    .result-subtitle.transformation { color: #ed8936; }
-
-    .result-text {
-      font-size: 18px;
-      color: #ffffff;
-      line-height: 1.7;
+      border-radius: 4px;
       margin-bottom: 30px;
-      text-align: center;
-      opacity: 0.95;
     }
+    .premium-subtitle { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 30px; }
+    .premium-desc { font-size: 16px; margin-bottom: 40px; text-align: justify; }
+    .premium-list-title { color: #ffd700; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .premium-list { list-style: none; }
+    .premium-list li { margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+    .premium-list strong { color: #ffffff; font-weight: 700; }
 
-    .cta-button {
+    .btn-challenge {
       display: block;
       width: 100%;
-      padding: 18px 32px;
+      max-width: 400px;
+      margin: 40px auto 0 auto;
+      padding: 18px;
       background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
       color: #ffffff;
-      font-size: 18px;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
       text-align: center;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 25px rgba(157, 78, 221, 0.4);
-      border: 2px solid rgba(157, 78, 221, 0.6);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
-      box-shadow: 0 10px 35px rgba(157, 78, 221, 0.6);
-      border-color: rgba(157, 78, 221, 0.8);
-    }
-
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .header-nav { padding: 15px 20px; }
-      .hero-text { font-size: 18px; }
-      .beyond-title { font-size: 26px; }
-      .challenge-intro h2 { font-size: 26px; }
-      .question-card { padding: 25px; }
-      .question-text { font-size: 18px; }
-      .button-group { flex-direction: column; }
+      font-weight: 700;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. MENÚ EN BLANCO, CON EL LOGO (SIN BOTÓN DE IDIOMA) -->
   <header class="header-nav">
-    <a href="#" class="header-logo">YOU FIRST <span>IDIOMAS</span></a>
+    <a href="index.html" class="header-logo">YOU FIRST <span>IDIOMAS</span></a>
   </header>
 
-  <!-- 2. DEGRADÉ MORADO + TEXTO EN MORADO OSCURO + CUADROS DE CURSOS -->
   <section class="hero-section">
     <div class="hero-container">
       <p class="hero-text">
@@ -422,194 +110,35 @@
     </div>
   </section>
 
-  <!-- 3. SECCIÓN "VÁ ALÉM DO BÁSICO..." -->
   <section class="beyond-section">
-    <div class="beyond-container">
-      <h2 class="beyond-title">Vá além do básico...</h2>
-      <div class="beyond-content">
-        <p>No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade.</p>
-        <p>Desenvolvemos uma metodologia que alinha fluência linguística e técnicas de inteligência emocional para desbloquear seu potencial comunicativo diante de qualquer desafio global.</p>
-      </div>
+    <h2 class="beyond-title">Vá além do básico...</h2>
+    <p>No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade.</p>
+  </section>
+
+  <!-- PROGRAMA PREMIUM -->
+  <section class="premium-section">
+    <div class="premium-container">
+      <div class="gold-banner">PROGRAMA PREMIUM</div>
+      
+      <p class="premium-subtitle">A ponte entre onde você está hoje e o seu próximo grande passo profissional.</p>
+      
+      <p class="premium-desc">
+        O Programa Premium é uma modalidade de alto rendimento desenhada para profissionais que não têm meses para "esperar ver o que acontece". É um sistema de treinamento linguístico direto, prático e baseado em objetivos imediatos.
+      </p>
+
+      <p class="premium-list-title">O que você recebe na versão Premium?</p>
+
+      <ul class="premium-list">
+        <li>• <strong>4 Horas de Consultoria 1:1 (Sessões de 30 min):</strong> Um total de 8 blocos de meia hora que você pode usar como preferir (juntos ou separados) para focar na sua necessidade específica: preparar uma apresentação, simular uma entrevista ou destravar sua fluência.</li>
+        <li>• <strong>Ecossistema Tecnológico de Ponta:</strong> Acesso total à nossa plataforma com atividades e ferramentas de IA para prática de pronúncia, gramática e vocabulário técnico.</li>
+        <li>• <strong>Comunidade e Prática Real:</strong> Acesso a atividades práticas e à nossa comunidade de profissionais.</li>
+        <li>• <strong>Flexibilidade Total de Agenda:</strong> Você decide o dia e a hora. Seu progresso não depende de um horário fixo, mas da sua prioridade.</li>
+      </ul>
+
+      <a href="Challenge.html" class="btn-challenge">Fazer o Admission Challenge →</a>
     </div>
   </section>
 
-  <!-- 4. COACHING PREMIUM & ADMISSION CHALLENGE (QUIZ) -->
-  <section class="challenge-section">
-    <div class="challenge-container">
-      
-      <div class="challenge-intro">
-        <h2>Admission Challenge: Você tem o perfil Premium?</h2>
-        <p>Responda às 5 perguntas abaixo para avaliar seu perfil de aprendizagem e descobrir se está pronto para o Coaching Premium.</p>
-      </div>
-
-      <div class="quiz-container">
-        
-        <!-- Pergunta 1 -->
-        <div class="question-card active" data-question="0">
-          <div class="question-content">
-            <div class="question-number">Pergunta 1 de 5</div>
-            <div class="question-text">Disciplina: Você consegue manter uma rotina mínima de contato com o idioma?</div>
-            <div class="button-group">
-              <button class="answer-btn yes" onclick="handleAnswer(0, true)">SIM</button>
-              <button class="answer-btn no" onclick="handleAnswer(0, false)">NÃO</button>
-            </div>
-          </div>
-          <div class="feedback" id="feedback-0"></div>
-          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
-        </div>
-
-        <!-- Pergunta 2 -->
-        <div class="question-card" data-question="1">
-          <div class="question-content">
-            <div class="question-number">Pergunta 2 de 5</div>
-            <div class="question-text">Autonomia: Você se sente confortável em buscar soluções antes de pedir ajuda?</div>
-            <div class="button-group">
-              <button class="answer-btn yes" onclick="handleAnswer(1, true)">SIM</button>
-              <button class="answer-btn no" onclick="handleAnswer(1, false)">NÃO</button>
-            </div>
-          </div>
-          <div class="feedback" id="feedback-1"></div>
-          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
-        </div>
-
-        <!-- Pergunta 3 -->
-        <div class="question-card" data-question="2">
-          <div class="question-content">
-            <div class="question-number">Pergunta 3 de 5</div>
-            <div class="question-text">Foco: Em uma reunião importante, você consegue manter a atenção no objetivo da fala?</div>
-            <div class="button-group">
-              <button class="answer-btn yes" onclick="handleAnswer(2, true)">SIM</button>
-              <button class="answer-btn no" onclick="handleAnswer(2, false)">NÃO</button>
-            </div>
-          </div>
-          <div class="feedback" id="feedback-2"></div>
-          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
-        </div>
-
-        <!-- Pergunta 4 -->
-        <div class="question-card" data-question="3">
-          <div class="question-content">
-            <div class="question-number">Pergunta 4 de 5</div>
-            <div class="question-text">O Medo: Você sente que o medo de errar trava sua fala em momentos decisivos?</div>
-            <div class="button-group">
-              <button class="answer-btn yes" onclick="handleAnswer(3, true)">SIM</button>
-              <button class="answer-btn no" onclick="handleAnswer(3, false)">NÃO</button>
-            </div>
-          </div>
-          <div class="feedback" id="feedback-3"></div>
-          <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
-        </div>
-
-        <!-- Pergunta 5 -->
-        <div class="question-card" data-question="4">
-          <div class="question-content">
-            <div class="question-number">Pergunta 5 de 5</div>
-            <div class="question-text">Priorização: Você consegue identificar o que é essencial comunicar, mesmo sem saber todas as palavras?</div>
-            <div class="button-group">
-              <button class="answer-btn yes" onclick="handleAnswer(4, true)">SIM</button>
-              <button class="answer-btn no" onclick="handleAnswer(4, false)">NÃO</button>
-            </div>
-          </div>
-          <div class="feedback" id="feedback-4"></div>
-          <button class="next-button" onclick="nextQuestion()">Ver Resultado →</button>
-        </div>
-
-        <!-- Resultado -->
-        <div class="result-card" id="result-card">
-          <div class="result-title" id="result-title"></div>
-          <div class="result-subtitle" id="result-subtitle"></div>
-          <div class="result-text" id="result-text"></div>
-          <a href="https://www.youfirstidiomas.com/onboarding" class="cta-button" id="cta-button" target="_blank" rel="noopener noreferrer">Comece agora!</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- LÓGICA JAVASCRIPT DEL CHALLENGE -->
-  <script>
-    const answers = [null, null, null, null, null];
-    let currentQuestion = 0;
-
-    const questions = [
-      {
-        yes: "Excelente! Disciplina é a base. Se um dia ficar difícil, aplique a \"regra dos 15 min\" com o café ou um vinho para nunca perder o ritmo.",
-        no: "Não se preocupe! Vou te ajudar: se você estudar apenas 15 min com o café da manhã ou uma taça de vinho à noite, manterá a rotina sem esforço."
-      },
-      {
-        yes: "Perfeito! A autonomia é o que diferencia um estudante de um profissional fluente. Vamos potencializar essa sua independência.",
-        no: "É normal depender do professor no sistema antigo. No meu método, vou te ensinar a usar ferramentas que te darão liberdade e velocidade."
-      },
-      {
-        yes: "Ótimo! Manter o foco no resultado é essencial. Vamos refinar isso para que sua comunicação seja sempre certeira e estratégica.",
-        no: "O medo costuma roubar nosso foco. Vou te ensinar técnicas de \"hiperfoco seletivo\" para você focar na mensagem, não no erro gramatical."
-      },
-      {
-        no: "Incrível! A autoconfiança é metade da fluência. Vamos usar essa coragem para dominar vocabulários mais complexos e técnicos.",
-        yes: "O sistema escolar te puniu pelo erro. Aqui, o erro é dado e aprendizado. Vou te ajudar a ressignificar isso para você falar com autoridade."
-      },
-      {
-        yes: "Isso é inteligência linguística! Vamos refinar essa habilidade para que você nunca perca o fio da meada em uma negociação.",
-        no: "Isso é falta de estratégia, não de vocabulário! Vou te ensinar a \"técnica do contorno\": como ser entendido e passar autoridade usando o que você já sabe."
-      }
-    ];
-
-    function handleAnswer(questionIndex, isYes) {
-      answers[questionIndex] = isYes;
-
-      const currentCard = document.querySelector(`.question-card[data-question="${questionIndex}"]`);
-      const buttons = currentCard.querySelectorAll('.answer-btn');
-      buttons.forEach(btn => btn.classList.remove('selected'));
-      
-      const selectedButton = isYes ? buttons[0] : buttons[1];
-      selectedButton.classList.add('selected');
-
-      const feedback = document.getElementById(`feedback-${questionIndex}`);
-      feedback.textContent = isYes ? questions[questionIndex].yes : questions[questionIndex].no;
-      feedback.style.display = 'block';
-      
-      setTimeout(() => {
-        feedback.style.opacity = '1';
-      }, 10);
-
-      currentCard.classList.add('answered');
-    }
-
-    function nextQuestion() {
-      const currentCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
-      currentCard.classList.remove('active');
-      
-      currentQuestion++;
-      
-      if (currentQuestion < 5) {
-        const nextCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
-        nextCard.classList.add('active');
-      } else {
-        showResult();
-      }
-    }
-
-    function showResult() {
-      const yesCount = answers.filter(answer => answer === true).length;
-      const resultCard = document.getElementById('result-card');
-      const resultTitle = document.getElementById('result-title');
-      const resultSubtitle = document.getElementById('result-subtitle');
-      const resultText = document.getElementById('result-text');
-
-      if (yesCount >= 3) {
-        resultTitle.textContent = "🎯 Parabéns!";
-        resultSubtitle.textContent = "Perfil de Alto Desempenho";
-        resultSubtitle.className = "result-subtitle high-performance";
-        resultText.textContent = "Você possui as habilidades fundamentais para o Coaching Premium. Seu perfil é o que buscamos para resultados explosivos em curto prazo. Como você já tem a mentalidade certa, nosso trabalho será focar 100% na sua urgência profissional. Vamos começar?";
-      } else {
-        resultTitle.textContent = "💪 Vamos juntos!";
-        resultSubtitle.textContent = "Perfil de Transformação";
-        resultSubtitle.className = "result-subtitle transformation";
-        resultText.textContent = "Você ainda não desenvolveu algumas habilidades interpessoais, mas a culpa não é sua: é de um sistema educacional que negligenciou esses pontos. Se você aceitar o desafio, focaremos especialmente em fortalecer sua confiança e rotina. Será um desafio, mas garanto que valerá a pena. Aceita?";
-      }
-
-      resultCard.classList.add('show');
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
