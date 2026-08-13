@@ -9,65 +9,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #2c0439; line-height: 1.6; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #2f0039; 
+      color: #ffffff; 
+      line-height: 1.6; 
+    }
 
-    /* Header en blanco con toque de degradé del logo */
+    /* 1. Header en Morado con detalles en Blanco y Dorado */
     .header-nav {
       width: 100%;
-      background: #ffffff;
+      background-color: #2c0439;
       padding: 20px 40px;
-      border-bottom: 3px solid;
-      border-image: linear-gradient(90deg, #9d4edd, #2c0439) 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 2px solid #ffd700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
-    .header-logo { font-size: 24px; font-weight: 800; color: #2c0439; text-decoration: none; }
-    .header-logo span { color: #9d4edd; }
+    .header-logo { 
+      font-size: 24px; 
+      font-weight: 800; 
+      color: #ffffff; 
+      text-decoration: none; 
+      letter-spacing: -0.5px;
+    }
+    .header-logo span { color: #ffd700; }
 
-    /* Hero */
+    /* 2. Hero Section */
     .hero-section {
-      background: linear-gradient(180deg, #f7f0fa 0%, #ffffff 100%);
+      background: linear-gradient(180deg, #2c0439 0%, #2f0039 100%);
       padding: 60px 20px;
       text-align: center;
     }
     .hero-container { max-width: 900px; margin: 0 auto; }
-    .hero-text { font-size: 20px; font-weight: 600; color: #2c0439; margin-bottom: 40px; }
-
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .course-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(44, 4, 57, 0.08);
-      border: 1px solid rgba(157, 78, 221, 0.2);
-      text-align: left;
+    .hero-text { 
+      font-size: 20px; 
+      font-weight: 600; 
+      color: #ffffff; 
+      margin-bottom: 40px; 
     }
-    .course-card h3 { font-size: 22px; color: #2c0439; margin-bottom: 10px; }
 
-    /* Section "Vá além..." */
-    .beyond-section { padding: 60px 20px; max-width: 850px; margin: 0 auto; }
-    .beyond-title { font-size: 28px; font-weight: 800; color: #2c0439; margin-bottom: 20px; text-align: center; }
+    /* Tarjetas de Cursos con Imágenes desde /assets */
+    .courses-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 30px; 
+    }
+    .course-card {
+      background: #2c0439;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffd700;
+    }
+    .course-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+    .course-card h3 { 
+      font-size: 22px; 
+      color: #ffd700; 
+      margin-bottom: 10px; 
+    }
 
-    /* Sección Programa Premium (Segunda Captura) */
+    /* 3. Section Vá além... */
+    .beyond-section { 
+      padding: 60px 20px; 
+      max-width: 850px; 
+      margin: 0 auto; 
+      text-align: center;
+    }
+    .beyond-title { 
+      font-size: 30px; 
+      font-weight: 800; 
+      color: #ffd700; 
+      margin-bottom: 20px; 
+    }
+    .beyond-text {
+      font-size: 17px;
+      color: #e2d1f0;
+      line-height: 1.7;
+    }
+
+    /* 4. Programa Premium con Imagen del Título */
     .premium-section {
       background-color: #2c0439;
       color: #ffffff;
       padding: 60px 20px;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
     }
     .premium-container { max-width: 800px; margin: 0 auto; }
-    .gold-banner {
-      background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
-      color: #2c0439;
-      text-align: center;
-      padding: 15px;
-      font-size: 32px;
-      font-weight: 800;
-      border-radius: 4px;
-      margin-bottom: 30px;
+    
+    .premium-title-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 30px auto;
     }
-    .premium-subtitle { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 30px; }
-    .premium-desc { font-size: 16px; margin-bottom: 40px; text-align: justify; }
-    .premium-list-title { color: #ffd700; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+
+    .premium-subtitle { 
+      font-size: 20px; 
+      font-weight: 700; 
+      text-align: center; 
+      color: #ffd700;
+      margin-bottom: 30px; 
+    }
+    .premium-desc { 
+      font-size: 16px; 
+      margin-bottom: 40px; 
+      text-align: justify; 
+      color: #f1e4f7;
+    }
+    .premium-list-title { 
+      color: #ffd700; 
+      font-size: 18px; 
+      font-weight: 700; 
+      margin-bottom: 20px; 
+    }
     .premium-list { list-style: none; }
-    .premium-list li { margin-bottom: 20px; font-size: 15px; line-height: 1.6; }
+    .premium-list li { margin-bottom: 20px; font-size: 15px; line-height: 1.6; color: #e2d1f0; }
     .premium-list strong { color: #ffffff; font-weight: 700; }
 
     .btn-challenge {
@@ -76,33 +146,91 @@
       max-width: 400px;
       margin: 40px auto 0 auto;
       padding: 18px;
-      background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+      color: #2c0439;
       text-align: center;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+    .btn-challenge:hover {
+      transform: translateY(-2px);
+    }
+
+    /* 5. Sección Sobre a Coach & Slideshow */
+    .coach-section {
+      background-color: #2f0039;
+      padding: 80px 20px;
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    .coach-container { max-width: 850px; margin: 0 auto; text-align: center; }
+    .coach-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+    .coach-text {
+      font-size: 17px;
+      color: #e2d1f0;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    /* Canva Slideshow Container */
+    .canva-embed-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 56.25%; /* Relación 16:9 */
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    .canva-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 640px) {
+      .header-nav { padding: 15px 20px; }
+      .beyond-title, .coach-title { font-size: 26px; }
+      .hero-text { font-size: 17px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header Morado / Detalle Dorado -->
   <header class="header-nav">
     <a href="index.html" class="header-logo">YOU FIRST <span>IDIOMAS</span></a>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-container">
       <p class="hero-text">
         Acelere sua projeção internacional com o domínio técnico do inglês ou espanhol. Uma abordagem de alto rendimento para líderes e profissionais que buscam eficácia acima da teoria acadêmica.
       </p>
 
+      <!-- Cuadros de Cursos con imágenes de /assets -->
       <div class="courses-grid">
         <div class="course-card">
+          <img src="assets/english.png" alt="Inglês para Negócios" class="course-img" onerror="this.style.display='none'">
           <h3>Inglês para Negócios</h3>
           <p>Treinamento intensivo focado em negociações, reuniões internacionais, oratória e termos técnicos corporativos.</p>
         </div>
         <div class="course-card">
+          <img src="assets/espanol.png" alt="Espanhol Corporativo" class="course-img" onerror="this.style.display='none'">
           <h3>Espanhol Corporativo</h3>
           <p>Domine o idioma mais estratégico da América Latina para expansão de negócios, liderança e comunicação formal.</p>
         </div>
@@ -110,15 +238,19 @@
     </div>
   </section>
 
+  <!-- Sección Vá Além -->
   <section class="beyond-section">
     <h2 class="beyond-title">Vá além do básico...</h2>
-    <p>No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade.</p>
+    <p class="beyond-text">
+      No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade. Desenvolvemos uma metodologia que alinha fluência linguística e técnicas estratégicas para desbloquear seu potencial comunicativo.
+    </p>
   </section>
 
   <!-- PROGRAMA PREMIUM -->
   <section class="premium-section">
     <div class="premium-container">
-      <div class="gold-banner">PROGRAMA PREMIUM</div>
+      <!-- Imagen del Título en Dorado desde assets -->
+      <img src="assets/programa-premium.png" alt="PROGRAMA PREMIUM" class="premium-title-img" onerror="this.outerHTML='<h2 style=\'color:#ffd700;text-align:center;font-size:32px;margin-bottom:20px;\'>PROGRAMA PREMIUM</h2>'">
       
       <p class="premium-subtitle">A ponte entre onde você está hoje e o seu próximo grande passo profissional.</p>
       
@@ -136,6 +268,25 @@
       </ul>
 
       <a href="Challenge.html" class="btn-challenge">Fazer o Admission Challenge →</a>
+    </div>
+  </section>
+
+  <!-- Sobre a Coach -->
+  <section class="coach-section">
+    <div class="coach-container">
+      <h2 class="coach-title">Sobre a Coach</h2>
+      
+      <p class="coach-text">
+        Sou Laura Chasampi e dediquei as últimas duas décadas à capacitação de líderes através da Metodologia YFI, um método ágil validado por resultados reais. Como poliglota e profissional multidisciplinar, acredito que um professor precisa entender tanto de pessoas quanto de negócios.
+      </p>
+      <p class="coach-text">
+        Minha formação diversificada me permite transitar por diferentes temas com profundidade, estimulando nos meus alunos a mesma curiosidade que me levou a dominar múltiplos campos. Aqui, o aprendizado é tão vasto quanto o mercado global: unimos fluência técnica e repertório estratégico para que sua comunicação não tenha limites.
+      </p>
+
+      <!-- Canva Slideshow Embed -->
+      <div class="canva-embed-container">
+        <iframe src="https://canva.link/oukzg0fzm4r425w" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+      </div>
     </div>
   </section>
 
