@@ -56,10 +56,12 @@ function showResult() {
   if (yesCount >= 3) {
     document.getElementById('result-title').textContent = "🎯 Parabéns!";
     document.getElementById('result-subtitle').textContent = "Perfil de Alto Desempenho";
+    document.getElementById('result-subtitle').style.color = "#48bb78";
     document.getElementById('result-text').textContent = "Você possui as habilidades fundamentais para o Coaching Premium. Seu perfil é o que buscamos para resultados explosivos em curto prazo.";
   } else {
     document.getElementById('result-title').textContent = "💪 Vamos juntos!";
     document.getElementById('result-subtitle').textContent = "Perfil de Transformação";
+    document.getElementById('result-subtitle').style.color = "#ed8936";
     document.getElementById('result-text').textContent = "Você ainda não desenvolveu algumas habilidades, mas focaremos especialmente em fortalecer sua confiança e rotina.";
   }
 
