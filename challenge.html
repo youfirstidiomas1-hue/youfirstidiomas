@@ -19,34 +19,44 @@
     .header-nav {
       width: 100%;
       background-color: #2c0439;
-      padding: 20px 40px;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 2px solid #ffd700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .header-logo { font-size: 24px; font-weight: 800; color: #ffffff; text-decoration: none; }
-    .header-logo span { color: #ffd700; }
+
+    .header-brand { display: flex; align-items: center; text-decoration: none; }
+    .header-logo-img { height: 60px; width: auto; object-fit: contain; }
+
+    .header-menu { display: flex; align-items: center; gap: 25px; list-style: none; }
+    .nav-link {
+      color: #ffffff; text-decoration: none; font-weight: 700; font-size: 15px;
+      padding: 8px 16px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;
+    }
+    .nav-link:hover { color: #ffd700; }
+    .nav-btn-highlight {
+      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+      color: #2c0439; font-weight: 800; border-radius: 25px; padding: 10px 22px; text-transform: uppercase;
+    }
 
     .challenge-container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
     .challenge-title { text-align: center; font-size: 28px; color: #ffd700; margin-bottom: 30px; font-weight: 800; }
 
     .question-card {
-      background: #2c0439;
-      border-radius: 20px;
-      padding: 35px;
-      display: none;
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      background: #2c0439; border-radius: 20px; padding: 35px; display: none;
+      border: 1px solid rgba(255, 215, 0, 0.3); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
     .question-card.active { display: block; }
     
     .question-number {
-      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-      color: #2c0439;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 14px;
-      display: inline-block;
-      margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%); color: #2c0439;
+      font-weight: 800; padding: 6px 14px; border-radius: 20px; font-size: 14px;
+      display: inline-block; margin-bottom: 15px;
     }
     .question-text { font-size: 20px; font-weight: 600; margin-bottom: 25px; color: #ffffff; }
 
@@ -56,15 +66,12 @@
       background: rgba(255, 215, 0, 0.05); color: white; font-size: 18px; font-weight: 700; cursor: pointer;
       transition: all 0.3s ease;
     }
-    .answer-btn.yes { border-color: #48bb78; }
     .answer-btn.yes:hover { background: #48bb78; }
-    .answer-btn.no { border-color: #f56565; }
     .answer-btn.no:hover { background: #f56565; }
 
     .feedback {
       background: #ffffff; color: #2d3748; padding: 18px; border-radius: 8px;
-      display: none; margin-top: 15px; font-size: 15px; line-height: 1.6;
-      border-left: 4px solid #ffd700;
+      display: none; margin-top: 15px; font-size: 15px; line-height: 1.6; border-left: 4px solid #ffd700;
     }
 
     .next-button {
@@ -85,18 +92,34 @@
       display: block; padding: 16px; background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
       color: #2c0439; text-decoration: none; font-weight: 800; border-radius: 10px;
     }
+
+    @media (max-width: 768px) {
+      .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+      .header-logo-img { height: 50px; }
+      .header-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Mismo Header Unificado -->
   <header class="header-nav">
-    <a href="index.html" class="header-logo">YOU FIRST <span>IDIOMAS</span></a>
+    <a href="index.html" class="header-brand">
+      <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
+    </a>
+
+    <nav>
+      <ul class="header-menu">
+        <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
+        <li><a href="#" class="nav-link">Blog</a></li>
+        <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
+      </ul>
+    </nav>
   </header>
 
   <div class="challenge-container">
     <h1 class="challenge-title">Admission Challenge: Você tem o perfil Premium?</h1>
 
-    <!-- Preguntas -->
     <div class="question-card active" data-question="0">
       <div class="question-number">Pergunta 1 de 5</div>
       <div class="question-text">Disciplina: Você consegue manter uma rotina mínima de contato com o idioma?</div>
@@ -152,7 +175,6 @@
       <button class="next-button" id="next-4" onclick="nextQuestion()">Ver Resultado →</button>
     </div>
 
-    <!-- Resultado -->
     <div class="result-card" id="result-card">
       <h2 class="result-title" id="result-title"></h2>
       <h3 class="result-subtitle" id="result-subtitle"></h3>
