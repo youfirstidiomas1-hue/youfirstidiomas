@@ -1,59 +1,279 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Aluno - YouFirst Idiomas</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Aluno | You First Idiomas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #2f0039; 
+      color: #ffffff; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Unificado con fuente del menú ampliada */
+    .header-nav {
+      width: 100%;
+      background-color: #2c0439;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ffd700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-brand { display: flex; align-items: center; text-decoration: none; }
+    .header-logo-img { height: 60px; width: auto; object-fit: contain; }
+
+    .header-menu { display: flex; align-items: center; gap: 25px; list-style: none; }
+    .nav-link {
+      color: #ffffff; text-decoration: none; font-weight: 700; font-size: 19px; /* Tamaño de letra aumentado */
+      padding: 8px 16px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;
+    }
+    .nav-link:hover { color: #ffd700; }
+    .nav-btn-highlight {
+      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+      color: #2c0439; font-weight: 800; border-radius: 25px; padding: 10px 22px; text-transform: uppercase;
+    }
+
+    /* Contenedor Principal de Login / Dashboard */
+    .aluno-container {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Caja de Login */
+    .login-card {
+      background: #2c0439;
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+
+    .login-title {
+      font-size: 26px;
+      color: #ffd700;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .login-subtitle {
+      font-size: 14px;
+      color: #e2d1f0;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #ffd700;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      background: #1a0022;
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      border-color: #ffd700;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+      color: #2c0439;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+    }
+
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 14px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    /* Dashboard del Aluno (Oculto inicialmente) */
+    .dashboard-section {
+      display: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .dashboard-header {
+      margin-bottom: 30px;
+    }
+
+    .dashboard-title {
+      font-size: 30px;
+      color: #ffd700;
+      font-weight: 800;
+    }
+
+    .canva-dashboard-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
+
+    .canva-dashboard-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+      .header-logo-img { height: 50px; }
+      .header-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
+      .nav-link { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="./assets/logo.png" alt="YouFirst Idiomas" class="logo">
-            </a>
+  <!-- Header Unificado -->
+  <header class="header-nav">
+    <a href="index.html" class="header-brand">
+      <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
+    </a>
+
+    <nav>
+      <ul class="header-menu">
+        <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
+        <li><a href="#" class="nav-link">Blog</a></li>
+        <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="aluno-container">
+    <!-- Formulario de Login -->
+    <div class="login-card" id="loginCard">
+      <h1 class="login-title">Portal do Aluno</h1>
+      <p class="login-subtitle">Informe seu e-mail cadastrado para acessar o dashboard exclusivo.</p>
+      
+      <form id="loginForm" onsubmit="validarLogin(event)">
+        <div class="form-group">
+          <label for="emailInput">E-mail corporativo ou pessoal:</label>
+          <input type="email" id="emailInput" class="form-input" placeholder="seuemail@exemplo.com" required>
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="challenge.html">Admission Challenge</a></li>
-            </ul>
-        </nav>
-    </header>
+        <button type="submit" class="btn-login" id="btnLogin">Entrar na Plataforma</button>
+      </form>
 
-    <main style="padding: 2rem;">
-        <div id="login-view" class="auth-card">
-            <h2 style="color: var(--accent-gold);">Área do Aluno</h2>
-            <p style="margin-top: 0.5rem; color: rgba(255, 255, 255, 0.8);">Insira seu e-mail cadastrado para acessar.</p>
-            
-            <form id="student-login-form">
-                <input type="email" id="student-email" placeholder="seuemail@exemplo.com" required>
-                <button type="submit" class="btn-gold" style="width: 100%;">Entrar</button>
-            </form>
-            <p id="error-message" style="color: #ff6b6b; margin-top: 1rem; display: none;">E-mail não encontrado.</p>
-        </div>
+      <p class="error-msg" id="errorMsg">E-mail não encontrado na base de alunos. Verifique a digitação ou entre em contato com o suporte.</p>
+    </div>
 
-        <div id="dashboard-view" class="auth-card" style="display: none; max-width: 600px;">
-            <h2 style="color: var(--accent-gold);">Bem-vindo(a), <span id="student-name">Aluno</span>!</h2>
-            
-            <div style="margin: 2rem 0; text-align: left;">
-                <h3 style="margin-bottom: 0.5rem;">📅 Agendamento de Aulas</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);">Acesse o calendário abaixo para agendar suas sessões:</p>
-                <a id="schedule-link" href="#" target="_blank" class="btn-gold" style="display: inline-block; margin-top: 0.8rem;">Agendar Horário</a>
-            </div>
+    <!-- Dashboard Interactivo (Canva) -->
+    <div class="dashboard-section" id="dashboardSection">
+      <div class="dashboard-header">
+        <h1 class="dashboard-title">Bem-vindo(a) à sua Área de Aprendizado</h1>
+      </div>
 
-            <hr style="border-color: var(--border-gold); margin: 1.5rem 0;">
+      <!-- Iframe del Dashboard de Canva -->
+      <div class="canva-dashboard-container">
+        <iframe src="https://canva.link/oukzg0fzm4r425w" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+      </div>
+    </div>
+  </div>
 
-            <div style="text-align: left;">
-                <h3 style="margin-bottom: 0.5rem;">💳 Informações de Pagamento</h3>
-                <p style="color: rgba(255, 255, 255, 0.8);"> Status da assinatura: <strong id="payment-status" style="color: var(--accent-gold);">Ativo</strong></p>
-                <a id="payment-link" href="#" target="_blank" style="color: var(--accent-gold); text-decoration: underline; display: inline-block; margin-top: 0.5rem;">Ver fatura / Chave PIX</a>
-            </div>
-        </div>
-    </main>
+  <script>
+    // URL del Web App de Google Apps Script (Coloca la tuya aquí después de crearla)
+    const GOOGLE_SCRIPT_URL = "URL_DE_TU_GOOGLE_APPS_SCRIPT";
 
-    <script src="./js/main.js"></script>
+    async function validarLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailInput").value.trim().toLowerCase();
+      const errorMsg = document.getElementById("errorMsg");
+      const btnLogin = document.getElementById("btnLogin");
+
+      errorMsg.style.display = "none";
+      btnLogin.textContent = "Verificando...";
+      btnLogin.disabled = true;
+
+      try {
+        // Si aún no has configurado el Google Script, puedes probar temporalmente con esto:
+        // Si el Script no está enlazado, permitirá pasar si el email contiene '@'
+        if (GOOGLE_SCRIPT_URL === "URL_DE_TU_GOOGLE_APPS_SCRIPT") {
+          mostrarDashboard();
+          return;
+        }
+
+        const response = await fetch(`${GOOGLE_SCRIPT_URL}?email=${encodeURIComponent(email)}`);
+        const data = await response.json();
+
+        if (data.autorizado) {
+          mostrarDashboard();
+        } else {
+          errorMsg.style.display = "block";
+        }
+      } catch (err) {
+        console.error(err);
+        // Fallback en caso de error de red
+        mostrarDashboard();
+      } finally {
+        btnLogin.textContent = "Entrar na Plataforma";
+        btnLogin.disabled = false;
+      }
+    }
+
+    function mostrarDashboard() {
+      document.getElementById("loginCard").style.display = "none";
+      document.getElementById("dashboardSection").style.display = "block";
+    }
+  </script>
 </body>
 </html>
