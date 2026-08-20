@@ -1,110 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admission Challenge | You First Idiomas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Desafios | You First Idiomas</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: 'Montserrat', sans-serif; 
-      background-color: #2f0039; 
-      color: #ffffff; 
-      min-height: 100vh; 
+    :root {
+      --plum: #2c0439;
+      --plum-deep: #16001d;
+      --panel: rgba(20, 3, 29, .72);
+      --gold: #ffd700;
+      --lavender: #e2d1f0;
     }
 
-    .header-nav {
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
       width: 100%;
-      background-color: #2c0439;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #ffd700;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      color: var(--lavender);
+      background: #2c0439;
     }
 
-    .header-brand { display: flex; align-items: center; text-decoration: none; }
-    .header-logo-img { height: 60px; width: auto; object-fit: contain; }
+    .app-shell {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(255, 215, 0, .13), transparent 25rem),
+        radial-gradient(circle at 87% 70%, rgba(158, 86, 195, .22), transparent 28rem),
+        #2c0439;
+    }
 
-    .header-menu { display: flex; align-items: center; gap: 25px; list-style: none; }
+    .app-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .23;
+      background-image:
+        linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+    }
+
+    .content-frame {
+      position: relative;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 26px 24px 42px;
+    }
+
+    .glass-panel {
+      background: rgba(20, 3, 29, .72);
+      border: 1px solid rgba(255, 215, 0, .58);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .24);
+      backdrop-filter: blur(14px);
+    }
+
     .nav-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 19px; /* Fuente aumentada */
-  padding: 8px 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-    .nav-link:hover { color: #ffd700; }
-    .nav-btn-highlight {
-      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-      color: #2c0439; font-weight: 800; border-radius: 25px; padding: 10px 22px; text-transform: uppercase;
+      color: #e2d1f0;
+      transition: color .2s ease, background .2s ease;
     }
 
-    .challenge-container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
-    .challenge-title { text-align: center; font-size: 28px; color: #ffd700; margin-bottom: 30px; font-weight: 800; }
-
-    .question-card {
-      background: #2c0439; border-radius: 20px; padding: 35px; display: none;
-      border: 1px solid rgba(255, 215, 0, 0.3); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    }
-    .question-card.active { display: block; }
-    
-    .question-number {
-      background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%); color: #2c0439;
-      font-weight: 800; padding: 6px 14px; border-radius: 20px; font-size: 14px;
-      display: inline-block; margin-bottom: 15px;
-    }
-    .question-text { font-size: 20px; font-weight: 600; margin-bottom: 25px; color: #ffffff; }
-
-    .button-group { display: flex; gap: 15px; margin-bottom: 20px; }
-    .answer-btn {
-      flex: 1; padding: 15px; border-radius: 10px; border: 2px solid #ffd700;
-      background: rgba(255, 215, 0, 0.05); color: white; font-size: 18px; font-weight: 700; cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .answer-btn.yes:hover { background: #48bb78; }
-    .answer-btn.no:hover { background: #f56565; }
-
-    .feedback {
-      background: #ffffff; color: #2d3748; padding: 18px; border-radius: 8px;
-      display: none; margin-top: 15px; font-size: 15px; line-height: 1.6; border-left: 4px solid #ffd700;
+    .nav-link:hover, .nav-link:focus-visible {
+      color: #ffd700;
+      background: rgba(255, 215, 0, .09);
     }
 
-    .next-button {
-      margin-top: 20px; padding: 12px 24px; background: #ffd700; color: #2c0439;
-      border: none; border-radius: 8px; font-weight: 800; cursor: pointer; display: none;
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      border-radius: .7rem;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
     }
 
-    .result-card {
-      background: #2c0439; padding: 40px; border-radius: 20px; display: none; text-align: center;
-      border: 1px solid #ffd700;
-    }
-    .result-card.show { display: block; }
-    .result-title { color: #ffd700; font-size: 30px; font-weight: 800; }
-    .result-subtitle { margin: 15px 0; font-size: 20px; }
-    .result-text { font-size: 17px; color: #e2d1f0; line-height: 1.7; margin-bottom: 25px; }
+    .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
 
-    .cta-button {
-      display: block; padding: 16px; background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-      color: #2c0439; text-decoration: none; font-weight: 800; border-radius: 10px;
+    .gold-line {
+      width: 44px;
+      height: 2px;
+      background: #ffd700;
+      border-radius: 99px;
     }
 
-    @media (max-width: 768px) {
-      .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-      .header-logo-img { height: 50px; }
-      .header-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .card-hover {
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
     }
-  </style>
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: #ffd700;
+      background: rgba(53, 12, 66, .9);
+    }
 </head>
 <body>
 
