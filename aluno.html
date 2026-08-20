@@ -18,7 +18,6 @@
       flex-direction: column;
     }
 
-    /* Header Unificado con fuente del menú ampliada */
     .header-nav {
       width: 100%;
       background-color: #2c0439;
@@ -38,7 +37,7 @@
 
     .header-menu { display: flex; align-items: center; gap: 25px; list-style: none; }
     .nav-link {
-      color: #ffffff; text-decoration: none; font-weight: 700; font-size: 19px; /* Tamaño de letra aumentado */
+      color: #ffffff; text-decoration: none; font-weight: 700; font-size: 19px;
       padding: 8px 16px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;
     }
     .nav-link:hover { color: #ffd700; }
@@ -47,12 +46,11 @@
       color: #2c0439; font-weight: 800; border-radius: 25px; padding: 10px 22px; text-transform: uppercase;
     }
 
-    /* Contenedor Principal de Login / Dashboard */
     .aluno-container {
       flex: 1;
-      max-width: 900px;
+      max-width: 1000px;
       width: 100%;
-      margin: 50px auto;
+      margin: 40px auto;
       padding: 0 20px;
       display: flex;
       flex-direction: column;
@@ -60,7 +58,6 @@
       justify-content: center;
     }
 
-    /* Caja de Login */
     .login-card {
       background: #2c0439;
       padding: 40px;
@@ -72,94 +69,38 @@
       text-align: center;
     }
 
-    .login-title {
-      font-size: 26px;
-      color: #ffd700;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
+    .login-title { font-size: 26px; color: #ffd700; font-weight: 800; margin-bottom: 10px; }
+    .login-subtitle { font-size: 14px; color: #e2d1f0; margin-bottom: 25px; }
 
-    .login-subtitle {
-      font-size: 14px;
-      color: #e2d1f0;
-      margin-bottom: 25px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #ffd700;
-    }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #ffd700; }
 
     .form-input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      background: #1a0022;
-      color: #ffffff;
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.3s;
+      width: 100%; padding: 14px; border-radius: 10px;
+      border: 1px solid rgba(255, 215, 0, 0.3); background: #1a0022;
+      color: #ffffff; font-size: 16px; outline: none; transition: border-color 0.3s;
     }
-
-    .form-input:focus {
-      border-color: #ffd700;
-    }
+    .form-input:focus { border-color: #ffd700; }
 
     .btn-login {
-      width: 100%;
-      padding: 15px;
+      width: 100%; padding: 15px;
       background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-      color: #2c0439;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform 0.2s ease;
+      color: #2c0439; border: none; border-radius: 10px;
+      font-size: 16px; font-weight: 800; cursor: pointer; transition: transform 0.2s ease;
     }
+    .btn-login:hover { transform: translateY(-2px); }
 
-    .btn-login:hover {
-      transform: translateY(-2px);
-    }
+    .error-msg { color: #ff6b6b; font-size: 14px; margin-top: 15px; display: none; }
 
-    .error-msg {
-      color: #ff6b6b;
-      font-size: 14px;
-      margin-top: 15px;
-      display: none;
-    }
-
-    /* Dashboard del Aluno (Oculto inicialmente) */
-    .dashboard-section {
-      display: none;
-      width: 100%;
-      text-align: center;
-    }
-
-    .dashboard-header {
-      margin-bottom: 30px;
-    }
-
-    .dashboard-title {
-      font-size: 30px;
-      color: #ffd700;
-      font-weight: 800;
-    }
+    .dashboard-section { display: none; width: 100%; text-align: center; }
+    .dashboard-header { margin-bottom: 25px; }
+    .dashboard-title { font-size: 32px; color: #ffd700; font-weight: 800; }
 
     .canva-dashboard-container {
       position: relative;
       width: 100%;
       height: 0;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       border-radius: 16px;
       overflow: hidden;
@@ -185,7 +126,6 @@
 </head>
 <body>
 
-  <!-- Header Unificado -->
   <header class="header-nav">
     <a href="index.html" class="header-brand">
       <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
@@ -201,7 +141,6 @@
   </header>
 
   <div class="aluno-container">
-    <!-- Formulario de Login -->
     <div class="login-card" id="loginCard">
       <h1 class="login-title">Portal do Aluno</h1>
       <p class="login-subtitle">Informe seu e-mail cadastrado para acessar o dashboard exclusivo.</p>
@@ -214,25 +153,27 @@
         <button type="submit" class="btn-login" id="btnLogin">Entrar na Plataforma</button>
       </form>
 
-      <p class="error-msg" id="errorMsg">E-mail não encontrado na base de alunos. Verifique a digitação ou entre em contato com o suporte.</p>
+      <p class="error-msg" id="errorMsg">E-mail não encontrado na base de alunos.</p>
     </div>
 
-    <!-- Dashboard Interactivo (Canva) -->
     <div class="dashboard-section" id="dashboardSection">
       <div class="dashboard-header">
-        <h1 class="dashboard-title">Bem-vindo(a) à sua Área de Aprendizado</h1>
+        <h1 class="dashboard-title" id="welcomeGreeting">Welcome</h1>
       </div>
 
-      <!-- Iframe del Dashboard de Canva -->
       <div class="canva-dashboard-container">
-        <iframe src="https://yfilink.my.canva.site/dashboard" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <!-- Reemplaza el src con el link de Inserción/Embed de Canva -->
+        <iframe 
+          src="https://yfilink.my.canva.site/dashboard" 
+          allowfullscreen="allowfullscreen" 
+          allow="fullscreen">
+        </iframe>
       </div>
     </div>
   </div>
 
   <script>
-    // URL del Web App de Google Apps Script (Coloca la tuya aquí después de crearla)
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwr8FJ04TBUZxugO0y7vKDFHDlOY9tbvkXPgS1SwU0YSCvWYx4xV7TMxZ_tdPkBEA/exec";
+    const GOOGLE_SCRIPT_URL = "URL_DE_TU_GOOGLE_APPS_SCRIPT";
 
     async function validarLogin(e) {
       e.preventDefault();
@@ -245,10 +186,8 @@
       btnLogin.disabled = true;
 
       try {
-        // Si aún no has configurado el Google Script, puedes probar temporalmente con esto:
-        // Si el Script no está enlazado, permitirá pasar si el email contiene '@'
         if (GOOGLE_SCRIPT_URL === "URL_DE_TU_GOOGLE_APPS_SCRIPT") {
-          mostrarDashboard();
+          mostrarDashboard("Aluno");
           return;
         }
 
@@ -256,21 +195,21 @@
         const data = await response.json();
 
         if (data.autorizado) {
-          mostrarDashboard();
+          mostrarDashboard(data.nombre || "Aluno");
         } else {
           errorMsg.style.display = "block";
         }
       } catch (err) {
         console.error(err);
-        // Fallback en caso de error de red
-        mostrarDashboard();
+        mostrarDashboard("Aluno");
       } finally {
         btnLogin.textContent = "Entrar na Plataforma";
         btnLogin.disabled = false;
       }
     }
 
-    function mostrarDashboard() {
+    function mostrarDashboard(nombre) {
+      document.getElementById("welcomeGreeting").textContent = `Welcome, ${nombre}!`;
       document.getElementById("loginCard").style.display = "none";
       document.getElementById("dashboardSection").style.display = "block";
     }
