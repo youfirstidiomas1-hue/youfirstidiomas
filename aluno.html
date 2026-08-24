@@ -295,23 +295,44 @@
         </div>
        </section>
 
-       <!-- RECURSOS -->
-       <section class="mb-10">
-        <div class="glass-panel flex flex-col gap-5 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between">
-         <div>
-          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
-           <i data-lucide="library" class="h-5 w-5"></i>
-           <div class="gold-line"></div>
-          </div>
-          <h2 class="font-bold text-xl text-[#ffffff]">Biblioteca de Recursos</h2>
-          <p class="mt-1 text-sm text-[#e2d1f0]">Baixe e-books, listas de exercícios y materiais complementares.</p>
-         </div>
-         <a class="action-button shrink-0 px-5 font-bold bg-[#ffd700] text-[#2c0439]" href="#recursos" data-view-link="resources"> 
-          <i data-lucide="folder-open" class="h-4 w-4"></i> <span>Ver Recursos</span> 
-         </a>
+      <!-- SEÇÃO DE RECURSOS (aluno.html#recursos) -->
+<section id="recursos" class="tab-content">
+  <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
+    
+    <!-- ENCABEZADO DE LA SECCIÓN -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
         </div>
-       </section>
+        <div>
+          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">MATERIAIS E GUIAS</p>
+          <h2 class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
+        </div>
+      </div>
 
+      <!-- BOTÓN DIRECTO A CANVA -->
+      <a href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?utm_content=DAHS23j1DyE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" 
+         target="_blank" 
+         rel="noopener" 
+         class="action-button px-5 py-2.5 font-bold bg-[#ffd700] text-[#2c0439] hover:bg-[#ffe033] rounded-xl flex items-center gap-2 transition-all">
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+        <span>Abrir no Canva</span>
+      </a>
+    </div>
+
+    <!-- CONTENEDOR EMBEDDED DE CANVA -->
+    <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
+      <iframe loading="lazy" 
+              class="absolute top-0 left-0 w-full h-full border-0" 
+              src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" 
+              allowfullscreen="allowfullscreen" 
+              allow="fullscreen">
+      </iframe>
+    </div>
+
+  </div>
+</section>
        <!-- PAGOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
