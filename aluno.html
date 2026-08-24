@@ -296,43 +296,112 @@
        </section>
 
       <!-- SEÇÃO DE RECURSOS (aluno.html#recursos) -->
+<!-- SEÇÃO DE RECURSOS COM NAVEGAÇÃO LATERAL -->
 <section id="recursos" class="tab-content">
   <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
     
-    <!-- ENCABEZADO DE LA SECCIÓN -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <!-- ENCABEZADO PRINCIPAL -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
       <div class="flex items-center gap-3">
         <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
           <i data-lucide="book-open" class="w-5 h-5"></i>
         </div>
         <div>
-          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">MATERIAIS E GUIAS</p>
+          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
           <h2 class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
         </div>
       </div>
 
-      <!-- BOTÓN DIRECTO A CANVA -->
-      <a href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?utm_content=DAHS23j1DyE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" 
+      <!-- BOTÓN DIRECTO AL CANVA ACTUAL -->
+      <a id="btn-external-canva" 
+         href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" 
          target="_blank" 
          rel="noopener" 
-         class="action-button px-5 py-2.5 font-bold bg-[#ffd700] text-[#2c0439] hover:bg-[#ffe033] rounded-xl flex items-center gap-2 transition-all">
+         class="action-button px-4 py-2 font-bold bg-[#ffd700] text-[#2c0439] hover:bg-[#ffe033] rounded-xl flex items-center gap-2 text-sm transition-all">
         <i data-lucide="external-link" class="w-4 h-4"></i>
         <span>Abrir no Canva</span>
       </a>
     </div>
 
-    <!-- CONTENEDOR EMBEDDED DE CANVA -->
-    <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
-      <iframe loading="lazy" 
-              class="absolute top-0 left-0 w-full h-full border-0" 
-              src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" 
-              allowfullscreen="allowfullscreen" 
-              allow="fullscreen">
-      </iframe>
-    </div>
+    <!-- ESTRUCTURA EN 2 COLUMNAS (Menú lateral + Visor) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- COLUMNA IZQUIERDA: MENÚ DE TEMAS (20 TEMAS CATEGORIZADOS) -->
+      <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4">
+        
+        <!-- CATEGORÍA 1: GRAMÁTICA -->
+        <div>
+          <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Gramática</span>
+          <div class="mt-2 space-y-1">
+            <button onclick="loadTopic('Verb To Be', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed')" class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>1. Verb To Be</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-[#ffd700]"></i>
+            </button>
+            <button onclick="loadTopic('Present Simple', 'URL_CANVA_PRESENT_SIMPLE')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>2. Present Simple</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+            <button onclick="loadTopic('Past Simple', 'URL_CANVA_PAST_SIMPLE')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>3. Past Simple</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+            <!-- Puedes agregar más temas aquí -->
+          </div>
+        </div>
 
+        <!-- CATEGORÍA 2: VOCABULARIO -->
+        <div>
+          <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Vocabulário</span>
+          <div class="mt-2 space-y-1">
+            <button onclick="loadTopic('Phrasal Verbs', 'URL_CANVA_PHRASAL_VERBS')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>4. Phrasal Verbs do Dia a Dia</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+            <button onclick="loadTopic('Business English', 'URL_CANVA_BUSINESS')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>5. Vocabulário de Negócios</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CATEGORÍA 3: PRONUNCIACIÓN -->
+        <div>
+          <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Pronúncia</span>
+          <div class="mt-2 space-y-1">
+            <button onclick="loadTopic('Sons do TH', 'URL_CANVA_TH')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>6. Sons do "TH"</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+            <button onclick="loadTopic('Connected Speech', 'URL_CANVA_CONNECTED')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>7. Connected Speech</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- COLUMNA DERECHA: VISOR DEL TEMA SELECCIONADO -->
+      <main class="lg:col-span-8 flex flex-col">
+        <h3 id="current-topic-title" class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> 1. Verb To Be
+        </h3>
+        
+        <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
+          <iframe id="resource-iframe"
+                  loading="lazy" 
+                  class="absolute top-0 left-0 w-full h-full border-0" 
+                  src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" 
+                  allowfullscreen="allowfullscreen" 
+                  allow="fullscreen">
+          </iframe>
+        </div>
+      </main>
+
+    </div>
   </div>
 </section>
+       
        <!-- PAGOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
@@ -501,6 +570,32 @@
 
     window.addEventListener("hashchange", updateRoute);
     lucide.createIcons();
+
+   function loadTopic(title, embedUrl) {
+    // 1. Cambiar el iframe de Canva
+    document.getElementById('resource-iframe').src = embedUrl;
+    
+    // 2. Actualizar el título activo
+    document.getElementById('current-topic-title').innerHTML = `
+      <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}
+    `;
+    
+    // 3. Actualizar el enlace externo del botón superior
+    document.getElementById('btn-external-canva').href = embedUrl;
+
+    // 4. Actualizar estado visual de los botones laterales
+    document.querySelectorAll('.topic-btn').forEach(btn => {
+      btn.classList.remove('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
+      const icon = btn.querySelector('i');
+      if (icon) icon.classList.add('opacity-0');
+    });
+
+    event.currentTarget.classList.add('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
+    const activeIcon = event.currentTarget.querySelector('i');
+    if (activeIcon) activeIcon.classList.remove('opacity-0');
+
+    if (window.lucide) lucide.createIcons();
+  }
   </script>
  </body>
 </html>
