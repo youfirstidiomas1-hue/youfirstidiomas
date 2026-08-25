@@ -659,6 +659,14 @@ function goToPage(pageNumber, title) {
     iframe.src = `${CANVA_BASE_URL}#page=${pageNumber}`;
   }
 }
+   google.script.run.withSuccessHandler(function(alumno) {
+  if (alumno && alumno.idioma === 'English') {
+    document.getElementById('canva-frame').src = 'https://yfilink.my.canva.site/english4reallife';
+  } else if (alumno && alumno.idioma === 'Español') {
+    document.getElementById('canva-frame').src = 'https://yfilink.my.canva.site/espanol4reallife';
+  }
+}).getDatosAlumno(userEmail);
+   
   </script>
  </body>
 </html>
