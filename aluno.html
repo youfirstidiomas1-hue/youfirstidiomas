@@ -523,6 +523,7 @@
   </div>
 
   <script>
+   
     // COLOCA AQUÍ TU URL DE DESPLIEGUE DE GOOGLE APPS SCRIPT
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxpQgOPqA5Dke2DBICAx1vg2Msu-cJGTsHvqKM90oc2sdj_l_ELKOwoYrBj7A03oLxW/exec";
 
@@ -644,6 +645,20 @@
 
     if (window.lucide) lucide.createIcons();
   }
+
+   const CANVA_BASE_URL = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed";
+
+function goToPage(pageNumber, title) {
+  // Actualiza el título encima del visor
+  const titleElement = document.getElementById('current-topic-title');
+  if (titleElement) titleElement.innerText = title;
+
+  // Actualiza el iframe para saltar a la página exacta
+  const iframe = document.getElementById('canva-frame');
+  if (iframe) {
+    iframe.src = `${CANVA_BASE_URL}#page=${pageNumber}`;
+  }
+}
   </script>
  </body>
 </html>
