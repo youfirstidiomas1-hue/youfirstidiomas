@@ -334,109 +334,63 @@
   <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span>
   <div class="mt-2 space-y-1">
     
-    <!-- 1. Start Here! -->
-    <button onclick="loadTopic('Start Here!', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed')" 
-            class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(1, 'Start Here!')" class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>1. Start Here!</span>
       <i data-lucide="chevron-right" class="w-4 h-4 text-[#ffd700]"></i>
     </button>
 
-    <!-- 2. O Método YFI -->
-    <!-- Sustituye la URL por el link de incrustar de Canva (/view?embed) -->
-    <button onclick="loadTopic('O Método YFI', 'URL_DE_CANVA_EMBED_2')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(2, 'O Método YFI')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>2. O Método YFI</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>  
 
-    <!-- 3. The English Code -->
-    <button onclick="loadTopic('The English Code', 'URL_DE_CANVA_EMBED_3')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(3, 'The English Code')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>3. The English Code</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 4. The Famous Verb To Be -->
-    <button onclick="loadTopic('The Famous Verb To Be', 'URL_DE_CANVA_EMBED_4')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(4, 'The Famous Verb To Be')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>4. The Famous Verb To Be</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 5. Routines and Facts -->
-    <button onclick="loadTopic('Routines and Facts', 'URL_DE_CANVA_EMBED_5')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(5, 'Routines and Facts')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>5. Routines and Facts</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 6. Right Now and Arrangements -->
-    <button onclick="loadTopic('Right Now and Arrangements', 'URL_DE_CANVA_EMBED_6')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(6, 'Right Now and Arrangements')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>6. Right Now and Arrangements</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 7. Present Tenses Contrast -->
-    <button onclick="loadTopic('Present Tenses Contrast', 'URL_DE_CANVA_EMBED_7')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(7, 'Present Tenses Contrast')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>7. Present Tenses Contrast</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 8. History and Stories -->
-    <button onclick="loadTopic('History and Stories', 'URL_DE_CANVA_EMBED_8')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(8, 'History and Stories')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>8. History and Stories</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 9. Interrupting a Past Action -->
-    <button onclick="loadTopic('Interrupting a Past Action', 'URL_DE_CANVA_EMBED_9')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(9, 'Interrupting a Past Action')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>9. Interrupting a Past Action</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 10. Past simple and Continuous Contrast -->
-    <button onclick="loadTopic('Past simple and Continuous Contrast', 'URL_DE_CANVA_EMBED_10')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(10, 'Past simple and Continuous Contrast')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>10. Past simple and Continuous Contrast</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 11. Past Routines -->
-    <button onclick="loadTopic('Past Routines', 'URL_DE_CANVA_EMBED_11')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(11, 'Past Routines')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>11. Past Routines</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
-    <!-- 12. Future Forms -->
-    <button onclick="loadTopic('Future Forms', 'URL_DE_CANVA_EMBED_12')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+    <button onclick="goToPage(12, 'Future Forms')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
       <span>12. Future Forms</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
-
-    <!-- 13. Modal Verbs -->
-    <button onclick="loadTopic('Modal Verbs', 'URL_DE_CANVA_EMBED_13')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>13. Modal Verbs</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
-
-    <!-- 14. Your Whole Life 'til Now -->
-    <button onclick="loadTopic('Your Whole Life until Now', 'URL_DE_CANVA_EMBED_14')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>14. Your Whole Life 'til Now</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
-
-    <!-- 15. An Action Before Another One -->
-    <button onclick="loadTopic('An Action Before Another One', 'URL_DE_CANVA_EMBED_15')" 
-            class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>15. An Action Before Another One</span>
       <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
     </button>
 
