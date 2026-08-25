@@ -96,12 +96,11 @@
       border-radius: 99px;
     }
 
-    /* Contenedor responsivo para el Iframe de Canva (16:9 o documento alto) */
     .canva-embed-container {
       position: relative;
       width: 100%;
       height: 0;
-      padding-top: 56.25%; /* Relación de aspecto 16:9 ideal para presentaciones/videos */
+      padding-top: 56.25%;
       overflow: hidden;
       border-radius: 12px;
       border: 1px solid rgba(255, 215, 0, .3);
@@ -109,7 +108,7 @@
 
     @media (max-width: 640px) {
       .canva-embed-container {
-        padding-top: 100%; /* Formato cuadrado para adaptarse mejor a pantallas verticales de móvil */
+        padding-top: 100%;
       }
     }
 
@@ -125,7 +124,6 @@
  </head>
  <body>
   <div class="app-shell">
-   <!-- HEADER / NAVBAR -->
    <header class="relative z-10 border-b border-[#ffd700]/30">
     <div class="content-frame !py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
      <div class="flex items-center gap-3">
@@ -147,7 +145,6 @@
    </header>
 
    <main class="relative z-10 content-frame">
-    <!-- ENCABEZADO DE SECCIÓN -->
     <section class="py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
      <div>
       <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
@@ -158,7 +155,6 @@
       <p class="mt-1 text-[#e2d1f0]">Acesse o material interativo, assista aos vídeos e pratique com os links externos abaixo.</p>
      </div>
 
-     <!-- BOTÓN DE RESPALDO (Abre Canva en pestaña nueva si lo prefieren) -->
      <div>
       <a href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?utm_content=DAHS23j1DyE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" class="action-button px-5 font-semibold border border-[#ffd700]/60 bg-[#16001d]/80 text-[#ffd700]">
        <i data-lucide="external-link" class="w-4 h-4"></i> Abrir em Tela Cheia
@@ -166,7 +162,6 @@
      </div>
     </section>
 
-    <!-- TARJETA EMBEDDED CON CANVA -->
     <section class="glass-panel rounded-2xl p-4 sm:p-6 mb-12">
      <div class="canva-embed-container">
       <iframe loading="lazy" src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
@@ -174,7 +169,6 @@
     </section>
    </main>
 
-   <!-- FOOTER -->
    <footer class="relative z-10 border-t border-[#ffd700]/25 mt-auto">
     <div class="content-frame !py-5 text-center text-sm text-[#e2d1f0]">
      &copy; You First Idiomas. Todos os direitos reservados.
