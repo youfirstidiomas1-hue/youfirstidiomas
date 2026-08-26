@@ -517,7 +517,7 @@
       btnLogin.disabled = true;
 
       try {
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbyRb5lk326nd0dj_O4AwbJDfgFg-WybX6EHqmr4ZfFvRYqWk4NN4pKbxNAnll0-pzI8/exec") {
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "URL_DE_TU_GOOGLE_APPS_SCRIPT") {
           const fallbackNombre = email.split('@')[0];
           const nombreFormateado = fallbackNombre.charAt(0).toUpperCase() + fallbackNombre.slice(1);
           mostrarDashboard(nombreFormateado);
