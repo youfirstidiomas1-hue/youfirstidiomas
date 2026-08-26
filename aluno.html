@@ -89,14 +89,13 @@
 
     .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
     
-    /* FIX CONTRASTE Y CONTENEDOR DEL CALENDARIO GOOGLE */
     .calendar-stage {
       width: 100%;
       height: 620px;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      background: #ffffff; /* Fondo blanco sólido para visibilidad total de las letras */
+      background: #ffffff;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     }
 
@@ -133,7 +132,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Formulario de Login */
     .login-container {
       display: flex;
       justify-content: center;
@@ -208,7 +206,6 @@
 
    <main class="relative z-10 content-frame">
 
-    <!-- LOGIN CONTAINER -->
     <div class="login-container" id="login-section">
       <div class="login-card">
         <h2 class="text-2xl font-bold text-[#ffd700] mb-2">Portal do Aluno</h2>
@@ -225,18 +222,15 @@
       </div>
     </div>
 
-    <!-- DASHBOARD (SE MUESTRA TRAS AUTENTICAR) -->
     <div id="dashboard-wrapper" style="display: none;">
       <section id="dashboard-view" class="view is-active">
        
-       <!-- BIENVENIDA CON NOMBRE DINÁMICO DE LA COLUMNA B -->
        <section class="mb-8 pt-2">
         <p class="mb-1 text-xs font-semibold uppercase tracking-[.18em] text-[#ffd700]">BEM-VINDO(A)</p>
         <h2 id="welcomeGreeting" class="font-bold leading-tight text-[#ffffff] text-3xl sm:text-4xl">Welcome!</h2>
         <p class="mt-2 text-base text-[#e2d1f0]">Acesse suas aulas, salas virtuais de prática e recursos de estudo abaixo.</p>
        </section>
 
-       <!-- SALAS DE PRÁCTICA -->
        <section id="salas" class="mt-6 mb-10">
         <div class="mb-5">
          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
@@ -273,7 +267,6 @@
         </div>
        </section>
 
-       <!-- CALENDARIO DE AGENDAMIENTO -->
        <section id="agenda" class="glass-panel rounded-2xl p-4 sm:p-6 mb-10">
         <div class="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
          <div>
@@ -289,168 +282,156 @@
          </a>
         </div>
         
-        <!-- CALENDARIO CON FONDO BLANCO MEJORADO -->
         <div class="calendar-stage border border-[#ffd700]/40">
           <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos"></iframe>
         </div>
        </section>
 
-      <!-- SEÇÃO DE RECURSOS (aluno.html#recursos) -->
-<!-- SEÇÃO DE RECURSOS COM NAVEGAÇÃO LATERAL -->
-<section id="recursos" class="tab-content">
-  <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
-    
-    <!-- ENCABEZADO PRINCIPAL -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
-      <div class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
-          <i data-lucide="book-open" class="w-5 h-5"></i>
-        </div>
-        <div>
-          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
-          <h2 class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
-        </div>
-      </div>
+       <section id="recursos" class="tab-content mb-10">
+        <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
+            <div class="flex items-center gap-3">
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
+                <h2 class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
+              </div>
+            </div>
 
-      <!-- BOTÓN DIRECTO AL CANVA ACTUAL -->
-      <a id="btn-external-canva" 
-         href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view" 
-         target="_blank" 
-         rel="noopener" 
-         class="action-button px-4 py-2 font-bold bg-[#ffd700] text-[#2c0439] hover:bg-[#ffe033] rounded-xl flex items-center gap-2 text-sm transition-all">
-        <i data-lucide="external-link" class="w-4 h-4"></i>
-        <span>Abrir no Canva</span>
-      </a>
-    </div>
+            <a id="btn-external-canva" 
+               href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view" 
+               target="_blank" 
+               rel="noopener" 
+               class="action-button px-4 py-2 font-bold bg-[#ffd700] text-[#2c0439] hover:bg-[#ffe033] rounded-xl flex items-center gap-2 text-sm transition-all">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Abrir no Canva</span>
+            </a>
+          </div>
 
-    <!-- ESTRUCTURA EN 2 COLUMNAS (Menú lateral + Visor) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      
-      <!-- COLUMNA IZQUIERDA: MENÚ DE TEMAS (20 TEMAS CATEGORIZADOS) -->
-      <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4">
-        
-        <!-- CATEGORÍA 1: Talking about... -->
-<div>
-  <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span>
-  <div class="mt-2 space-y-1">
-    
-    <button onclick="goToPage(1, 'Start Here!')" class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>1. Start Here!</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 text-[#ffd700]"></i>
-    </button>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4">
+              
+              <div>
+                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span>
+                <div class="mt-2 space-y-1">
+                  
+                  <button onclick="goToPage(1, 'Start Here!', event)" class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>1. Start Here!</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#ffd700]"></i>
+                  </button>
 
-    <button onclick="goToPage(2, 'O Método YFI')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>2. O Método YFI</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>  
+                  <button onclick="goToPage(2, 'O Método YFI', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>2. O Método YFI</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>  
 
-    <button onclick="goToPage(3, 'The English Code')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>3. The English Code</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(3, 'The English Code', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>3. The English Code</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(4, 'The Famous Verb To Be')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>4. The Famous Verb To Be</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(4, 'The Famous Verb To Be', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>4. The Famous Verb To Be</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(5, 'Routines and Facts')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>5. Routines and Facts</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(5, 'Routines and Facts', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>5. Routines and Facts</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(6, 'Right Now and Arrangements')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>6. Right Now and Arrangements</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(6, 'Right Now and Arrangements', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>6. Right Now and Arrangements</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(7, 'Present Tenses Contrast')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>7. Present Tenses Contrast</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(7, 'Present Tenses Contrast', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>7. Present Tenses Contrast</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(8, 'History and Stories')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>8. History and Stories</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(8, 'History and Stories', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>8. History and Stories</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(9, 'Interrupting a Past Action')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>9. Interrupting a Past Action</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(9, 'Interrupting a Past Action', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>9. Interrupting a Past Action</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(10, 'Past simple and Continuous Contrast')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>10. Past simple and Continuous Contrast</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(10, 'Past simple and Continuous Contrast', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>10. Past simple and Continuous Contrast</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(11, 'Past Routines')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>11. Past Routines</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(11, 'Past Routines', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>11. Past Routines</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-    <button onclick="goToPage(12, 'Future Forms')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-      <span>12. Future Forms</span>
-      <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-    </button>
+                  <button onclick="goToPage(12, 'Future Forms', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>12. Future Forms</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
 
-  </div>
-</div>
+                </div>
+              </div>
 
-        <!-- CATEGORÍA 2: VOCABULARIO -->
-        <div>
-          <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Vocabulário</span>
-          <div class="mt-2 space-y-1">
-            <button onclick="loadTopic('Phrasal Verbs', 'URL_CANVA_PHRASAL_VERBS')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>4. Phrasal Verbs do Dia a Dia</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>
-            <button onclick="loadTopic('Business English', 'URL_CANVA_BUSINESS')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>5. Vocabulário de Negócios</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>
+              <div>
+                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Vocabulário</span>
+                <div class="mt-2 space-y-1">
+                  <button onclick="loadTopic('Phrasal Verbs do Dia a Dia', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=13', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>13. Phrasal Verbs do Dia a Dia</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
+                  <button onclick="loadTopic('Vocabulário de Negócios', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=14', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>14. Vocabulário de Negócios</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Pronúncia</span>
+                <div class="mt-2 space-y-1">
+                  <button onclick="loadTopic('Sons do TH', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=15', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>15. Sons do "TH"</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
+                  <button onclick="loadTopic('Connected Speech', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=16', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+                    <span>16. Connected Speech</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+                  </button>
+                </div>
+              </div>
+
+            </aside>
+
+            <main class="lg:col-span-8 flex flex-col">
+              <h3 id="current-topic-title" class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> 1. Start Here!
+              </h3>
+              
+              <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
+                <iframe id="resource-iframe"
+                        loading="lazy" 
+                        class="absolute top-0 left-0 w-full h-full border-0" 
+                        src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=1" 
+                        allowfullscreen="allowfullscreen" 
+                        allow="fullscreen">
+                </iframe>
+              </div>
+            </main>
+
           </div>
         </div>
-
-        <!-- CATEGORÍA 3: PRONUNCIACIÓN -->
-        <div>
-          <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Pronúncia</span>
-          <div class="mt-2 space-y-1">
-            <button onclick="loadTopic('Sons do TH', 'URL_CANVA_TH')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>6. Sons do "TH"</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>
-            <button onclick="loadTopic('Connected Speech', 'URL_CANVA_CONNECTED')" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>7. Connected Speech</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>
-          </div>
-        </div>
-
-      </aside>
-
-      <!-- COLUMNA DERECHA: VISOR DEL TEMA SELECCIONADO -->
-      <main class="lg:col-span-8 flex flex-col">
-        <h3 id="current-topic-title" class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-          <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> 1. Verb To Be
-        </h3>
-        
-        <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
-          <iframe id="resource-iframe"
-                  loading="lazy" 
-                  class="absolute top-0 left-0 w-full h-full border-0" 
-                  src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" 
-                  allowfullscreen="allowfullscreen" 
-                  allow="fullscreen">
-          </iframe>
-        </div>
-      </main>
-
-    </div>
-  </div>
-</section>
+       </section>
        
-       <!-- PAGOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
@@ -493,7 +474,6 @@
        </section>
       </section>
 
-      <!-- VISTA DE RECURSOS -->
       <section id="resources-view" class="view pt-5">
        <a class="action-button mb-7 px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="#dashboard" data-view-link="dashboard"> 
         <i data-lucide="arrow-left" class="h-4 w-4"></i> <span>Voltar ao Dashboard</span> 
@@ -523,9 +503,8 @@
   </div>
 
   <script>
-   
-    // COLOCA AQUÍ TU URL DE DESPLIEGUE DE GOOGLE APPS SCRIPT
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRb5lk326nd0dj_O4AwbJDfgFg-WybX6EHqmr4ZfFvRYqWk4NN4pKbxNAnll0-pzI8/exec";
+    const CANVA_BASE_URL = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed";
 
     async function validarLogin(e) {
       e.preventDefault();
@@ -538,8 +517,7 @@
       btnLogin.disabled = true;
 
       try {
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "URL_DE_TU_GOOGLE_APPS_SCRIPT") {
-          // Si no está configurado la URL aún, usa la parte inicial del email como nombre
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "https://script.google.com/macros/s/AKfycbyRb5lk326nd0dj_O4AwbJDfgFg-WybX6EHqmr4ZfFvRYqWk4NN4pKbxNAnll0-pzI8/exec") {
           const fallbackNombre = email.split('@')[0];
           const nombreFormateado = fallbackNombre.charAt(0).toUpperCase() + fallbackNombre.slice(1);
           mostrarDashboard(nombreFormateado);
@@ -568,7 +546,7 @@
       document.getElementById("login-section").style.display = "none";
       document.getElementById("dashboard-wrapper").style.display = "block";
       document.getElementById("main-nav").style.display = "flex";
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function setView(viewName) {
@@ -617,56 +595,46 @@
       }
     });
 
+    function updateActiveButton(targetElement) {
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.add('opacity-0');
+      });
+
+      if (targetElement) {
+        targetElement.classList.add('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
+        const activeIcon = targetElement.querySelector('i');
+        if (activeIcon) activeIcon.classList.remove('opacity-0');
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function loadTopic(title, embedUrl, event) {
+      const iframe = document.getElementById('resource-iframe');
+      if (iframe) iframe.src = embedUrl;
+
+      const titleElement = document.getElementById('current-topic-title');
+      if (titleElement) {
+        titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
+      }
+
+      const btnExternal = document.getElementById('btn-external-canva');
+      if (btnExternal) btnExternal.href = embedUrl;
+
+      if (event && event.currentTarget) {
+        updateActiveButton(event.currentTarget);
+      }
+    }
+
+    function goToPage(pageNumber, title, event) {
+      const embedUrl = `${CANVA_BASE_URL}#page=${pageNumber}`;
+      loadTopic(title, embedUrl, event);
+    }
+
     window.addEventListener("hashchange", updateRoute);
-    lucide.createIcons();
-
-   function loadTopic(title, embedUrl) {
-    // 1. Cambiar el iframe de Canva
-    document.getElementById('resource-iframe').src = embedUrl;
-    
-    // 2. Actualizar el título activo
-    document.getElementById('current-topic-title').innerHTML = `
-      <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}
-    `;
-    
-    // 3. Actualizar el enlace externo del botón superior
-    document.getElementById('btn-external-canva').href = embedUrl;
-
-    // 4. Actualizar estado visual de los botones laterales
-    document.querySelectorAll('.topic-btn').forEach(btn => {
-      btn.classList.remove('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
-      const icon = btn.querySelector('i');
-      if (icon) icon.classList.add('opacity-0');
-    });
-
-    event.currentTarget.classList.add('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
-    const activeIcon = event.currentTarget.querySelector('i');
-    if (activeIcon) activeIcon.classList.remove('opacity-0');
-
     if (window.lucide) lucide.createIcons();
-  }
-
-   const CANVA_BASE_URL = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed";
-
-function goToPage(pageNumber, title) {
-  // Actualiza el título encima del visor
-  const titleElement = document.getElementById('current-topic-title');
-  if (titleElement) titleElement.innerText = title;
-
-  // Actualiza el iframe para saltar a la página exacta
-  const iframe = document.getElementById('canva-frame');
-  if (iframe) {
-    iframe.src = `${CANVA_BASE_URL}#page=${pageNumber}`;
-  }
-}
-   google.script.run.withSuccessHandler(function(alumno) {
-  if (alumno && alumno.idioma === 'English') {
-    document.getElementById('canva-frame').src = 'https://yfilink.my.canva.site/english4reallife';
-  } else if (alumno && alumno.idioma === 'Español') {
-    document.getElementById('canva-frame').src = 'https://yfilink.my.canva.site/espanol4reallife';
-  }
-}).getDatosAlumno(userEmail);
-   
   </script>
  </body>
 </html>
