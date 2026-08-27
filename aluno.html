@@ -270,19 +270,26 @@
 
        </div>
 
-       <!-- RECURSOS -->
-       <section id="recursos" class="tab-content mb-10">
-        <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
-            <div class="flex items-center gap-3">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
-                <i data-lucide="book-open" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
-                <h2 id="resource-header-title" class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
-              </div>
-            </div>
+       <!-- SECCIÓN RECURSOS RESTRUCTURADA -->
+<section id="recursos" class="tab-content mb-10">
+  <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">Conteúdo Interativo</p>
+          <h2 id="resource-header-title" class="m-0 font-bold text-white text-2xl">Materiais de Estudo</h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="resource-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Las tarjetas se generan dinámicamente según el idioma del alumno -->
+    </div>
+  </div>
+</section>
 
             <a id="btn-external-canva" 
                href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view" 
@@ -467,48 +474,43 @@
     }
 
     function cargarRecursos(tipo) {
-      const container = document.getElementById("sidebar-content");
-      const headerTitle = document.getElementById("resource-header-title");
-      const iframe = document.getElementById('resource-iframe');
-      const btnExternal = document.getElementById('btn-external-canva');
+  const container = document.getElementById("resource-cards-grid");
+  const headerTitle = document.getElementById("resource-header-title");
+  container.innerHTML = "";
 
-      container.innerHTML = "";
+  if (tipo === "espanhol") {
+    headerTitle.textContent = "Español para tu Vida";
+    const linkEspanol = "https://yfilink.my.canva.site/espanholparatuvida";
+    
+    container.innerHTML = `
+      <div class="glass-panel p-5 rounded-xl border border-[#ffd700]/30 hover:border-[#ffd700] transition-all flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold text-[#ffd700] uppercase tracking-wider">Curso Completo</span>
+          <h3 class="text-lg font-bold text-white mt-1">Guía Didáctica de Español</h3>
+          <p class="text-xs text-[#e2d1f0] mt-2">Accede al material interativo con todas las lecturas y ejercicios integrados.</p>
+        </div>
+        <a href="${linkEspanol}" target="_blank" rel="noopener" class="action-button mt-5 w-full font-bold bg-[#ffd700] text-[#2c0439] py-2 text-sm rounded-lg text-center block">
+          Abrir Material Interactivo &rarr;
+        </a>
+      </div>`;
+  } else {
+    headerTitle.textContent = "English for Real Life";
+    const linkEnglish = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view";
 
-      if (tipo === "espanhol") {
-        headerTitle.textContent = "Español para tu Vida";
-        btnExternal.href = CANVA_ESP;
-        iframe.src = CANVA_ESP;
-
-        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Hablamos sobre...</span><div class="mt-2 space-y-1">`;
-        topicsSpanish.forEach(t => {
-          html += `
-            <button onclick="changePage('${CANVA_ESP}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>${t.title}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        container.innerHTML = html;
-
-      } else {
-        headerTitle.textContent = "English for Real Life";
-        btnExternal.href = CANVA_ENG;
-        iframe.src = `${CANVA_ENG}#page=1`;
-
-        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span><div class="mt-2 space-y-1">`;
-        topicsEnglish.forEach(t => {
-          html += `
-            <button onclick="changePage('${CANVA_ENG}#page=${t.id}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>${t.title}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        container.innerHTML = html;
-      }
-
-      if (window.lucide) lucide.createIcons();
-    }
+    container.innerHTML = `
+      <div class="glass-panel p-5 rounded-xl border border-[#ffd700]/30 hover:border-[#ffd700] transition-all flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-bold text-[#ffd700] uppercase tracking-wider">Interactive Book</span>
+          <h3 class="text-lg font-bold text-white mt-1">English for Real Life - Full Presentation</h3>
+          <p class="text-xs text-[#e2d1f0] mt-2">Accede a la presentación interactiva con Canva.</p>
+        </div>
+        <a href="${linkEnglish}" target="_blank" rel="noopener" class="action-button mt-5 w-full font-bold bg-[#ffd700] text-[#2c0439] py-2 text-sm rounded-lg text-center block">
+          Open Presentation &rarr;
+        </a>
+      </div>`;
+  }
+  if (window.lucide) lucide.createIcons();
+}
 
     function changePage(url, title, event) {
       const iframe = document.getElementById('resource-iframe');
