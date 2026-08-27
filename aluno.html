@@ -14,7 +14,6 @@
       --panel: rgba(20, 3, 29, .72);
       --gold: #ffd700;
       --lavender: #e2d1f0;
-      --muted: #ad94bf;
     }
 
     * { box-sizing: border-box; }
@@ -72,7 +71,7 @@
       transition: color .2s ease, background .2s ease;
     }
 
-    .nav-link:hover, .nav-link:focus-visible {
+    .nav-link:hover {
       color: #ffd700;
       background: rgba(255, 215, 0, .09);
     }
@@ -82,7 +81,7 @@
       align-items: center;
       justify-content: center;
       gap: .55rem;
-      min-height: 46px;
+      min-height: 44px;
       border-radius: .7rem;
       transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
     }
@@ -91,12 +90,11 @@
     
     .calendar-stage {
       width: 100%;
-      height: 620px;
+      height: 480px;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
       background: #ffffff;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
     }
 
     .calendar-stage iframe {
@@ -108,13 +106,14 @@
     .room-card {
       position: relative;
       overflow: hidden;
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 215, 0, .4);
+      transition: transform .25s ease, border-color .25s ease;
     }
 
     .room-card:hover {
       transform: translateY(-4px);
       border-color: #ffd700;
-      background: rgba(53, 12, 66, .9);
     }
 
     .gold-line {
@@ -175,11 +174,6 @@
       cursor: pointer;
       border: none;
     }
-
-    @media (max-width: 640px) {
-      .content-frame { padding: 16px 15px 30px; }
-      .calendar-stage { height: 560px; }
-    }
   </style>
  </head>
  <body>
@@ -187,7 +181,7 @@
    <header class="relative z-10 border-b border-[#ffd700]/30">
     <div class="content-frame !py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
      <div class="flex items-center gap-3">
-      <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]" aria-hidden="true">
+      <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
       </div>
       <div>
@@ -196,10 +190,10 @@
       </div>
      </div>
      <nav aria-label="Navegação principal" class="flex flex-wrap items-center gap-1" id="main-nav" style="display: none;">
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">Agenda</a> 
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#salas">Salas de Prática</a> 
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos" data-view-link="resources">Recursos</a> 
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#pagamentos">Pagamentos</a>
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">AGENDA</a> 
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#salas">SALAS PARA SESSÕES</a> 
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos" data-view-link="resources">RECURSOS</a> 
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#pagamentos">PAGAMENTO</a>
      </nav>
     </div>
    </header>
@@ -208,15 +202,15 @@
 
     <div class="login-container" id="login-section">
       <div class="login-card">
-        <h2 class="text-2xl font-bold text-[#ffd700] mb-2">Portal do Aluno</h2>
+        <h2 class="text-2xl font-bold text-[#ffd700] mb-2">Dashboard</h2>
         <p class="text-sm text-[#e2d1f0] mb-6">Informe seu e-mail cadastrado para acessar a plataforma.</p>
-        
+
         <form onsubmit="validarLogin(event)">
           <div class="text-left">
             <label for="emailInput" class="text-xs font-semibold uppercase tracking-wider text-[#ffd700]">E-mail:</label>
             <input type="email" id="emailInput" class="form-input" placeholder="seuemail@exemplo.com" required>
           </div>
-          <button type="submit" id="btnLogin" class="btn-submit">Entrar na Plataforma</button>
+          <button type="submit" id="btnLogin" class="btn-submit">ENTRAR</button>
         </form>
         <p id="errorMsg" class="mt-4 text-sm text-red-400 hidden">E-mail não encontrado na base de alunos.</p>
       </div>
@@ -231,65 +225,54 @@
         <p class="mt-2 text-base text-[#e2d1f0]">Acesse suas aulas, salas virtuais de prática e recursos de estudo abaixo.</p>
        </section>
 
-       <section id="salas" class="mt-6 mb-10">
-        <div class="mb-5">
-         <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
-          <i data-lucide="door-open" class="h-5 w-5" aria-hidden="true"></i>
-          <div class="gold-line"></div>
-         </div>
-         <h2 class="font-bold text-xl text-[#ffffff]">Salas de Prática Virtual</h2>
-         <p class="mt-1 text-sm text-[#e2d1f0]">Entre nas salas interativas para praticar conversação e tirar dúvidas.</p>
-        </div>
-        <div class="grid gap-5 md:grid-cols-2">
-         <a class="room-card glass-panel block rounded-2xl p-6 no-underline" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener noreferrer">
-          <div class="mb-6 flex items-start justify-between">
-           <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ffd700] text-[#2c0439]">
-            <i data-lucide="languages" class="h-6 w-6"></i>
-           </div>
-           <i data-lucide="arrow-up-right" class="h-5 w-5 text-[#ffd700]"></i>
-          </div>
-          <h3 class="m-0 font-bold text-lg text-[#ffffff]">English Practice Room</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#e2d1f0]">Acesse a ferramenta interativa de conversação em Inglês.</p>
-          <span class="mt-4 inline-block font-bold text-[#ffd700]">Acessar Sala &rarr;</span> 
-         </a> 
-         
-         <a class="room-card glass-panel block rounded-2xl p-6 no-underline" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener noreferrer">
-          <div class="mb-6 flex items-start justify-between">
-           <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ffd700] text-[#2c0439]">
-            <i data-lucide="messages-square" class="h-6 w-6"></i>
-           </div>
-           <i data-lucide="arrow-up-right" class="h-5 w-5 text-[#ffd700]"></i>
-          </div>
-          <h3 class="m-0 font-bold text-lg text-[#ffffff]">Sala de Conversación en Español</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#e2d1f0]">Acesse a ferramenta interativa de conversação em Espanhol.</p>
-          <span class="mt-4 inline-block font-bold text-[#ffd700]">Acessar Sala &rarr;</span> 
-         </a>
-        </div>
-       </section>
-
-       <section id="agenda" class="glass-panel rounded-2xl p-4 sm:p-6 mb-10">
-        <div class="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-         <div>
-          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
-           <i data-lucide="calendar-days" class="h-5 w-5"></i>
+       <!-- LAYOUT EN 2 COLUMNAS: SALAS Y CALENDARIO -->
+       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+        
+        <!-- SALAS (COLUMNA IZQUIERDA/MENOR) -->
+        <section id="salas" class="lg:col-span-5 flex flex-col justify-between">
+         <div class="mb-4">
+          <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
+           <i data-lucide="door-open" class="h-5 w-5"></i>
            <div class="gold-line"></div>
           </div>
-          <h2 class="font-bold text-xl text-[#ffffff]">Agendamento de Consultorias</h2>
-          <p class="mt-1 text-sm text-[#e2d1f0]">Escolha o melhor dia e horário disponível no calendário para agendar sua aula individual.</p>
+          <h2 class="font-bold text-xl text-[#ffffff]">Salas para Sessões</h2>
+          <p class="mt-1 text-xs text-[#e2d1f0]">Entre na sua sala virtual para conversar e tirar dúvidas.</p>
          </div>
-         <a class="action-button shrink-0 px-5 font-bold bg-[#ffd700] text-[#2c0439]" href="https://calendar.app.google/LkSmxV3kD2Jrn33y6" target="_blank" rel="noopener noreferrer"> 
-          <i data-lucide="external-link" class="h-4 w-4"></i> <span>Abrir no Google</span> 
-         </a>
-        </div>
-        
-        <div class="calendar-stage border border-[#ffd700]/40">
-          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos"></iframe>
-        </div>
-       </section>
 
+         <div class="space-y-4">
+          <!-- Sala de Inglés -->
+          <a id="room-english" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener">
+           <img src="assets/english-room.png" alt="English Practice Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+          </a> 
+
+          <!-- Sala de Español -->
+          <a id="room-spanish" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener">
+           <img src="assets/sala-espanol.png" alt="Sala de Conversación en Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+          </a>
+         </div>
+        </section>
+
+        <!-- AGENDA (COLUMNA DERECHA/MAYOR) -->
+        <section id="agenda" class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-5">
+         <div class="mb-3 flex items-center justify-between">
+          <div>
+           <h2 class="font-bold text-lg text-[#ffffff]">Agenda de Consultorias</h2>
+          </div>
+          <a class="action-button px-3 py-1.5 text-xs font-bold bg-[#ffd700] text-[#2c0439]" href="https://calendar.app.google/LkSmxV3kD2Jrn33y6" target="_blank" rel="noopener"> 
+           <i data-lucide="external-link" class="h-3.5 w-3.5"></i> <span>Google Calendar</span> 
+          </a>
+         </div>
+         
+         <div class="calendar-stage border border-[#ffd700]/30 rounded-xl">
+           <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos"></iframe>
+         </div>
+        </section>
+
+       </div>
+
+       <!-- RECURSOS -->
        <section id="recursos" class="tab-content mb-10">
         <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
-          
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
             <div class="flex items-center gap-3">
               <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
@@ -297,7 +280,7 @@
               </div>
               <div>
                 <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
-                <h2 class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
+                <h2 id="resource-header-title" class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
               </div>
             </div>
 
@@ -312,126 +295,24 @@
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            
-            <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4">
-              
-              <div>
-                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span>
-                <div class="mt-2 space-y-1">
-                  
-                  <button onclick="goToPage(1, 'Start Here!', event)" class="topic-btn active w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>1. Start Here!</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#ffd700]"></i>
-                  </button>
-
-                  <button onclick="goToPage(2, 'O Método YFI', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>2. O Método YFI</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>  
-
-                  <button onclick="goToPage(3, 'The English Code', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>3. The English Code</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(4, 'The Famous Verb To Be', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>4. The Famous Verb To Be</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(5, 'Routines and Facts', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>5. Routines and Facts</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(6, 'Right Now and Arrangements', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>6. Right Now and Arrangements</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(7, 'Present Tenses Contrast', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>7. Present Tenses Contrast</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(8, 'History and Stories', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>8. History and Stories</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(9, 'Interrupting a Past Action', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>9. Interrupting a Past Action</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(10, 'Past simple and Continuous Contrast', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>10. Past simple and Continuous Contrast</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(11, 'Past Routines', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>11. Past Routines</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                  <button onclick="goToPage(12, 'Future Forms', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>12. Future Forms</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-
-                </div>
-              </div>
-
-              <div>
-                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Vocabulário</span>
-                <div class="mt-2 space-y-1">
-                  <button onclick="loadTopic('Phrasal Verbs do Dia a Dia', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=13', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>13. Phrasal Verbs do Dia a Dia</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-                  <button onclick="loadTopic('Vocabulário de Negócios', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=14', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>14. Vocabulário de Negócios</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Pronúncia</span>
-                <div class="mt-2 space-y-1">
-                  <button onclick="loadTopic('Sons do TH', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=15', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>15. Sons do "TH"</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-                  <button onclick="loadTopic('Connected Speech', 'https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=16', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-                    <span>16. Connected Speech</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-                  </button>
-                </div>
-              </div>
-
+            <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4" id="sidebar-content">
+              <!-- El contenido del menú dinámico se insertará aquí -->
             </aside>
 
             <main class="lg:col-span-8 flex flex-col">
               <h3 id="current-topic-title" class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> 1. Start Here!
+                <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> Start Here!
               </h3>
               
               <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
-                <iframe id="resource-iframe"
-                        loading="lazy" 
-                        class="absolute top-0 left-0 w-full h-full border-0" 
-                        src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed#page=1" 
-                        allowfullscreen="allowfullscreen" 
-                        allow="fullscreen">
-                </iframe>
+                <iframe id="resource-iframe" loading="lazy" class="absolute top-0 left-0 w-full h-full border-0" allowfullscreen allow="fullscreen"></iframe>
               </div>
             </main>
-
           </div>
         </div>
        </section>
        
+       <!-- PAGAMENTOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
@@ -457,7 +338,7 @@
           <i data-lucide="credit-card" class="mb-4 h-7 w-7 text-[#ffd700]"></i>
           <h3 class="font-bold text-lg text-[#ffffff]">Cartão de Crédito</h3>
           <p class="mt-2 text-xs leading-relaxed text-[#e2d1f0]">Pagamento seguro e automático via Stripe.</p>
-          <a class="action-button mt-10 w-full px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="https://buy.stripe.com/4gM3cvcSY3Xp7DI8z024000" target="_blank" rel="noopener noreferrer"> 
+          <a class="action-button mt-10 w-full px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="https://buy.stripe.com/4gM3cvcSY3Xp7DI8z024000" target="_blank" rel="noopener"> 
             <i data-lucide="lock-keyhole" class="h-4 w-4"></i> <span>Pagar com Cartão</span> 
           </a>
          </article>
@@ -466,7 +347,7 @@
           <i data-lucide="message-circle" class="mb-4 h-7 w-7 text-[#ffd700]"></i>
           <h3 class="font-bold text-lg text-[#ffffff]">Outras Moedas</h3>
           <p class="mt-2 text-xs leading-relaxed text-[#e2d1f0]">Fale conosco no WhatsApp para pagamento internacional.</p>
-          <a class="action-button mt-10 w-full px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="https://wa.link/fv8xs6" target="_blank" rel="noopener noreferrer"> 
+          <a class="action-button mt-10 w-full px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="https://wa.link/fv8xs6" target="_blank" rel="noopener"> 
             <i data-lucide="send" class="h-4 w-4"></i> <span>Chamar no WhatsApp</span> 
           </a>
          </article>
@@ -484,10 +365,8 @@
         </div>
         <p class="mb-2 mt-6 text-xs font-bold uppercase tracking-[.18em] text-[#ffd700]">MATERIAIS E GUIAS</p>
         <h2 class="m-0 max-w-2xl font-bold text-2xl text-[#ffffff]">Biblioteca de Recursos</h2>
-        <p class="mt-3 max-w-2xl leading-relaxed text-[#e2d1f0]">Abaixo você encontra os materiais disponíveis para download.</p>
         <div class="mt-8 rounded-xl border border-dashed border-[#ffd700]/45 p-6">
          <h3 class="m-0 font-bold text-lg text-[#ffffff]">Nenhum arquivo extra disponível no momento</h3>
-         <p class="mt-2 leading-relaxed text-[#e2d1f0]">Novos e-books e PDFs serão disponibilizados pelo seu professor em breve.</p>
         </div>
        </div>
       </section>
@@ -496,15 +375,40 @@
    </main>
 
    <footer class="relative z-10 border-t border-[#ffd700]/25 mt-auto">
-    <div class="content-frame !py-5">
-     <p class="m-0 text-center text-sm text-[#e2d1f0]">&copy; You First Idiomas. Todos os direitos reservados.</p>
+    <div class="content-frame !py-5 text-center text-sm text-[#e2d1f0]">
+     &copy; You First Idiomas. Todos os direitos reservados.
     </div>
    </footer>
   </div>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRb5lk326nd0dj_O4AwbJDfgFg-WybX6EHqmr4ZfFvRYqWk4NN4pKbxNAnll0-pzI8/exec";
-    const CANVA_BASE_URL = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxu4eJXNI0pRhnaEQ8JHFdOFnXkk9OGKhmPou534bDoFLwHAjUr6M5i7ffgYgXcaTSe/exec";
+    const CANVA_ENG = "https://yfilink.my.canva.site/english4reallife";
+    const CANVA_ESP = "https://yfilink.my.canva.site/espanholparatuvida";
+
+    const topicsEnglish = [
+      { id: 1, title: "1. Start Here!" },
+      { id: 2, title: "2. O Método YFI" },
+      { id: 3, title: "3. The English Code" },
+      { id: 4, title: "4. The Famous Verb To Be" },
+      { id: 5, title: "5. Routines and Facts" },
+      { id: 6, title: "6. Right Now and Arrangements" },
+      { id: 7, title: "7. Present Tenses Contrast" },
+      { id: 8, title: "8. History and Stories" },
+      { id: 9, title: "9. Interrupting a Past Action" },
+      { id: 10, title: "10. Past simple and Continuous Contrast" },
+      { id: 11, title: "11. Past Routines" },
+      { id: 12, title: "12. Future Forms" },
+      { id: 13, title: "13. Phrasal Verbs do Dia a Dia" },
+      { id: 14, title: "14. Vocabulário de Negócios" },
+      { id: 15, title: "15. Sons do TH" },
+      { id: 16, title: "16. Connected Speech" }
+    ];
+
+    const topicsSpanish = Array.from({ length: 16 }, (_, i) => ({
+      id: i + 1,
+      title: `Página ${i + 1}`
+    }));
 
     async function validarLogin(e) {
       e.preventDefault();
@@ -513,22 +417,15 @@
       const btnLogin = document.getElementById("btnLogin");
 
       errorMsg.classList.add("hidden");
-      btnLogin.textContent = "Verificando...";
+      btnLogin.textContent = "VERIFICANDO...";
       btnLogin.disabled = true;
 
       try {
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "URL_DE_TU_GOOGLE_APPS_SCRIPT") {
-          const fallbackNombre = email.split('@')[0];
-          const nombreFormateado = fallbackNombre.charAt(0).toUpperCase() + fallbackNombre.slice(1);
-          mostrarDashboard(nombreFormateado);
-          return;
-        }
-
         const response = await fetch(`${GOOGLE_SCRIPT_URL}?email=${encodeURIComponent(email)}`);
         const data = await response.json();
 
         if (data.autorizado) {
-          mostrarDashboard(data.nombre || "Aluno");
+          mostrarDashboard(data.nombre, data.idioma);
         } else {
           errorMsg.classList.remove("hidden");
         }
@@ -536,104 +433,123 @@
         console.error(err);
         errorMsg.classList.remove("hidden");
       } finally {
-        btnLogin.textContent = "Entrar na Plataforma";
+        btnLogin.textContent = "ENTRAR";
         btnLogin.disabled = false;
       }
     }
 
-    function mostrarDashboard(nombre) {
-      document.getElementById("welcomeGreeting").textContent = `Welcome, ${nombre}!`;
+    function mostrarDashboard(nombre, idioma) {
+      const roomEng = document.getElementById("room-english");
+      const roomEsp = document.getElementById("room-spanish");
+      const welcome = document.getElementById("welcomeGreeting");
+
+      const lang = (idioma || "").toLowerCase();
+
+      if (lang.includes("español") || lang.includes("espanhol")) {
+        welcome.textContent = `Bienvenido/a, ${nombre}!`;
+        roomEsp.classList.remove("hidden");
+        cargarRecursos("espanhol");
+      } else if (lang.includes("ambos") || lang.includes("ambas")) {
+        welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
+        roomEng.classList.remove("hidden");
+        roomEsp.classList.remove("hidden");
+        cargarRecursos("english");
+      } else {
+        welcome.textContent = `Welcome, ${nombre}!`;
+        roomEng.classList.remove("hidden");
+        cargarRecursos("english");
+      }
+
       document.getElementById("login-section").style.display = "none";
       document.getElementById("dashboard-wrapper").style.display = "block";
       document.getElementById("main-nav").style.display = "flex";
       if (window.lucide) lucide.createIcons();
     }
 
-    function setView(viewName) {
-      const dashboard = document.getElementById("dashboard-view");
-      const resources = document.getElementById("resources-view");
-      const showResources = viewName === "resources";
+    function cargarRecursos(tipo) {
+      const container = document.getElementById("sidebar-content");
+      const headerTitle = document.getElementById("resource-header-title");
+      const iframe = document.getElementById('resource-iframe');
+      const btnExternal = document.getElementById('btn-external-canva');
 
-      dashboard.classList.toggle("is-active", !showResources);
-      resources.classList.toggle("is-active", showResources);
+      container.innerHTML = "";
 
-      if (showResources) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
+      if (tipo === "espanhol") {
+        headerTitle.textContent = "Español para tu Vida";
+        btnExternal.href = CANVA_ESP;
+        iframe.src = CANVA_ESP;
 
-    function updateRoute() {
-      setView(window.location.hash === "#recursos" ? "resources" : "dashboard");
-    }
+        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Hablamos sobre...</span><div class="mt-2 space-y-1">`;
+        topicsSpanish.forEach(t => {
+          html += `
+            <button onclick="changePage('${CANVA_ESP}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>${t.title}</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
 
-    document.querySelectorAll("[data-view-link]").forEach(function(link) {
-      link.addEventListener("click", function() {
-        const targetView = link.dataset.viewLink;
-        if (targetView === "dashboard") {
-          window.location.hash = "dashboard";
-        } else {
-          window.location.hash = "recursos";
-        }
-      });
-    });
+      } else {
+        headerTitle.textContent = "English for Real Life";
+        btnExternal.href = CANVA_ENG;
+        iframe.src = `${CANVA_ENG}#page=1`;
 
-    document.getElementById("copy-pix-button").addEventListener("click", async function() {
-      const button = document.getElementById("copy-pix-button");
-      const status = document.getElementById("pix-status");
-      const pixKey = "065.125.357-82";
-
-      try {
-        await navigator.clipboard.writeText(pixKey);
-        status.classList.remove("hidden");
-        button.disabled = true;
-        setTimeout(function() {
-          status.classList.add("hidden");
-          button.disabled = false;
-        }, 2500);
-      } catch (error) {
-        console.error(error);
-      }
-    });
-
-    function updateActiveButton(targetElement) {
-      document.querySelectorAll('.topic-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
-        const icon = btn.querySelector('i');
-        if (icon) icon.classList.add('opacity-0');
-      });
-
-      if (targetElement) {
-        targetElement.classList.add('active', 'bg-[#ffd700]/10', 'text-[#ffd700]');
-        const activeIcon = targetElement.querySelector('i');
-        if (activeIcon) activeIcon.classList.remove('opacity-0');
+        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2">Talking about...</span><div class="mt-2 space-y-1">`;
+        topicsEnglish.forEach(t => {
+          html += `
+            <button onclick="changePage('${CANVA_ENG}#page=${t.id}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>${t.title}</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
       }
 
       if (window.lucide) lucide.createIcons();
     }
 
-    function loadTopic(title, embedUrl, event) {
+    function changePage(url, title, event) {
       const iframe = document.getElementById('resource-iframe');
-      if (iframe) iframe.src = embedUrl;
+      if (iframe) iframe.src = url;
 
       const titleElement = document.getElementById('current-topic-title');
       if (titleElement) {
         titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
       }
 
-      const btnExternal = document.getElementById('btn-external-canva');
-      if (btnExternal) btnExternal.href = embedUrl;
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.add('opacity-0');
+      });
 
       if (event && event.currentTarget) {
-        updateActiveButton(event.currentTarget);
+        event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
+        const activeIcon = event.currentTarget.querySelector('i');
+        if (activeIcon) activeIcon.classList.remove('opacity-0');
       }
+
+      if (window.lucide) lucide.createIcons();
     }
 
-    function goToPage(pageNumber, title, event) {
-      const embedUrl = `${CANVA_BASE_URL}#page=${pageNumber}`;
-      loadTopic(title, embedUrl, event);
-    }
+    document.getElementById("copy-pix-button").addEventListener("click", async function() {
+      const button = document.getElementById("copy-pix-button");
+      const status = document.getElementById("pix-status");
+      try {
+        await navigator.clipboard.writeText("065.125.357-82");
+        status.classList.remove("hidden");
+        button.disabled = true;
+        setTimeout(() => {
+          status.classList.add("hidden");
+          button.disabled = false;
+        }, 2500);
+      } catch (err) {
+        console.error(err);
+      }
+    });
 
-    window.addEventListener("hashchange", updateRoute);
     if (window.lucide) lucide.createIcons();
   </script>
  </body>
