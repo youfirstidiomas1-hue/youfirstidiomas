@@ -88,9 +88,10 @@
 
     .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
     
+    /* CALENDARIO AJUSTADO PARA EVITAR DESBORDAMIENTO */
     .calendar-stage {
       width: 100%;
-      height: 480px;
+      height: 680px;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
@@ -121,14 +122,6 @@
       height: 2px;
       background: #ffd700;
       border-radius: 99px;
-    }
-
-    .view { display: none; }
-    .view.is-active { display: block; animation: reveal .35s ease both; }
-
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .login-container {
@@ -192,7 +185,7 @@
      <nav aria-label="Navegação principal" class="flex flex-wrap items-center gap-1" id="main-nav" style="display: none;">
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">AGENDA</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#salas">SALAS PARA SESSÕES</a> 
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos" data-view-link="resources">RECURSOS</a> 
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos">RECURSOS</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#pagamentos">PAGAMENTO</a>
      </nav>
     </div>
@@ -200,6 +193,7 @@
 
    <main class="relative z-10 content-frame">
 
+    <!-- LOGIN -->
     <div class="login-container" id="login-section">
       <div class="login-card">
         <h2 class="text-2xl font-bold text-[#ffd700] mb-2">Dashboard</h2>
@@ -216,8 +210,8 @@
       </div>
     </div>
 
+    <!-- DASHBOARD CONTAINER (OCULTO INICIALMENTE) -->
     <div id="dashboard-wrapper" style="display: none;">
-      <section id="dashboard-view" class="view is-active">
        
        <section class="mb-8 pt-2">
         <p class="mb-1 text-xs font-semibold uppercase tracking-[.18em] text-[#ffd700]">BEM-VINDO(A)</p>
@@ -225,10 +219,9 @@
         <p class="mt-2 text-base text-[#e2d1f0]">Acesse suas aulas, salas virtuais de prática e recursos de estudo abaixo.</p>
        </section>
 
-       <!-- LAYOUT EN 2 COLUMNAS: SALAS Y CALENDARIO -->
-       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-start">
         
-        <!-- SALAS (COLUMNA IZQUIERDA/MENOR) -->
+        <!-- SALAS -->
         <section id="salas" class="lg:col-span-5 flex flex-col justify-between">
          <div class="mb-4">
           <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
@@ -240,19 +233,17 @@
          </div>
 
          <div class="space-y-4">
-          <!-- Sala de Inglés -->
           <a id="room-english" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener">
-           <img src="assets/english-room.png" alt="English Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+           <img src="assets/english%20room.png" alt="English Practice Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
           </a> 
 
-          <!-- Sala de Español -->
           <a id="room-spanish" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener">
-           <img src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+           <img src="assets/sala%20espa%C3%B1ol.png" alt="Sala de Conversación en Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
           </a>
          </div>
         </section>
 
-        <!-- AGENDA (COLUMNA DERECHA/MAYOR) -->
+        <!-- AGENDA (CORREGIDO ALTO Y RESPONSIVE) -->
         <section id="agenda" class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-5">
          <div class="mb-3 flex items-center justify-between">
           <div>
@@ -270,26 +261,19 @@
 
        </div>
 
-       <!-- SECCIÓN RECURSOS RESTRUCTURADA -->
-<section id="recursos" class="tab-content mb-10">
-  <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
-      <div class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
-          <i data-lucide="book-open" class="w-5 h-5"></i>
-        </div>
-        <div>
-          <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">Conteúdo Interativo</p>
-          <h2 id="resource-header-title" class="m-0 font-bold text-white text-2xl">Materiais de Estudo</h2>
-        </div>
-      </div>
-    </div>
-
-    <div id="resource-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      <!-- Las tarjetas se generan dinámicamente según el idioma del alumno -->
-    </div>
-  </div>
-</section>
+       <!-- RECURSOS (MENU WIDGET CON VISOR) -->
+       <section id="recursos" class="mb-10">
+        <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-4 border-b border-[#ffd700]/20">
+            <div class="flex items-center gap-3">
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">BIBLIOTECA INTERATIVA</p>
+                <h2 id="resource-header-title" class="m-0 font-bold text-white text-2xl">English for Real Life</h2>
+              </div>
+            </div>
 
             <a id="btn-external-canva" 
                href="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view" 
@@ -302,8 +286,7 @@
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto space-y-4" id="sidebar-content">
-              <!-- El contenido del menú dinámico se insertará aquí -->
+            <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[600px] overflow-y-auto" id="sidebar-content">
             </aside>
 
             <main class="lg:col-span-8 flex flex-col">
@@ -311,8 +294,8 @@
                 <i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> Start Here!
               </h3>
               
-              <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="padding-top: 56.25%;">
-                <iframe id="resource-iframe" loading="lazy" class="absolute top-0 left-0 w-full h-full border-0" allowfullscreen allow="fullscreen"></iframe>
+              <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="height: 550px;">
+                <iframe id="resource-iframe" loading="lazy" class="w-full h-full border-0" allowfullscreen allow="fullscreen"></iframe>
               </div>
             </main>
           </div>
@@ -360,23 +343,7 @@
          </article>
         </div>
        </section>
-      </section>
 
-      <section id="resources-view" class="view pt-5">
-       <a class="action-button mb-7 px-4 font-bold bg-[#ffd700] text-[#2c0439]" href="#dashboard" data-view-link="dashboard"> 
-        <i data-lucide="arrow-left" class="h-4 w-4"></i> <span>Voltar ao Dashboard</span> 
-       </a>
-       <div class="glass-panel rounded-2xl p-7 sm:p-10">
-        <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ffd700] text-[#2c0439]">
-         <i data-lucide="files" class="h-7 w-7"></i>
-        </div>
-        <p class="mb-2 mt-6 text-xs font-bold uppercase tracking-[.18em] text-[#ffd700]">MATERIAIS E GUIAS</p>
-        <h2 class="m-0 max-w-2xl font-bold text-2xl text-[#ffffff]">Biblioteca de Recursos</h2>
-        <div class="mt-8 rounded-xl border border-dashed border-[#ffd700]/45 p-6">
-         <h3 class="m-0 font-bold text-lg text-[#ffffff]">Nenhum arquivo extra disponível no momento</h3>
-        </div>
-       </div>
-      </section>
     </div>
 
    </main>
@@ -389,8 +356,8 @@
   </div>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxu4eJXNI0pRhnaEQ8JHFdOFnXkk9OGKhmPou534bDoFLwHAjUr6M5i7ffgYgXcaTSe/exec";
-    const CANVA_ENG = "https://yfilink.my.canva.site/english4reallife";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRb5lk326nd0dj_O4AwbJDfgFg-WybX6EHqmr4ZfFvRYqWk4NN4pKbxNAnll0-pzI8/exec";
+    const CANVA_ENG = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed";
     const CANVA_ESP = "https://yfilink.my.canva.site/espanholparatuvida";
 
     const topicsEnglish = [
@@ -474,43 +441,48 @@
     }
 
     function cargarRecursos(tipo) {
-  const container = document.getElementById("resource-cards-grid");
-  const headerTitle = document.getElementById("resource-header-title");
-  container.innerHTML = "";
+      const container = document.getElementById("sidebar-content");
+      const headerTitle = document.getElementById("resource-header-title");
+      const iframe = document.getElementById('resource-iframe');
+      const btnExternal = document.getElementById('btn-external-canva');
 
-  if (tipo === "espanhol") {
-    headerTitle.textContent = "Español para tu Vida";
-    const linkEspanol = "https://yfilink.my.canva.site/espanholparatuvida";
-    
-    container.innerHTML = `
-      <div class="glass-panel p-5 rounded-xl border border-[#ffd700]/30 hover:border-[#ffd700] transition-all flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-[#ffd700] uppercase tracking-wider">Curso Completo</span>
-          <h3 class="text-lg font-bold text-white mt-1">Guía Didáctica de Español</h3>
-          <p class="text-xs text-[#e2d1f0] mt-2">Accede al material interativo con todas las lecturas y ejercicios integrados.</p>
-        </div>
-        <a href="${linkEspanol}" target="_blank" rel="noopener" class="action-button mt-5 w-full font-bold bg-[#ffd700] text-[#2c0439] py-2 text-sm rounded-lg text-center block">
-          Abrir Material Interactivo &rarr;
-        </a>
-      </div>`;
-  } else {
-    headerTitle.textContent = "English for Real Life";
-    const linkEnglish = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view";
+      container.innerHTML = "";
 
-    container.innerHTML = `
-      <div class="glass-panel p-5 rounded-xl border border-[#ffd700]/30 hover:border-[#ffd700] transition-all flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-[#ffd700] uppercase tracking-wider">Interactive Book</span>
-          <h3 class="text-lg font-bold text-white mt-1">English for Real Life - Full Presentation</h3>
-          <p class="text-xs text-[#e2d1f0] mt-2">Accede a la presentación interactiva con Canva.</p>
-        </div>
-        <a href="${linkEnglish}" target="_blank" rel="noopener" class="action-button mt-5 w-full font-bold bg-[#ffd700] text-[#2c0439] py-2 text-sm rounded-lg text-center block">
-          Open Presentation &rarr;
-        </a>
-      </div>`;
-  }
-  if (window.lucide) lucide.createIcons();
-}
+      if (tipo === "espanhol") {
+        headerTitle.textContent = "Español para tu Vida";
+        btnExternal.href = CANVA_ESP;
+        iframe.src = CANVA_ESP;
+
+        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Hablamos sobre...</span><div class="space-y-1">`;
+        topicsSpanish.forEach(t => {
+          html += `
+            <button onclick="changePage('${CANVA_ESP}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>${t.title}</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+
+      } else {
+        headerTitle.textContent = "English for Real Life";
+        btnExternal.href = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view";
+        iframe.src = `${CANVA_ENG}#page=1`;
+
+        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
+        topicsEnglish.forEach(t => {
+          html += `
+            <button onclick="changePage('${CANVA_ENG}#page=${t.id}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+              <span>${t.title}</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+            </button>`;
+        });
+        html += `</div>`;
+        container.innerHTML = html;
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
 
     function changePage(url, title, event) {
       const iframe = document.getElementById('resource-iframe');
