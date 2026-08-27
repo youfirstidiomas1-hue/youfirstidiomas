@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | You First Idiomas</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --plum: #2c0439;
+      --plum-deep: #16001d;
+      --panel: rgba(20, 3, 29, .72);
+      --gold: #ffd700;
+      --lavender: #e2d1f0;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      color: var(--lavender);
+      background: #2c0439;
+    }
+
+    .app-shell {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(255, 215, 0, .13), transparent 25rem),
+        radial-gradient(circle at 87% 70%, rgba(158, 86, 195, .22), transparent 28rem),
+        #2c0439;
+    }
+
+    .app-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .23;
+      background-image:
+        linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 70%);
+    }
+
+    .content-frame {
+      position: relative;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 26px 24px 42px;
+    }
+
+    .glass-panel {
+      background: rgba(20, 3, 29, .72);
+      border: 1px solid rgba(255, 215, 0, .58);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .24);
+      backdrop-filter: blur(14px);
+    }
+
+    .action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 44px;
+      border-radius: .7rem;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
+  </style>
+ </head>
+ <body>
+  <div class="app-shell">
+   <header class="relative z-10 border-b border-[#ffd700]/30">
+    <div class="content-frame !py-4 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#ffd700]/70 bg-[#16001d] text-[#ffd700]">
+       <i data-lucide="newspaper" class="w-5 h-5"></i>
+      </div>
+      <div>
+       <p class="m-0 text-xs uppercase tracking-[.22em] text-[#ffd700]">YOU FIRST IDIOMAS</p>
+       <h1 class="m-0 font-bold leading-tight text-white text-lg">Blog & Artigos</h1>
+      </div>
+     </div>
+     <a href="index.html" class="action-button px-4 py-2 font-bold bg-[#ffd700] text-[#2c0439] text-sm">
+       Voltar ao Início
+     </a>
+    </div>
+   </header>
+
+   <main class="relative z-10 content-frame">
+     <div class="glass-panel rounded-2xl p-6 border border-[#ffd700]/50 my-6">
+       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+         
+         <!-- WIDGET MENU LATERAL CON TÍTULOS -->
+         <aside class="lg:col-span-4 bg-[#16001d]/90 rounded-xl p-4 border border-[#ffd700]/20 max-h-[650px] overflow-y-auto">
+           <span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-3 block">Artigos Disponíveis</span>
+           
+           <div class="space-y-2" id="blog-menu-list">
+             <!-- AQUÍ REGISTRAS LOS LINKS DE CADA ARTÍCULO DEL BLOG -->
+             <button onclick="loadArticle('https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed', 'Artículo 1: Métodos de Aprendizaje', event)" class="blog-btn w-full text-left px-3 py-3 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all bg-[#ffd700]/10 text-[#ffd700]">
+               <span>1. Métodos de Aprendizaje</span>
+               <i data-lucide="chevron-right" class="w-4 h-4"></i>
+             </button>
+
+             <button onclick="loadArticle('URL_AQUI_2', 'Artículo 2: Connected Speech', event)" class="blog-btn w-full text-left px-3 py-3 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
+               <span>2. Connected Speech</span>
+               <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
+             </button>
+           </div>
+         </aside>
+
+         <!-- VISOR PRINCIPAL DEL ARTÍCULO -->
+         <main class="lg:col-span-8 flex flex-col">
+           <h3 id="blog-article-title" class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+             <i data-lucide="book-open-check" class="w-5 h-5 text-[#ffd700]"></i> Artículo 1: Métodos de Aprendizaje
+           </h3>
+           
+           <div class="relative w-full rounded-xl overflow-hidden border border-[#ffd700]/30 bg-[#16001d]" style="height: 600px;">
+             <iframe id="blog-iframe" src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" loading="lazy" class="w-full h-full border-0" allowfullscreen allow="fullscreen"></iframe>
+           </div>
+         </main>
+
+       </div>
+     </div>
+   </main>
+
+   <footer class="relative z-10 border-t border-[#ffd700]/25 mt-auto">
+    <div class="content-frame !py-5 text-center text-sm text-[#e2d1f0]">
+     &copy; You First Idiomas. Todos os direitos reservados.
+    </div>
+   </footer>
+  </div>
+
+  <script>
+    function loadArticle(url, title, event) {
+      const iframe = document.getElementById('blog-iframe');
+      if (iframe) iframe.src = url;
+
+      const titleElement = document.getElementById('blog-article-title');
+      if (titleElement) {
+        titleElement.innerHTML = `<i data-lucide="book-open-check" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
+      }
+
+      document.querySelectorAll('.blog-btn').forEach(btn => {
+        btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.add('opacity-0');
+      });
+
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
+        const activeIcon = event.currentTarget.querySelector('i');
+        if (activeIcon) activeIcon.classList.remove('opacity-0');
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    if (window.lucide) lucide.createIcons();
+  </script>
+ </body>
+</html>
