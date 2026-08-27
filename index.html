@@ -9,49 +9,48 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
   :root {
-    --plum: #2c0439;
-    --plum-deep: #16001d;
-    --panel: rgba(20, 3, 29, .72);
-    --gold: #ffd700;
-    --lavender: #e2d1f0;
-  }
+  --plum: #2c0439;
+  --plum-deep: #16001d;
+  --gold: #ffd700;
+  --lavender: #e2d1f0;
+}
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  
-  body {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
-    font-family: "DM Sans", sans-serif;
-    color: var(--lavender);
-    background: #2c0439;
-  }
+* { box-sizing: border-box; }
 
-  /* Fondo dinámico con degradado y malla */
-  .app-shell {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 10% 5%, rgba(255, 215, 0, .13), transparent 25rem),
-      radial-gradient(circle at 87% 70%, rgba(158, 86, 195, .22), transparent 28rem),
-      #2c0439;
-  }
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  color: var(--lavender);
+  background-color: #2c0439;
+}
 
-  .app-shell::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: .23;
-    background-image:
-      linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: linear-gradient(to bottom, black, transparent 70%);
-  }
+/* Contenedor wrapper principal */
+.app-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: x-hidden;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(255, 215, 0, .13), transparent 25rem),
+    radial-gradient(circle at 87% 70%, rgba(158, 86, 195, .22), transparent 28rem),
+    #2c0439;
+}
+
+/* Malla de cuadrícula superior */
+.app-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .23;
+  background-image:
+    linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
 
   .content-frame {
     position: relative;
@@ -318,7 +317,7 @@
     <nav>
       <ul class="header-menu">
         <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
-        <li><a href="#" class="nav-link">Blog</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a>
         <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
       </ul>
     </nav>
