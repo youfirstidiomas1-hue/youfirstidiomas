@@ -441,90 +441,58 @@
     }
 
     function cargarRecursos(tipo) {
-      const container = document.getElementById("sidebar-content");
-      const headerTitle = document.getElementById("resource-header-title");
-      const iframe = document.getElementById('resource-iframe');
-      const btnExternal = document.getElementById('btn-external-canva');
+  const container = document.getElementById("sidebar-content");
+  const iframe = document.getElementById('resource-iframe');
+  
+  if (tipo === "english") {
+    // Carga el primer tema por defecto
+    iframe.src = topicsEnglish[0].url;
 
-      container.innerHTML = "";
+    let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
+    
+    topicsEnglish.forEach((t, index) => {
+      const activeClass = index === 0 ? 'bg-[#ffd700]/10 text-[#ffd700]' : 'text-[#e2d1f0]';
+      const iconOpacity = index === 0 ? '' : 'opacity-0';
 
-      if (tipo === "espanhol") {
-        headerTitle.textContent = "Español para tu Vida";
-        btnExternal.href = CANVA_ESP;
-        iframe.src = CANVA_ESP;
-
-        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Hablamos sobre...</span><div class="space-y-1">`;
-        topicsSpanish.forEach(t => {
-          html += `
-            <button onclick="changePage('${CANVA_ESP}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>${t.title}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        container.innerHTML = html;
-
-      } else {
-        headerTitle.textContent = "English for Real Life";
-        btnExternal.href = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view";
-        iframe.src = `${CANVA_ENG}#page=1`;
-
-        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
-        topicsEnglish.forEach(t => {
-          html += `
-            <button onclick="changePage('${CANVA_ENG}#page=${t.id}', '${t.title}', event)" class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm text-[#e2d1f0] hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all">
-              <span>${t.title}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 opacity-0"></i>
-            </button>`;
-        });
-        html += `</div>`;
-        container.innerHTML = html;
-      }
-
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function changePage(url, title, event) {
-      const iframe = document.getElementById('resource-iframe');
-      if (iframe) iframe.src = url;
-
-      const titleElement = document.getElementById('current-topic-title');
-      if (titleElement) {
-        titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
-      }
-
-      document.querySelectorAll('.topic-btn').forEach(btn => {
-        btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
-        const icon = btn.querySelector('i');
-        if (icon) icon.classList.add('opacity-0');
-      });
-
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
-        const activeIcon = event.currentTarget.querySelector('i');
-        if (activeIcon) activeIcon.classList.remove('opacity-0');
-      }
-
-      if (window.lucide) lucide.createIcons();
-    }
-
-    document.getElementById("copy-pix-button").addEventListener("click", async function() {
-      const button = document.getElementById("copy-pix-button");
-      const status = document.getElementById("pix-status");
-      try {
-        await navigator.clipboard.writeText("065.125.357-82");
-        status.classList.remove("hidden");
-        button.disabled = true;
-        setTimeout(() => {
-          status.classList.add("hidden");
-          button.disabled = false;
-        }, 2500);
-      } catch (err) {
-        console.error(err);
-      }
+      html += `
+        <button onclick="changePage('${t.url}', '${t.title}', event)" 
+                class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all ${activeClass}">
+          <span>${t.title}</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 ${iconOpacity}"></i>
+        </button>`;
     });
+    
+    html += `</div>`;
+    container.innerHTML = html;
+  }
+  if (window.lucide) lucide.createIcons();
+}
 
-    if (window.lucide) lucide.createIcons();
+function changePage(url, title, event) {
+  const iframe = document.getElementById('resource-iframe');
+  if (iframe) iframe.src = url;
+
+  const titleElement = document.getElementById('current-topic-title');
+  if (titleElement) {
+    titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
+  }
+
+  document.querySelectorAll('.topic-btn').forEach(btn => {
+    btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
+    btn.classList.add('text-[#e2d1f0]');
+    const icon = btn.querySelector('i');
+    if (icon) icon.classList.add('opacity-0');
+  });
+
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
+    event.currentTarget.classList.remove('text-[#e2d1f0]');
+    const activeIcon = event.currentTarget.querySelector('i');
+    if (activeIcon) activeIcon.classList.remove('opacity-0');
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
   </script>
  </body>
 </html>
