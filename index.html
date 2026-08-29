@@ -216,6 +216,94 @@
       font-size: 17px;
     }
   }
+   /* ESTRUCTURA Y MÁRGENES DE CONTENIDO */
+.beyond-section, 
+.premium-section, 
+.coach-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: left;
+}
+
+/* IMAGEN PROGRAMA PREMIUM (AJUSTADA AL 100%) */
+.premium-title-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* FORMATO DE TÍTULOS DE SECCIÓN */
+.beyond-title, 
+.premium-list-title, 
+.coach-title {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--gold);
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+/* TEXTOS Y PÁRRAFOS */
+.beyond-text, 
+.premium-subtitle, 
+.premium-desc, 
+.coach-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--lavender);
+  margin-bottom: 20px;
+}
+
+/* LISTA CON ESPACIADO PROFESIONAL */
+.premium-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 25px 0;
+}
+
+.premium-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.premium-list li::before {
+  content: "•";
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.premium-list strong {
+  color: #ffffff;
+}
+
+/* BOTÓN DE ADMISSION CHALLENGE */
+.btn-challenge {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-challenge:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
 </style>
 </head>
 <body>
