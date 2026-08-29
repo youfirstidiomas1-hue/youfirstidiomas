@@ -9,56 +9,59 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
  :root {
-  --plum: #2c0439;
-  --plum-deep: #16001d;
+  --plum: #3b064d;         /* Morado más claro para menú/destacados */
+  --plum-deep: #16001d;    /* Morado oscuro de fondo */
+  --panel: rgba(26, 2, 36, 0.75);
   --gold: #ffd700;
   --lavender: #e2d1f0;
 }
 
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  padding: 0;
   width: 100%;
   min-height: 100vh;
   font-family: "DM Sans", sans-serif;
-  color: #e2d1f0;
-  background-color: #1a0122;
+  color: var(--lavender);
+  background-color: var(--plum-deep);
 }
 
-/* GRADIENTE EXACTO DE LA CAPTURA DEL DASHBOARD */
+/* GRADIENTE VISIBLE Y AJUSTADO */
 .app-shell {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: 
-    /* Luz dorada tenue central arriba */
-    radial-gradient(ellipse at 50% -10%, rgba(184, 134, 11, 0.25) 0%, transparent 60%),
-    /* Fondo base degradado lineal (Marrón/Dorado oscuro a Púrpura profundo) */
-    linear-gradient(135deg, #2b1103 0%, #200427 45%, #15001a 100%);
+  overflow: hidden;
+  background:
+    /* Luz dorada superior izquierda (opacidad subida al 40%) */
+    radial-gradient(circle at 15% 10%, rgba(255, 215, 0, 0.40) 0%, transparent 28rem),
+    /* Resplandor purpúreo claro inferior derecho (opacidad subida al 50%) */
+    radial-gradient(circle at 85% 65%, rgba(186, 85, 211, 0.50) 0%, transparent 32rem),
+    /* Base en gradiente de Morado Claro a Morado Oscuro Deep */
+    linear-gradient(180deg, #3b064d 0%, #16001d 100%);
   background-attachment: fixed;
 }
 
-/* Quitamos la cuadrícula si quieres la vista 100% limpia de la captura */
 .app-shell::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.23;
+  background-image:
+    linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
 }
 
-/* HEADER TRANSPARENTE CON GLASSMORPHISM */
+/* MENÚ CON MORADO MÁS CLARO */
 .header-nav {
   width: 100%;
-  background: rgba(22, 0, 29, 0.75);
-  backdrop-filter: blur(12px);
-  padding: 18px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 215, 0, 0.4);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: var(--plum) !important; /* Aplica el morado más claro en la barra superior */
+  border-bottom: 2px solid var(--gold);
 }
 
 .header-brand { display: flex; align-items: center; text-decoration: none; }
