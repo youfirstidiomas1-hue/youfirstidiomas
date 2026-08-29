@@ -58,27 +58,17 @@ body {
 }
 
 /* MENÚ CON MORADO MÁS CLARO */
-.header-nav {
-  width: 100%;
-  background: var(--plum) !important; /* Aplica el morado más claro en la barra superior */
-  border-bottom: 2px solid var(--gold);
-}
-
-.header-brand { display: flex; align-items: center; text-decoration: none; }
-.header-logo-img { height: 55px; width: auto; object-fit: contain; }
-.header-menu { display: flex; align-items: center; gap: 25px; list-style: none; margin: 0; padding: 0; }
-
-.nav-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 8px 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
+<header class="header-nav">
+  <a href="index.html" class="header-brand">
+    <img src="assets/logo.png" alt="You First Idiomas" class="header-logo-img">
+  </a>
+  <nav>
+    <ul class="header-menu">
+      <li><a href="#programas" class="nav-link">SOBRE</a></li>
+      <li><a href="#blog" class="nav-link">BLOG</a></li>
+      <li><a href="aluno.html" class="nav-btn-highlight">Área do Aluno</a></li>
+    </ul>
+   
 .nav-link:hover { color: #ffd700; }
 
 .nav-btn-highlight {
@@ -90,11 +80,9 @@ body {
   text-transform: uppercase;
   box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
 }
+  </nav>
+</header>
 
-.nav-btn-highlight:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-}
 
 /* SECCIONES TRANSPARENTES PARA MOSTRAR EL GRADIENTE */
 .hero-section {
