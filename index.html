@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
- <head>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>You First Idiomas | Aprenda Inglês e Espanhol</title>
+  
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@500;600;700&display=swap');
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<style>
   :root {
     --plum: #3b064d;
     --plum-deep: #16001d;
@@ -66,7 +65,7 @@
   /* HEADER (LOGO Y MENÚ MÁS GRANDES) */
   .header-nav {
     width: 100%;
-    background-color: #2c0439; /* Color exacto aplicado solo al menú */
+    background-color: #2c0439; /* Color exacto del menú */
     padding: 16px 50px;
     display: flex;
     justify-content: space-between;
@@ -85,7 +84,7 @@
   }
 
   .header-logo-img {
-    height: 62px; /* Logo más grande */
+    height: 62px;
     max-height: 65px;
     width: auto;
     object-fit: contain;
@@ -105,7 +104,7 @@
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 16px; /* Fuente del menú más grande */
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     transition: color 0.3s ease;
@@ -120,7 +119,7 @@
     color: var(--gold) !important;
     background: transparent !important;
     font-weight: 700;
-    font-size: 14px; /* Un poco más grande para acompañar el menú */
+    font-size: 14px;
     letter-spacing: 0.8px;
     border-radius: 50px;
     padding: 10px 24px;
@@ -145,7 +144,7 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 50px 20px;
-    text-align: center; /* Alineación central global */
+    text-align: center;
   }
 
   .hero-text {
@@ -259,7 +258,7 @@
     color: #ffffff;
   }
 
-  /* BOTÓN ADMISSION CHALLENGE (ESTILO GHOST IGUAL AL MENÚ) */
+  /* BOTÓN ADMISSION CHALLENGE */
   .btn-challenge {
     display: inline-block;
     margin-top: 25px;
@@ -282,6 +281,30 @@
     transform: translateY(-2px);
   }
 
+  /* CANVA EMBED */
+  .canva-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    margin-top: 2em;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+
+  .canva-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .header-nav {
@@ -300,83 +323,98 @@
 </head>
 <body>
 
-  <!-- Header Morado / Solo Logo + Menú en Mayúsculas -->
-  <header class="header-nav">
-    <a href="index.html" class="header-brand">
-      <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
-    </a>
+  <div class="app-shell">
+    <!-- HEADER -->
+    <header class="header-nav">
+      <a href="index.html" class="header-brand">
+        <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
+      </a>
 
-    <nav>
-      <ul class="header-menu">
-        <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a>
-        <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav>
+        <ul class="header-menu">
+          <li><a href="#cursos" class="nav-link">Programas</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <section class="hero-section">
-  <p class="hero-text">
-    Especialista em preparar profissionais para processos seletivos internacionais de alta performance.
-  </p>
+    <main>
+      <!-- HERO & TARJETAS DE PROGRAMAS -->
+      <section class="hero-section">
+        <p class="hero-text">
+          Especialista em preparar profissionais para processos seletivos internacionais de alta performance.
+        </p>
 
-  <!-- PRESENTACIÓN DE CANVA EMBEBIDA -->
-  <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-      src="https://www.canva.com/design/DAFuSMo9Ies/iaORwgcJUkAXGU3SH9qFBQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-    </iframe>
+        <div id="cursos" class="courses-grid">
+          <div class="course-card">
+            <img src="assets/english-card.png" alt="English for Real Life" class="course-img">
+            <h3>English for Real Life</h3>
+            <p>Treinamento intensivo focado em negociações, reuniões internacionais, oratória e termos técnicos corporativos.</p>
+          </div>
+
+          <div class="course-card">
+            <img src="assets/espanol-card.png" alt="Español para tu Vida" class="course-img">
+            <h3>Español para tu Vida</h3>
+            <p>Domine o idioma mais estratégico da América Latina para expansão de negócios, liderança e comunicação formal.</p>
+          </div>
+        </div>
+      </section> 
+      
+      <!-- VÁ ALÊM DO BÁSICO -->
+      <section class="beyond-section">
+        <h2 class="beyond-title">Vá além do básico...</h2>
+        <p class="beyond-text">
+          No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade. Desenvolvemos uma metodologia que alinha fluência linguística e técnicas estratégicas para desbloquear seu potencial comunicativo.
+        </p>
+        
+        <hr class="section-divider">
+      </section>
+
+      <!-- PROGRAMA PREMIUM -->
+      <section class="premium-section" id="premium">
+        <div class="premium-container">
+          <img src="assets/programa-premium.jpg" alt="PROGRAMA PREMIUM" class="premium-title-img">
+          
+          <p class="premium-subtitle">A ponte entre onde você está hoje e o seu próximo grande passo profissional.</p>
+          
+          <p class="premium-desc">
+            O Programa Premium é uma modalidade de alto rendimento desenhada para profissionais que não têm meses para "esperar ver o que acontece". É um sistema de treinamento linguístico direto, prático e baseado em objetivos imediatos.
+          </p>
+
+          <p class="premium-list-title">O que você recebe na versão Premium?</p>
+
+          <ul class="premium-list">
+            <li><strong>4 Horas de Consultoria 1:1 (Sessões de 30 min):</strong> Um total de 8 blocos de meia hora que você pode usar como preferir (juntos ou separados) para focar na sua necessidade específica: preparar uma apresentação, simular uma entrevista ou destravar sua fluência.</li>
+            <li><strong>Ecossistema Tecnológico de Ponta:</strong> Acesso total à nossa plataforma com atividades e ferramentas de IA para prática de pronúncia, gramática e vocabulário técnico.</li>
+            <li><strong>Comunidade e Prática Real:</strong> Acesso a atividades práticas e à nossa comunidade de profissionais.</li>
+            <li><strong>Flexibilidade Total de Agenda:</strong> Você decide o dia e a hora. Seu progresso não depende de um horário fixo, mas da sua prioridade.</li>
+          </ul>
+
+          <a href="#" class="btn-challenge">Acessar o Challenge</a>
+        </div>
+      </section>
+
+      <!-- SOBRE A COACH + CANVA EMBED -->
+      <section class="coach-section" id="coach">
+        <div class="coach-container">
+          <h2 class="coach-title">Sobre a Coach</h2>
+          
+          <p class="coach-text">
+            Sou Laura Chasampi e dediquei as últimas duas décadas à capacitação de líderes através da Metodologia YFI, um método ágil validado por resultados reais. Como poliglota e profissional multidisciplinar, acredito que um professor precisa entender tanto de pessoas quanto de negócios.
+          </p>
+          <p class="coach-text">
+            Minha formação diversificada me permite transitar por diferentes temas com profundidade, estimulando nos meus alunos a mesma curiosidade que me levou a dominar múltiplos campos. Aqui, o aprendizado é tão vasto quanto o mercado global: unimos fluência técnica e repertório estratégico para que sua comunicação não tenha limites.
+          </p>
+
+          <!-- CANVA EMBED AL FINAL -->
+          <div class="canva-container">
+            <iframe loading="lazy" src="https://www.canva.com/design/DAFuSMo9Ies/iaORwgcJUkAXGU3SH9qFBQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-</section> 
- 
- Vá Além -->
-  <section class="beyond-section">
-    <h2 class="beyond-title">Vá além do básico...</h2>
-    <p class="beyond-text">
-      No mercado atual, saber apenas o intermediário não garante posições de destaque. É necessário comunicar-se com clareza, precisão e autoridade. Desenvolvemos uma metodologia que alinha fluência linguística e técnicas estratégicas para desbloquear seu potencial comunicativo.
-    </p>
-  </section>
-
-  <!-- PROGRAMA PREMIUM -->
-  <section class="premium-section" id="premium">
-    <div class="premium-container">
-      <img src="assets/programa-premium.jpg" alt="PROGRAMA PREMIUM" class="premium-title-img">
-      
-      <p class="premium-subtitle">A ponte entre onde você está hoje e o seu próximo grande passo profissional.</p>
-      
-      <p class="premium-desc">
-        O Programa Premium é uma modalidade de alto rendimento desenhada para profissionais que não têm meses para "esperar ver o que acontece". É um sistema de treinamento linguístico direto, prático e baseado em objetivos imediatos.
-      </p>
-
-      <p class="premium-list-title">O que você recebe na versão Premium?</p>
-
-      <ul class="premium-list">
-        <li>• <strong>4 Horas de Consultoria 1:1 (Sessões de 30 min):</strong> Um total de 8 blocos de meia hora que você pode usar como preferir (juntos ou separados) para focar na sua necessidade específica: preparar uma apresentação, simular uma entrevista ou destravar sua fluência.</li>
-        <li>• <strong>Ecossistema Tecnológico de Ponta:</strong> Acesso total à nossa plataforma com atividades e ferramentas de IA para prática de pronúncia, gramática e vocabulário técnico.</li>
-        <li>• <strong>Comunidade e Prática Real:</strong> Acesso a atividades práticas e à nossa comunidade de profissionais.</li>
-        <li>• <strong>Flexibilidade Total de Agenda:</strong> Você decide o dia e a hora. Seu progresso não depende de um horário fixo, mas da sua prioridade.</li>
-      </ul>
-
-      <a href="#" class="btn-challenge">Acessar o Challenge</a>
-    </div>
-  </section>
-
-  <!-- Sobre a Coach -->
-  <section class="coach-section" id="coach">
-    <div class="coach-container">
-      <h2 class="coach-title">Sobre a Coach</h2>
-      
-      <p class="coach-text">
-        Sou Laura Chasampi e dediquei as últimas duas décadas à capacitação de líderes através da Metodologia YFI, um método ágil validado por resultados reais. Como poliglota e profissional multidisciplinar, acredito que um professor precisa entender tanto de pessoas quanto de negócios.
-      </p>
-      <p class="coach-text">
-        Minha formação diversificada me permite transitar por diferentes temas com profundidade, estimulando nos meus alunos a mesma curiosidade que me levou a dominar múltiplos campos. Aqui, o aprendizado é tão vasto quanto o mercado global: unimos fluência técnica e repertório estratégico para que sua comunicação não tenha limites.
-      </p>
-
-      <div class="canva-embed-container">
-        <iframe src="https://www.canva.com/design/DAFuSMo9Ies/iaORwgcJUkAXGU3SH9qFBQ/view" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-      </div>
-    </div>
-  </section>
 
   <script src="main.js"></script>
 </body>
