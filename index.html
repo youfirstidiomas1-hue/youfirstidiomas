@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
  <head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>You First Idiomas | Aprenda Inglês e Espanhol</title>
@@ -8,209 +9,215 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
- :root {
-  --plum: #3b064d;         /* Morado más claro para menú/destacados */
-  --plum-deep: #16001d;    /* Morado oscuro de fondo */
-  --panel: rgba(26, 2, 36, 0.75);
-  --gold: #ffd700;
-  --lavender: #e2d1f0;
-}
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@500;600;700&display=swap');
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+  :root {
+    --plum: #3b064d;
+    --plum-deep: #16001d;
+    --panel: rgba(26, 2, 36, 0.75);
+    --gold: #ffd700;
+    --lavender: #e2d1f0;
+  }
 
-body {
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  font-family: "DM Sans", sans-serif;
-  color: var(--lavender);
-  background-color: var(--plum-deep);
-}
+  * { 
+    box-sizing: border-box; 
+  }
 
-/* GRADIENTE VISIBLE Y AJUSTADO */
-.app-shell {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  background:
-    /* Luz dorada superior izquierda (opacidad subida al 40%) */
-    radial-gradient(circle at 15% 10%, rgba(255, 215, 0, 0.40) 0%, transparent 28rem),
-    /* Resplandor purpúreo claro inferior derecho (opacidad subida al 50%) */
-    radial-gradient(circle at 85% 65%, rgba(186, 85, 211, 0.50) 0%, transparent 32rem),
-    /* Base en gradiente de Morado Claro a Morado Oscuro Deep */
-    linear-gradient(180deg, #3b064d 0%, #16001d 100%);
-  background-attachment: fixed;
-}
+  html { 
+    scroll-behavior: smooth; 
+  }
 
-.app-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.23;
-  background-image:
-    linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, black, transparent 70%);
-}
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+    color: var(--lavender);
+    background-color: var(--plum-deep);
+  }
 
-/* MENÚ CON MORADO MÁS CLARO */
-<header class="header-nav">
-  <a href="index.html" class="header-brand">
-    <img src="assets/logo.png" alt="You First Idiomas" class="header-logo-img">
-  </a>
-  <nav>
-    <ul class="header-menu">
-      <li><a href="#programas" class="nav-link">SOBRE</a></li>
-      <li><a href="#blog" class="nav-link">BLOG</a></li>
-      <li><a href="aluno.html" class="nav-btn-highlight">Área do Aluno</a></li>
-    </ul>
-   
-.nav-link:hover { color: #ffd700; }
+  /* FONDO CON GRADIENTE Y LUZ */
+  .app-shell {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255, 215, 0, 0.35) 0%, transparent 28rem),
+      radial-gradient(circle at 85% 65%, rgba(186, 85, 211, 0.45) 0%, transparent 32rem),
+      linear-gradient(180deg, #3b064d 0%, #16001d 100%);
+    background-attachment: fixed;
+  }
 
-.nav-btn-highlight {
-  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-  color: #2c0439;
-  font-weight: 800;
-  border-radius: 25px;
-  padding: 10px 22px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
-}
-  </nav>
-</header>
+  .app-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+      linear-gradient(rgba(255, 215, 0, .07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 215, 0, .07) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black, transparent 70%);
+  }
 
+  /* HEADER CORREGIDO (LOGO PEQUEÑO + MENÚ A LA DERECHA) */
+  .header-nav {
+    width: 100%;
+    background-color: #1a0122;
+    padding: 12px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
 
-/* SECCIONES TRANSPARENTES PARA MOSTRAR EL GRADIENTE */
-.hero-section {
-  background: transparent;
-  padding: 60px 20px;
-  text-align: center;
-}
+  .header-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
 
-.hero-container { max-width: 900px; margin: 0 auto; }
-.hero-text { font-size: 20px; font-weight: 600; color: #ffffff; margin-bottom: 40px; }
+  /* CONTROL DE TAMAÑO DEL LOGO PARA EVITAR QUE SE DESBORDE */
+  .header-logo-img {
+    height: 48px;
+    max-height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
 
-.courses-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 30px; 
-}
+  .header-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-/* TARJETAS GLASSMORPHISM */
-.course-card {
-  background: rgba(22, 0, 29, 0.65);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 215, 0, 0.35);
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+  }
 
-.course-card:hover {
-  transform: translateY(-5px);
-  border-color: #ffd700;
-}
+  .nav-link:hover {
+    color: var(--gold);
+  }
 
-.course-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  object-fit: cover;
-}
+  /* BOTÓN ÁREA DO ALUNO (ESTILO GHOST FINO) */
+  .nav-btn-highlight {
+    color: var(--gold) !important;
+    background: transparent !important;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    border-radius: 50px;
+    padding: 8px 22px;
+    border: 1px solid var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
 
-.course-card h3 { font-size: 22px; color: #ffd700; margin-bottom: 10px; }
+  .nav-btn-highlight:hover {
+    background: rgba(255, 215, 0, 0.12) !important;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+    transform: translateY(-1px);
+  }
 
-.beyond-section { 
-  background: transparent;
-  padding: 60px 20px; 
-  max-width: 850px; 
-  margin: 0 auto; 
-  text-align: center;
-}
+  /* SECCIÓN HERO Y NUEVA FUENTE PARA EL SUBTÍTULO */
+  .hero-section {
+    background: transparent;
+    padding: 60px 20px 40px 20px;
+    text-align: center;
+  }
 
-.beyond-title { font-size: 30px; font-weight: 800; color: #ffd700; margin-bottom: 20px; }
-.beyond-text { font-size: 17px; color: #e2d1f0; line-height: 1.7; }
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-.premium-section {
-  background: rgba(22, 0, 29, 0.4);
-  color: #ffffff;
-  padding: 60px 20px;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
+  /* FUENTE NUEVA DESTACADA Y ELEGANTE PARA EL SUBTÍTULO */
+  .hero-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+    margin: 0 auto 45px auto;
+    max-width: 820px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
 
-.premium-container { max-width: 800px; margin: 0 auto; }
-.premium-title-img { display: block; max-width: 100%; height: auto; margin: 0 auto 30px auto; }
-.premium-subtitle { font-size: 20px; font-weight: 700; text-align: center; color: #ffd700; margin-bottom: 30px; }
-.premium-desc { font-size: 16px; margin-bottom: 40px; text-align: justify; color: #f1e4f7; }
-.premium-list-title { color: #ffd700; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
-.premium-list { list-style: none; padding: 0; }
-.premium-list li { margin-bottom: 20px; font-size: 15px; line-height: 1.6; color: #e2d1f0; }
-.premium-list strong { color: #ffffff; font-weight: 700; }
+  /* TARJETAS DE CURSOS */
+  .courses-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+  }
 
-.btn-challenge {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  margin: 40px auto 0 auto;
-  padding: 18px;
-  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-  color: #2c0439;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 800;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  transition: transform 0.2s ease;
-}
+  .course-card {
+    background: rgba(22, 0, 29, 0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
 
-.btn-challenge:hover { transform: translateY(-2px); }
+  .course-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+  }
 
-.coach-section {
-  background: rgba(22, 0, 29, 0.5);
-  padding: 80px 20px;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
+  .course-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
 
-.coach-container { max-width: 850px; margin: 0 auto; text-align: center; }
-.coach-title { font-size: 32px; font-weight: 800; color: #ffd700; margin-bottom: 25px; }
-.coach-text { font-size: 17px; color: #e2d1f0; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+  .course-card h3 { 
+    font-size: 22px; 
+    color: var(--gold); 
+    margin-bottom: 10px; 
+  }
 
-.canva-embed-container {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 56.25%;
-  margin-top: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.canva-embed-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-  .header-logo-img { height: 50px; }
-  .header-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .beyond-title, .coach-title { font-size: 26px; }
-  .hero-text { font-size: 17px; }
-}
-  </style>
+  /* RESPONSIVE PARA MÓVILES */
+  @media (max-width: 768px) {
+    .header-nav {
+      padding: 15px 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .header-logo-img {
+      height: 40px;
+    }
+    .header-menu {
+      gap: 15px;
+    }
+    .hero-text {
+      font-size: 17px;
+    }
+  }
+</style>
 </head>
 <body>
 
