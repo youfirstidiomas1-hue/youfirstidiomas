@@ -1,315 +1,582 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desafios | You First Idiomas</title>
+  <title>Programas & Admission Challenge | You First Idiomas</title>
+  
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style> 
- :root {
-  --plum: #2c0439;
-  --plum-deep: #16001d;
-  --gold: #ffd700;
-  --lavender: #e2d1f0;
-}
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-* { box-sizing: border-box; }
+<style>
+  :root {
+    --plum: #3b064d;
+    --plum-deep: #16001d;
+    --panel: #2c0439;
+    --gold: #ffd700;
+    --lavender: #e2d1f0;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  font-family: "DM Sans", sans-serif;
-  color: var(--lavender);
-  background-color: #2c0439;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-/* GRADIENTE GLOBAL DE FONDO */
-.app-shell {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background: 
-    radial-gradient(circle at 10% 8%, rgba(255, 215, 0, 0.22) 0%, transparent 35rem),
-    radial-gradient(circle at 90% 60%, rgba(158, 86, 195, 0.35) 0%, transparent 38rem),
-    #2c0439;
-  background-attachment: fixed;
-}
+  body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--lavender);
+    background-color: var(--plum-deep);
+    min-height: 100vh;
+  }
 
-.app-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.20;
-  background-image:
-    linear-gradient(rgba(255, 215, 0, .08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 215, 0, .08) 1px, transparent 1px);
-  background-size: 42px 42px;
-}
+  /* FONDO GRADIENTE IGUAL A INDEX */
+  .app-shell {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255, 215, 0, 0.35) 0%, transparent 28rem),
+      radial-gradient(circle at 85% 65%, rgba(186, 85, 211, 0.45) 0%, transparent 32rem),
+      linear-gradient(180deg, #3b064d 0%, #16001d 100%);
+    background-attachment: fixed;
+  }
 
-/* HEADER TRANSPARENTE CON GLASSMORPHISM */
-.header-nav {
-  width: 100%;
-  background: rgba(22, 0, 29, 0.75);
-  backdrop-filter: blur(12px);
-  padding: 18px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 215, 0, 0.4);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  /* HEADER */
+  .header-nav {
+    width: 100%;
+    background-color: #2c0439;
+    padding: 16px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
 
-.header-brand { display: flex; align-items: center; text-decoration: none; }
-.header-logo-img { height: 55px; width: auto; object-fit: contain; }
-.header-menu { display: flex; align-items: center; gap: 25px; list-style: none; margin: 0; padding: 0; }
+  .header-logo-img {
+    height: 62px;
+    width: auto;
+    object-fit: contain;
+  }
 
-.nav-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 8px 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
+  .header-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+  }
 
-.nav-link:hover { color: #ffd700; }
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+  }
 
-.nav-btn-highlight {
-  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-  color: #2c0439;
-  font-weight: 800;
-  border-radius: 25px;
-  padding: 10px 22px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
-}
+  .nav-link:hover { color: var(--gold); }
 
-.nav-btn-highlight:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-}
+  .nav-btn-highlight {
+    color: var(--gold) !important;
+    background: transparent !important;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 50px;
+    padding: 10px 24px;
+    border: 1px solid var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
 
-/* SECCIONES TRANSPARENTES PARA MOSTRAR EL GRADIENTE */
-.hero-section {
-  background: transparent;
-  padding: 60px 20px;
-  text-align: center;
-}
+  .nav-btn-highlight:hover {
+    background: rgba(255, 215, 0, 0.12) !important;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+  }
 
-.hero-container { max-width: 900px; margin: 0 auto; }
-.hero-text { font-size: 20px; font-weight: 600; color: #ffffff; margin-bottom: 40px; }
+  /* SECCIONES Y ESTRUCTURA CENTRADA */
+  .content-section {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+  }
 
-.courses-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 30px; 
-}
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gold);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
 
-/* TARJETAS GLASSMORPHISM */
-.course-card {
-  background: rgba(22, 0, 29, 0.65);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 215, 0, 0.35);
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
+  .section-subtitle {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
 
-.course-card:hover {
-  transform: translateY(-5px);
-  border-color: #ffd700;
-}
+  .section-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--lavender);
+    margin-bottom: 20px;
+  }
 
-.course-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  object-fit: cover;
-}
+  .example-box {
+    background: rgba(44, 4, 57, 0.8);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  }
 
-.course-card h3 { font-size: 22px; color: #ffd700; margin-bottom: 10px; }
+  .example-box h4 {
+    color: var(--gold);
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
 
-.beyond-section { 
-  background: transparent;
-  padding: 60px 20px; 
-  max-width: 850px; 
-  margin: 0 auto; 
-  text-align: center;
-}
+  .example-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ffffff;
+  }
 
-.beyond-title { font-size: 30px; font-weight: 800; color: #ffd700; margin-bottom: 20px; }
-.beyond-text { font-size: 17px; color: #e2d1f0; line-height: 1.7; }
+  /* DIVISOR DORADO */
+  .section-divider {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 50px auto;
+    border: none;
+    opacity: 0.6;
+  }
 
-.premium-section {
-  background: rgba(22, 0, 29, 0.4);
-  color: #ffffff;
-  padding: 60px 20px;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
+  /* ESTILOS DEL CUESTIONARIO / CHALLENGE INTEGRADO */
+  .quiz-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
 
-.premium-container { max-width: 800px; margin: 0 auto; }
-.premium-title-img { display: block; max-width: 100%; height: auto; margin: 0 auto 30px auto; }
-.premium-subtitle { font-size: 20px; font-weight: 700; text-align: center; color: #ffd700; margin-bottom: 30px; }
-.premium-desc { font-size: 16px; margin-bottom: 40px; text-align: justify; color: #f1e4f7; }
-.premium-list-title { color: #ffd700; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
-.premium-list { list-style: none; padding: 0; }
-.premium-list li { margin-bottom: 20px; font-size: 15px; line-height: 1.6; color: #e2d1f0; }
-.premium-list strong { color: #ffffff; font-weight: 700; }
+  .question-card {
+    background: #2c0439;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(157, 78, 221, 0.3), 0 0 0 1px rgba(157, 78, 221, 0.2);
+    max-width: 700px;
+    width: 100%;
+    display: none;
+    position: relative;
+    min-height: 280px;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+  }
 
-.btn-challenge {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  margin: 40px auto 0 auto;
-  padding: 18px;
-  background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
-  color: #2c0439;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 800;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  transition: transform 0.2s ease;
-}
+  .question-card.active {
+    display: block;
+    animation: fadeInScale 0.5s ease;
+  }
 
-.btn-challenge:hover { transform: translateY(-2px); }
+  .question-card.answered .question-content {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+  }
 
-.coach-section {
-  background: rgba(22, 0, 29, 0.5);
-  padding: 80px 20px;
-  border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
+  .question-card.answered .feedback {
+    opacity: 1;
+    display: block;
+    position: relative;
+    z-index: 10;
+  }
 
-.coach-container { max-width: 850px; margin: 0 auto; text-align: center; }
-.coach-title { font-size: 32px; font-weight: 800; color: #ffd700; margin-bottom: 25px; }
-.coach-text { font-size: 17px; color: #e2d1f0; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+  .question-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+  }
 
-.canva-embed-container {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 56.25%;
-  margin-top: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-}
+  .question-text {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
 
-.canva-embed-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+  .button-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
 
-@media (max-width: 768px) {
-  .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-  .header-logo-img { height: 50px; }
-  .header-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .beyond-title, .coach-title { font-size: 26px; }
-  .hero-text { font-size: 17px; }
-}
-   <style/>
+  .answer-btn {
+    flex: 1;
+    padding: 16px 24px;
+    border: 2px solid rgba(157, 78, 221, 0.4);
+    border-radius: 12px;
+    background: rgba(157, 78, 221, 0.1);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .answer-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(157, 78, 221, 0.25);
+    border-color: var(--gold);
+  }
+
+  .answer-btn.yes { border-color: #48bb78; }
+  .answer-btn.yes:hover, .answer-btn.yes.selected { background: #48bb78; color: #fff; }
+
+  .answer-btn.no { border-color: #f56565; }
+  .answer-btn.no:hover, .answer-btn.no.selected { background: #f56565; color: #fff; }
+
+  .feedback {
+    background: #ffffff;
+    border-left: 5px solid var(--gold);
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #2d3748;
+    line-height: 1.6;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: left;
+  }
+
+  .next-button {
+    margin-top: 20px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
+    color: #ffffff;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: none;
+  }
+
+  .next-button:hover {
+    background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+    transform: translateY(-2px);
+  }
+
+  .question-card.answered .next-button { display: inline-block; }
+
+  .result-card {
+    background: #2c0439;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+    max-width: 700px;
+    width: 100%;
+    display: none;
+    border: 1px solid var(--gold);
+  }
+
+  .result-card.show {
+    display: block;
+    animation: fadeInScale 0.6s ease;
+  }
+
+  .result-title { font-size: 30px; color: #ffffff; font-weight: 700; margin-bottom: 10px; }
+  .result-subtitle { font-size: 20px; margin-bottom: 20px; font-weight: 600; }
+  .result-subtitle.high-performance { color: #48bb78; }
+  .result-subtitle.transformation { color: #ed8936; }
+  .result-text { font-size: 16px; color: #ffffff; line-height: 1.7; margin-bottom: 30px; }
+
+  .cta-button {
+    display: inline-block;
+    width: 100%;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--gold);
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 768px) {
+    .header-nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+    .header-menu { gap: 20px; }
+    .button-group { flex-direction: column; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Mismo Header Unificado -->
-  <header class="header-nav">
-    <a href="index.html" class="header-brand">
-      <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
-    </a>
+  <div class="app-shell">
+    <!-- HEADER -->
+    <header class="header-nav">
+      <a href="index.html" class="header-brand">
+        <img src="assets/logo.png" alt="You First Idiomas Logo" class="header-logo-img">
+      </a>
 
-    <nav>
-      <ul class="header-menu">
-        <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
-        <li><a href="#" class="nav-link">Blog</a></li>
-        <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav>
+        <ul class="header-menu">
+          <li><a href="index.html#cursos" class="nav-link">Programas</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="aluno.html" class="nav-link nav-btn-highlight">Área do Aluno</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <div class="challenge-container">
-    <h1 class="challenge-title">Admission Challenge: Você tem o perfil Premium?</h1>
+    <main>
+      <!-- PARTE 1: ENGLISH FOR REAL LIFE -->
+      <section id="english" class="content-section">
+        <h1 class="section-title">English for Real Life</h1>
+        <p class="section-subtitle">O Código do Inglês Estratégico para o Mercado Global</p>
+        
+        <p class="section-text">
+          A maioria dos profissionais não trava por falta de gramática, mas por tentar traduzir estruturas complexas sob pressão. O método YFI substitui a teoria exaustiva por patrones de comunicación ágil directos para entornos corporativos.
+        </p>
 
-    <div class="question-card active" data-question="0">
-      <div class="question-number">Pergunta 1 de 5</div>
-      <div class="question-text">Disciplina: Você consegue manter uma rotina mínima de contato com o idioma?</div>
-      <div class="button-group">
-        <button class="answer-btn yes" onclick="handleAnswer(0, true)">SIM</button>
-        <button class="answer-btn no" onclick="handleAnswer(0, false)">NÃO</button>
-      </div>
-      <div class="feedback" id="feedback-0"></div>
-      <button class="next-button" id="next-0" onclick="nextQuestion()">Próxima Pergunta →</button>
-    </div>
+        <div class="example-box">
+          <h4>💡 Exemplo Prático 1: A Técnica do Atalho em Reuniões</h4>
+          <p>En vez de estructurar un pensamiento complejo como <em>"I was thinking that maybe we could consider delaying the deadline"</em>, aplicamos el código directo: <strong>"Proposal: let's adjust the timeline to ensure quality."</strong> Menos carga mental, mayor impacto y autoridad inmediata.</p>
+        </div>
 
-    <div class="question-card" data-question="1">
-      <div class="question-number">Pergunta 2 de 5</div>
-      <div class="question-text">Autonomia: Você se sente confortável em buscar soluções antes de pedir ajuda?</div>
-      <div class="button-group">
-        <button class="answer-btn yes" onclick="handleAnswer(1, true)">SIM</button>
-        <button class="answer-btn no" onclick="handleAnswer(1, false)">NÃO</button>
-      </div>
-      <div class="feedback" id="feedback-1"></div>
-      <button class="next-button" id="next-1" onclick="nextQuestion()">Próxima Pergunta →</button>
-    </div>
+        <div class="example-box">
+          <h4>💡 Exemplo Prático 2: Negociação & Contorno</h4>
+          <p>Cuando no recuerdas un término técnico específico, no te detengas a buscar la palabra. Usamos la <strong>Técnica de Redirección Inteligente</strong>: <em>"To frame this in business terms..."</em> o <em>"Looking at the core metric..."</em> para mantener la fluidez sin perder el hilo de la negociación.</p>
+        </div>
+      </section>
 
-    <div class="question-card" data-question="2">
-      <div class="question-number">Pergunta 3 de 5</div>
-      <div class="question-text">Foco: Em uma reunião importante, você consegue manter a atenção no objetivo da fala?</div>
-      <div class="button-group">
-        <button class="answer-btn yes" onclick="handleAnswer(2, true)">SIM</button>
-        <button class="answer-btn no" onclick="handleAnswer(2, false)">NÃO</button>
-      </div>
-      <div class="feedback" id="feedback-2"></div>
-      <button class="next-button" id="next-2" onclick="nextQuestion()">Próxima Pergunta →</button>
-    </div>
+      <hr class="section-divider">
 
-    <div class="question-card" data-question="3">
-      <div class="question-number">Pergunta 4 de 5</div>
-      <div class="question-text">O Medo: Você sente que o medo de errar trava sua fala em momentos decisivos?</div>
-      <div class="button-group">
-        <button class="answer-btn yes" onclick="handleAnswer(3, true)">SIM</button>
-        <button class="answer-btn no" onclick="handleAnswer(3, false)">NÃO</button>
-      </div>
-      <div class="feedback" id="feedback-3"></div>
-      <button class="next-button" id="next-3" onclick="nextQuestion()">Próxima Pergunta →</button>
-    </div>
+      <!-- PARTE 2: ESPAÑOL PARA TU VIDA -->
+      <section id="espanol" class="content-section">
+        <h2 class="section-title">Español para tu Vida</h2>
+        <p class="section-subtitle">O Código do Espanhol Corporativo e de Alta Influência</p>
 
-    <div class="question-card" data-question="4">
-      <div class="question-number">Pergunta 5 de 5</div>
-      <div class="question-text">Priorização: Você consegue identificar o que é essencial comunicar, mesmo sem saber todas as palavras?</div>
-      <div class="button-group">
-        <button class="answer-btn yes" onclick="handleAnswer(4, true)">SIM</button>
-        <button class="answer-btn no" onclick="handleAnswer(4, false)">NÃO</button>
-      </div>
-      <div class="feedback" id="feedback-4"></div>
-      <button class="next-button" id="next-4" onclick="nextQuestion()">Ver Resultado →</button>
-    </div>
+        <p class="section-text">
+          El "portuñol" es el enemigo silencioso de las negociaciones en América Latina. Aunque parece comprensible, destruye la imagen de autoridad. Nuestro método elimina las trampas lingüísticas y te dota del registro formal y estratégico que exige el mercado internacional.
+        </p>
 
-    <div class="result-card" id="result-card">
-      <h2 class="result-title" id="result-title"></h2>
-      <h3 class="result-subtitle" id="result-subtitle"></h3>
-      <p class="result-text" id="result-text"></p>
-      <a href="https://www.youfirstidiomas.com/onboarding" class="cta-button" target="_blank" rel="noopener">Comece agora!</a>
-    </div>
+        <div class="example-box">
+          <h4>💡 Exemplo Prático 1: Desarmando Falsos Amigos (Portuñol vs. Profesional)</h4>
+          <p>Decir <em>"estoy gravando la reunión"</em> (falso amigo) genera confusión inmediata. Con el método YFI automatizas el registro corporativo correcto: <strong>"Estamos grabando la sesión y formalizando los acuerdos."</strong></p>
+        </div>
+
+        <div class="example-box">
+          <h4>💡 Exemplo Prático 2: Oratoria de Liderazgo y Persuasión</h4>
+          <p>En presentaciones ante directivos, sustituimos la duda por afirmación estratégica. En lugar de <em>"nosotros achamos que..."</em> estructuramos la idea con peso ejecutivo: <strong>"Los datos respaldan nuestra proyección estratégica para este trimestre."</strong></p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- PARTE 3: ADMISSION CHALLENGE -->
+      <section id="challenge" class="content-section">
+        <h2 class="section-title">Admission Challenge: Você tem o perfil Premium?</h2>
+        
+        <p class="section-text" style="max-width: 780px; margin: 0 auto 30px auto;">
+          O Programa Premium não é para todos; é destinado a profissionais com um objetivo real e urgente. Tempo é o recurso mais valioso de um profissional. Na YFI.com, respeitamos o seu tempo entregando estratégias diretas e sem rodeios. No entanto, para garantir a eficácia da nossa metodologia, buscamos alunos com um perfil específico de disciplina e foco. Este breve diagnóstico vai determinar se você possui a mentalidade necessária para extrair o máximo das nossas sessões de alto impacto.
+        </p>
+
+        <!-- CUESTIONARIO COMPLETO (INTEGRADO) -->
+        <div class="quiz-wrapper">
+          <div class="question-card active" data-question="0">
+            <div class="question-content">
+              <div class="question-number">Pergunta 1 de 5</div>
+              <div class="question-text">Disciplina: Você consegue manter uma rotina mínima de contato com o idioma?</div>
+              <div class="button-group">
+                <button class="answer-btn yes" onclick="handleAnswer(0, true)">SIM</button>
+                <button class="answer-btn no" onclick="handleAnswer(0, false)">NÃO</button>
+              </div>
+            </div>
+            <div class="feedback" id="feedback-0"></div>
+            <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+          </div>
+
+          <div class="question-card" data-question="1">
+            <div class="question-content">
+              <div class="question-number">Pergunta 2 de 5</div>
+              <div class="question-text">Autonomia: Você se sente confortável em buscar soluções antes de pedir ajuda?</div>
+              <div class="button-group">
+                <button class="answer-btn yes" onclick="handleAnswer(1, true)">SIM</button>
+                <button class="answer-btn no" onclick="handleAnswer(1, false)">NÃO</button>
+              </div>
+            </div>
+            <div class="feedback" id="feedback-1"></div>
+            <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+          </div>
+
+          <div class="question-card" data-question="2">
+            <div class="question-content">
+              <div class="question-number">Pergunta 3 de 5</div>
+              <div class="question-text">Foco: Em uma reunião importante, você consegue manter a atenção no objetivo da fala?</div>
+              <div class="button-group">
+                <button class="answer-btn yes" onclick="handleAnswer(2, true)">SIM</button>
+                <button class="answer-btn no" onclick="handleAnswer(2, false)">NÃO</button>
+              </div>
+            </div>
+            <div class="feedback" id="feedback-2"></div>
+            <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+          </div>
+
+          <div class="question-card" data-question="3">
+            <div class="question-content">
+              <div class="question-number">Pergunta 4 de 5</div>
+              <div class="question-text">O Medo: Você sente que o medo de errar trava sua fala em momentos decisivos?</div>
+              <div class="button-group">
+                <button class="answer-btn yes" onclick="handleAnswer(3, true)">SIM</button>
+                <button class="answer-btn no" onclick="handleAnswer(3, false)">NÃO</button>
+              </div>
+            </div>
+            <div class="feedback" id="feedback-3"></div>
+            <button class="next-button" onclick="nextQuestion()">Próxima Pergunta →</button>
+          </div>
+
+          <div class="question-card" data-question="4">
+            <div class="question-content">
+              <div class="question-number">Pergunta 5 de 5</div>
+              <div class="question-text">Priorização: Você consegue identificar o que é essencial comunicar, mesmo sem saber todas as palavras?</div>
+              <div class="button-group">
+                <button class="answer-btn yes" onclick="handleAnswer(4, true)">SIM</button>
+                <button class="answer-btn no" onclick="handleAnswer(4, false)">NÃO</button>
+              </div>
+            </div>
+            <div class="feedback" id="feedback-4"></div>
+            <button class="next-button" onclick="nextQuestion()">Ver Resultado →</button>
+          </div>
+
+          <!-- RESULTADO -->
+          <div class="result-card" id="result-card">
+            <div class="result-title" id="result-title"></div>
+            <div class="result-subtitle" id="result-subtitle"></div>
+            <div class="result-text" id="result-text"></div>
+            <a href="https://www.youfirstidiomas.com/onboarding" class="cta-button" target="_blank" rel="noopener noreferrer">Comece agora!</a>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <script src="challenge.js"></script>
+  <script>
+    const answers = [null, null, null, null, null];
+    let currentQuestion = 0;
+
+    const questions = [
+      {
+        yes: "Excelente! Disciplina é a base. Se um dia ficar difícil, aplique a \"regra dos 15 min\" com o café ou um vinho para nunca perder o ritmo.",
+        no: "Não se preocupe! Vou te ajudar: se você estudar apenas 15 min com o café da manhã ou uma taça de vinho à noite, manterá a rotina sem esforço."
+      },
+      {
+        yes: "Perfeito! A autonomia é o que diferencia um estudante de um profissional fluente. Vamos potencializar essa sua independência.",
+        no: "É normal depender do professor no sistema antigo. No meu método, vou te ensinar a usar ferramentas que te darão liberdade e velocidade."
+      },
+      {
+        yes: "Ótimo! Manter o foco no resultado é essencial. Vamos refinar isso para que sua comunicação seja sempre certeira e estratégica.",
+        no: "O medo costuma roubar nosso foco. Vou te ensinar técnicas de \"hiperfoco seletivo\" para você focar na mensagem, não no erro gramatical."
+      },
+      {
+        no: "Incrível! A autoconfiança é metade da fluência. Vamos usar essa coragem para dominar vocabulários mais complexos e técnicos.",
+        yes: "O sistema escolar te puniu pelo erro. Aqui, o erro é dado e aprendizado. Vou te ajudar a ressignificar isso para você falar com autoridade."
+      },
+      {
+        yes: "Isso é inteligência linguística! Vamos refinar essa habilidade para que você nunca perca o fio da meada em uma negociação.",
+        no: "Isso é falta de estratégia, não de vocabulário! Vou te ensinar a \"técnica do contorno\": como ser entendido e passar autoridade usando o que você já sabe."
+      }
+    ];
+
+    function handleAnswer(questionIndex, isYes) {
+      answers[questionIndex] = isYes;
+
+      const currentCard = document.querySelector(`.question-card[data-question="${questionIndex}"]`);
+      const buttons = currentCard.querySelectorAll('.answer-btn');
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      
+      const selectedButton = isYes ? buttons[0] : buttons[1];
+      selectedButton.classList.add('selected');
+
+      const feedback = document.getElementById(`feedback-${questionIndex}`);
+      feedback.textContent = isYes ? questions[questionIndex].yes : questions[questionIndex].no;
+      feedback.style.display = 'block';
+      
+      setTimeout(() => {
+        feedback.style.opacity = '1';
+      }, 10);
+
+      currentCard.classList.add('answered');
+    }
+
+    function nextQuestion() {
+      const currentCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
+      currentCard.classList.remove('active');
+      
+      currentQuestion++;
+      
+      if (currentQuestion < 5) {
+        const nextCard = document.querySelector(`.question-card[data-question="${currentQuestion}"]`);
+        nextCard.classList.add('active');
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const yesCount = answers.filter(answer => answer === true).length;
+      const resultCard = document.getElementById('result-card');
+      const resultTitle = document.getElementById('result-title');
+      const resultSubtitle = document.getElementById('result-subtitle');
+      const resultText = document.getElementById('result-text');
+
+      if (yesCount >= 3) {
+        resultTitle.textContent = "🎯 Parabéns!";
+        resultSubtitle.textContent = "Perfil de Alto Desempenho";
+        resultSubtitle.className = "result-subtitle high-performance";
+        resultText.textContent = "Você possui as habilidades fundamentais para o Coaching Premium. Seu perfil é o que buscamos para resultados explosivos em curto prazo. Como você já tem a mentalidade certa, nosso trabalho será focar 100% na sua urgência profissional. Vamos começar?";
+      } else {
+        resultTitle.textContent = "💪 Vamos juntos!";
+        resultSubtitle.textContent = "Perfil de Transformação";
+        resultSubtitle.className = "result-subtitle transformation";
+        resultText.textContent = "Você ainda não desenvolveu algumas habilidades interpessoais, mas a culpa não é sua: é de um sistema educacional que negligenciou esses pontos. Se você aceitar o desafio, focaremos especialmente em fortalecer sua confiança e rotina. Será um desafio, mas garanto que valerá a pena. Aceita?";
+      }
+
+      resultCard.classList.add('show');
+    }
+  </script>
 </body>
 </html>
