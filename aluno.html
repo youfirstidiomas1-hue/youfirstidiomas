@@ -88,21 +88,6 @@
     }
 
     .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
-    
-    .calendar-stage {
-      width: 100%;
-      height: 480px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #ffffff;
-    }
-
-    .calendar-stage iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
 
     .room-card {
       position: relative;
@@ -167,6 +152,28 @@
       cursor: pointer;
       border: none;
     }
+
+    .canva-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 56.25%;
+      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+      overflow: hidden;
+      border-radius: 12px;
+      will-change: transform;
+    }
+
+    .canva-frame-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
   </style>
  </head>
  <body>
@@ -183,8 +190,8 @@
       </div>
      </div>
      <nav aria-label="Navegação principal" class="flex flex-wrap items-center gap-1" id="main-nav" style="display: none;">
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">AGENDA</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#salas">SESSÕES</a> 
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">AGENDA</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos">RECURSOS</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#pagamentos">PAGAMENTO</a>
      </nav>
@@ -219,71 +226,99 @@
         <p class="mt-2 text-base text-[#e2d1f0]">Acesse suas aulas, salas virtuais de prática e recursos de estudo abaixo.</p>
        </section>
 
-       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-start">
-        
-        <!-- SALAS -->
-        <section id="salas" class="lg:col-span-5 flex flex-col justify-between">
-         <div class="mb-4">
+       <!-- 1. SALAS DE SESSÕES (PRIMERO) -->
+       <section id="salas" class="mb-10">
+        <div class="mb-4">
+         <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
+          <i data-lucide="door-open" class="h-5 w-5"></i>
+          <div class="gold-line"></div>
+         </div>
+         <h2 class="font-bold text-xl text-[#ffffff]">Sessões Virtuais</h2>
+         <p class="mt-1 text-xs text-[#e2d1f0]">Entre na sua sala virtual para sua sessão ao vivo</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <a id="room-english" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener">
+          <img src="assets/english-room.png" alt="English Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+         </a> 
+
+         <a id="room-spanish" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener">
+          <img src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+         </a>
+        </div>
+       </section>
+
+       <!-- 2. AGENDA (SEGUNDO) -->
+       <section id="agenda" class="mb-10 glass-panel rounded-2xl p-6">
+        <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+         <div>
           <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
-           <i data-lucide="door-open" class="h-5 w-5"></i>
+           <i data-lucide="calendar" class="h-5 w-5"></i>
            <div class="gold-line"></div>
           </div>
-          <h2 class="font-bold text-xl text-[#ffffff]">Sessões</h2>
-          <p class="mt-1 text-xs text-[#e2d1f0]">Entre na sua sala virtual para sua sessão</p>
+          <h2 class="font-bold text-xl text-[#ffffff]">Sua Agenda de Aulas</h2>
+          <p class="mt-1 text-xs text-[#e2d1f0]">Confira seus dias e horários fixos de sessão</p>
          </div>
 
-         <div class="space-y-4">
-          <a id="room-english" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener">
-           <img src="assets/english-room.png" alt="English Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
-          </a> 
-
-          <a id="room-spanish" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener">
-           <img src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+         <div class="flex flex-wrap gap-2">
+          <a class="action-button px-4 py-2 text-xs font-bold bg-[#ffd700] text-[#2c0439]" href="https://calendar.app.google/LkSmxV3kD2Jrn33y6" target="_blank" rel="noopener"> 
+           <i data-lucide="calendar-plus" class="h-4 w-4"></i> <span>Agendar / Reagendar</span> 
           </a>
          </div>
-        </section>
-
-        <!-- AGENDA -->
-        <section id="agenda" class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-5">
-         <div class="mb-3 flex items-center justify-between">
-          <div>
-           <h2 class="font-bold text-lg text-[#ffffff]">Agenda</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div class="bg-[#16001d] border border-[#ffd700]/30 rounded-xl p-4 flex items-center gap-4">
+            <div class="p-3 rounded-lg bg-[#ffd700]/10 text-[#ffd700]">
+              <i data-lucide="clock" class="h-6 w-6"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#ffd700] font-semibold uppercase tracking-wider">Dias da Semana</p>
+              <p id="student-days" class="text-base font-bold text-white">Carregando...</p>
+            </div>
           </div>
-          <a class="action-button px-3 py-1.5 text-xs font-bold bg-[#ffd700] text-[#2c0439]" href="https://calendar.app.google/LkSmxV3kD2Jrn33y6" target="_blank" rel="noopener"> 
-           <i data-lucide="external-link" class="h-3.5 w-3.5"></i> <span>Google Calendar</span> 
-          </a>
-         </div>
-         
-         <div class="calendar-stage border border-[#ffd700]/30 rounded-xl">
-           <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos" style="border: 0; width: 100%; height: 450px; border-radius: 12px;" frameborder="0" scrolling="no">
-           </iframe>
-         </div>
-        </section>
 
-       </div>
+          <div class="bg-[#16001d] border border-[#ffd700]/30 rounded-xl p-4 flex items-center gap-4">
+            <div class="p-3 rounded-lg bg-[#ffd700]/10 text-[#ffd700]">
+              <i data-lucide="alarm-clock" class="h-6 w-6"></i>
+            </div>
+            <div>
+              <p class="text-xs text-[#ffd700] font-semibold uppercase tracking-wider">Horário da Sessão</p>
+              <p id="student-time" class="text-base font-bold text-white">Carregando...</p>
+            </div>
+          </div>
+        </div>
+       </section>
 
-       <!-- RECURSOS -->
-       <section id="recursos" class="mb-10 glass-panel rounded-2xl p-5">
+       <!-- 3. RECURSOS DE ESTUDO (CANVA EMBED) -->
+       <section id="recursos" class="mb-10 glass-panel rounded-2xl p-6">
          <div class="mb-4">
            <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
              <i data-lucide="book-open" class="h-5 w-5"></i>
              <div class="gold-line"></div>
            </div>
-           <h2 id="current-topic-title" class="font-bold text-xl text-[#ffffff] flex items-center gap-2">Recursos de Estudo</h2>
+           <h2 class="font-bold text-xl text-[#ffffff]">Recursos de Estudo</h2>
+           <p class="mt-1 text-xs text-[#e2d1f0]">Acesse seu material didático interativo</p>
          </div>
 
-         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-           <div id="sidebar-content" class="lg:col-span-4 glass-panel rounded-xl p-4 max-h-[500px] overflow-y-auto">
+         <!-- VISOR INGLÉS -->
+         <div id="resource-english" class="hidden mb-6">
+           <h3 class="text-sm font-bold text-[#ffd700] mb-2 uppercase tracking-wider">English 4 Real Life</h3>
+           <div class="canva-frame-wrapper">
+             <iframe loading="lazy" src="https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
            </div>
-           <div class="lg:col-span-8">
-             <div class="recursos-container" style="position: relative; width: 100%; height: 0; padding-top: 56.25%; border-radius: 12px; overflow: hidden;">
-               <iframe id="resource-iframe" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="about:blank" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-             </div>
+         </div>
+
+         <!-- VISOR ESPAÑOL -->
+         <div id="resource-spanish" class="hidden">
+           <h3 class="text-sm font-bold text-[#ffd700] mb-2 uppercase tracking-wider">Español Para Tu Vida</h3>
+           <div class="canva-frame-wrapper">
+             <iframe loading="lazy" src="https://www.canva.com/design/DAHTZHbnE0c/MSB77sTu_PN5ni96JC1tHw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
            </div>
          </div>
        </section>
        
-       <!-- PAGAMENTOS -->
+       <!-- 4. PAGAMENTOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
@@ -302,7 +337,6 @@
           <button id="copy-pix-button" class="action-button mt-4 w-full px-4 font-bold bg-[#ffd700] text-[#2c0439]" type="button"> 
             <i data-lucide="copy" class="h-4 w-4"></i> <span>Copiar Chave Pix</span> 
           </button>
-          <p id="pix-status" class="mt-2 hidden text-center text-xs font-semibold text-[#ffd700]">Chave copiada com sucesso!</p>
          </article>
 
          <article class="glass-panel rounded-2xl p-6">
@@ -338,27 +372,6 @@
 
   <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzDyF7PaaFZsd-6aO6XstnUGhjBkpgQC_S6Vids3gejxY7vF2_opg3Ajn43OjWoAOGS/exec";
-    const CANVA_ENG = "https://www.canva.com/design/DAHS23j1DyE/78dQC-WWSqnwmygSA8Fltg/view";
-    const CANVA_ESP = "https://www.canva.com/design/DAHTZHbnE0c/MSB77sTu_PN5ni96JC1tHw/view";
-
-    const topicsEnglish = [
-      { id: 1, title: "1. Start Here!", url: "https://canva.link/axjfxw1wavm0bmt" },
-      { id: 2, title: "2. O Método YFI", url: "https://canva.link/y0m7gmlkvsrlb9c" },
-      { id: 3, title: "3. The English Code", url: "https://canva.link/8ynkle7rvpd6wra" },
-      { id: 4, title: "4. The Famous Verb To Be", url: "https://canva.link/mwz9gzrho5ma49l" },
-      { id: 5, title: "5. Routines and Facts", url: CANVA_ENG },
-      { id: 6, title: "6. Right Now and Arrangements", url: CANVA_ENG },
-      { id: 7, title: "7. Present Tenses Contrast", url: CANVA_ENG },
-      { id: 8, title: "8. History and Stories", url: CANVA_ENG },
-      { id: 9, title: "9. Interrupting a Past Action", url: CANVA_ENG },
-      { id: 10, title: "10. Past simple and Continuous Contrast", url: CANVA_ENG },
-      { id: 11, title: "11. Past Routines", url: CANVA_ENG },
-      { id: 12, title: "12. Future Forms", url: CANVA_ENG },
-      { id: 13, title: "13. Phrasal Verbs do Dia a Dia", url: CANVA_ENG },
-      { id: 14, title: "14. Vocabulário de Negócios", url: CANVA_ENG },
-      { id: 15, title: "15. Sons do TH", url: CANVA_ENG },
-      { id: 16, title: "16. Connected Speech", url: CANVA_ENG }
-    ];
 
     async function validarLogin(e) {
       if (e) e.preventDefault();
@@ -375,7 +388,7 @@
         const data = await response.json();
 
         if (data.autorizado) {
-          mostrarDashboard(data.nombre, data.idioma);
+          mostrarDashboard(data);
         } else {
           errorMsg.classList.remove("hidden");
         }
@@ -388,84 +401,40 @@
       }
     }
 
-    function mostrarDashboard(nombre, idioma) {
+    function mostrarDashboard(data) {
+      const nombre = data.nombre || "Aluno";
+      const idioma = (data.idioma || "").toLowerCase();
+      
       const roomEng = document.getElementById("room-english");
       const roomEsp = document.getElementById("room-spanish");
+      const resEng = document.getElementById("resource-english");
+      const resEsp = document.getElementById("resource-spanish");
       const welcome = document.getElementById("welcomeGreeting");
 
-      const lang = (idioma || "").toLowerCase();
+      // Cargar datos de la agenda
+      document.getElementById("student-days").textContent = data.dias || "A definir";
+      document.getElementById("student-time").textContent = data.horario || "A definir";
 
-      if (lang.includes("español") || lang.includes("espanhol")) {
-        welcome.textContent = `Bienvenido/a, ${nombre}!`;
-        roomEsp.classList.remove("hidden");
-        cargarRecursos("espanhol");
-      } else if (lang.includes("ambos") || lang.includes("ambas")) {
+      // Lógica de visualización según idioma (Inglés, Español o Ambos/Both)
+      if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
         welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
         roomEng.classList.remove("hidden");
         roomEsp.classList.remove("hidden");
-        cargarRecursos("english");
+        resEng.classList.remove("hidden");
+        resEsp.classList.remove("hidden");
+      } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
+        welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
+        roomEsp.classList.remove("hidden");
+        resEsp.classList.remove("hidden");
       } else {
         welcome.textContent = `Welcome, ${nombre}!`;
         roomEng.classList.remove("hidden");
-        cargarRecursos("english");
+        resEng.classList.remove("hidden");
       }
 
       document.getElementById("login-section").style.display = "none";
       document.getElementById("dashboard-wrapper").style.display = "block";
       document.getElementById("main-nav").style.display = "flex";
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function cargarRecursos(tipo) {
-      const container = document.getElementById("sidebar-content");
-      const iframe = document.getElementById('resource-iframe');
-      
-      if (tipo === "english") {
-        if (iframe && topicsEnglish[0].url) iframe.src = topicsEnglish[0].url;
-
-        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
-        
-        topicsEnglish.forEach((t, index) => {
-          const activeClass = index === 0 ? 'bg-[#ffd700]/10 text-[#ffd700]' : 'text-[#e2d1f0]';
-          const iconOpacity = index === 0 ? '' : 'opacity-0';
-
-          html += `
-            <button onclick="changePage('${t.url}', '${t.title}', event)" 
-                    class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all ${activeClass}">
-              <span>${t.title}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 ${iconOpacity}"></i>
-            </button>`;
-        });
-        
-        html += `</div>`;
-        if (container) container.innerHTML = html;
-      }
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function changePage(url, title, event) {
-      const iframe = document.getElementById('resource-iframe');
-      if (iframe) iframe.src = url;
-
-      const titleElement = document.getElementById('current-topic-title');
-      if (titleElement) {
-        titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
-      }
-
-      document.querySelectorAll('.topic-btn').forEach(btn => {
-        btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
-        btn.classList.add('text-[#e2d1f0]');
-        const icon = btn.querySelector('i');
-        if (icon) icon.classList.add('opacity-0');
-      });
-
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
-        event.currentTarget.classList.remove('text-[#e2d1f0]');
-        const activeIcon = event.currentTarget.querySelector('i');
-        if (activeIcon) activeIcon.classList.remove('opacity-0');
-      }
-
       if (window.lucide) lucide.createIcons();
     }
   </script>
