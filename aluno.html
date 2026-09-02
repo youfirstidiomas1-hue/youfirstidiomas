@@ -89,10 +89,9 @@
 
     .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
     
-    /* CALENDARIO AJUSTADO PARA EVITAR DESBORDAMIENTO */
     .calendar-stage {
       width: 100%;
-      height: 680px;
+      height: 480px;
       position: relative;
       overflow: hidden;
       border-radius: 16px;
@@ -244,7 +243,7 @@
          </div>
         </section>
 
-        <!-- AGENDA (CORREGIDO ALTO Y RESPONSIVE) -->
+        <!-- AGENDA -->
         <section id="agenda" class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-5">
          <div class="mb-3 flex items-center justify-between">
           <div>
@@ -256,23 +255,32 @@
          </div>
          
          <div class="calendar-stage border border-[#ffd700]/30 rounded-xl">
-           <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos">
-            <style="border: 0; width: 100%; height: 450px; border-radius: 12px;" 
-        frameborder="0" 
-        scrolling="no">
+           <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CYlEV1HTnd8AP5xNRY9DPK9_tnpmBWCSQxs1MqB2wbDqvzLaRWJv68nHQd_8_lKCjxyThwHCG?gv=true" title="Calendário de agendamentos" style="border: 0; width: 100%; height: 450px; border-radius: 12px;" frameborder="0" scrolling="no">
            </iframe>
          </div>
         </section>
 
        </div>
 
-       <!-- RECURSOS (MENU WIDGET CON VISOR) -->
-       <div class="recursos-container" style="position: relative; width: 100%; height: 0; padding-top: 56.25%; border-radius: 12px; overflow: hidden;">
-  <iframe id="resource-iframe" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
-</div>
-            </main>
-          </div>
-        </div>
+       <!-- RECURSOS -->
+       <section id="recursos" class="mb-10 glass-panel rounded-2xl p-5">
+         <div class="mb-4">
+           <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
+             <i data-lucide="book-open" class="h-5 w-5"></i>
+             <div class="gold-line"></div>
+           </div>
+           <h2 id="current-topic-title" class="font-bold text-xl text-[#ffffff] flex items-center gap-2">Recursos de Estudo</h2>
+         </div>
+
+         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+           <div id="sidebar-content" class="lg:col-span-4 glass-panel rounded-xl p-4 max-h-[500px] overflow-y-auto">
+           </div>
+           <div class="lg:col-span-8">
+             <div class="recursos-container" style="position: relative; width: 100%; height: 0; padding-top: 56.25%; border-radius: 12px; overflow: hidden;">
+               <iframe id="resource-iframe" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="about:blank" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+             </div>
+           </div>
+         </div>
        </section>
        
        <!-- PAGAMENTOS -->
@@ -334,31 +342,26 @@
     const CANVA_ESP = "https://www.canva.com/design/DAHTZHbnE0c/MSB77sTu_PN5ni96JC1tHw/view";
 
     const topicsEnglish = [
-  { id: 1, title: "1. Start Here!", url: "https://canva.link/axjfxw1wavm0bmt" },
-  { id: 2, title: "2. O Método YFI", url: "https://canva.link/y0m7gmlkvsrlb9c" },
-  { id: 3, title: "3. The English Code", url: "https://canva.link/8ynkle7rvpd6wra" },
-  { id: 4, title: "4. The Famous Verb To Be", url: "https://canva.link/mwz9gzrho5ma49l" },
-      { id: 5, title: "5. Routines and Facts" },
-      { id: 6, title: "6. Right Now and Arrangements" },
-      { id: 7, title: "7. Present Tenses Contrast" },
-      { id: 8, title: "8. History and Stories" },
-      { id: 9, title: "9. Interrupting a Past Action" },
-      { id: 10, title: "10. Past simple and Continuous Contrast" },
-      { id: 11, title: "11. Past Routines" },
-      { id: 12, title: "12. Future Forms" },
-      { id: 13, title: "13. Phrasal Verbs do Dia a Dia" },
-      { id: 14, title: "14. Vocabulário de Negócios" },
-      { id: 15, title: "15. Sons do TH" },
-      { id: 16, title: "16. Connected Speech" }
+      { id: 1, title: "1. Start Here!", url: "https://canva.link/axjfxw1wavm0bmt" },
+      { id: 2, title: "2. O Método YFI", url: "https://canva.link/y0m7gmlkvsrlb9c" },
+      { id: 3, title: "3. The English Code", url: "https://canva.link/8ynkle7rvpd6wra" },
+      { id: 4, title: "4. The Famous Verb To Be", url: "https://canva.link/mwz9gzrho5ma49l" },
+      { id: 5, title: "5. Routines and Facts", url: CANVA_ENG },
+      { id: 6, title: "6. Right Now and Arrangements", url: CANVA_ENG },
+      { id: 7, title: "7. Present Tenses Contrast", url: CANVA_ENG },
+      { id: 8, title: "8. History and Stories", url: CANVA_ENG },
+      { id: 9, title: "9. Interrupting a Past Action", url: CANVA_ENG },
+      { id: 10, title: "10. Past simple and Continuous Contrast", url: CANVA_ENG },
+      { id: 11, title: "11. Past Routines", url: CANVA_ENG },
+      { id: 12, title: "12. Future Forms", url: CANVA_ENG },
+      { id: 13, title: "13. Phrasal Verbs do Dia a Dia", url: CANVA_ENG },
+      { id: 14, title: "14. Vocabulário de Negócios", url: CANVA_ENG },
+      { id: 15, title: "15. Sons do TH", url: CANVA_ENG },
+      { id: 16, title: "16. Connected Speech", url: CANVA_ENG }
     ];
 
-    const topicsSpanish = Array.from({ length: 16 }, (_, i) => ({
-      id: i + 1,
-      title: `Página ${i + 1}`
-    }));
-
     async function validarLogin(e) {
-      e.preventDefault();
+      if (e) e.preventDefault();
       const email = document.getElementById("emailInput").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const btnLogin = document.getElementById("btnLogin");
@@ -414,58 +417,57 @@
     }
 
     function cargarRecursos(tipo) {
-  const container = document.getElementById("sidebar-content");
-  const iframe = document.getElementById('resource-iframe');
-  
-  if (tipo === "english") {
-    // Carga el primer tema por defecto
-    if (iframe) iframe.src = topicsEnglish[0].url;
+      const container = document.getElementById("sidebar-content");
+      const iframe = document.getElementById('resource-iframe');
+      
+      if (tipo === "english") {
+        if (iframe && topicsEnglish[0].url) iframe.src = topicsEnglish[0].url;
 
-    let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
-    
-    topicsEnglish.forEach((t, index) => {
-      const activeClass = index === 0 ? 'bg-[#ffd700]/10 text-[#ffd700]' : 'text-[#e2d1f0]';
-      const iconOpacity = index === 0 ? '' : 'opacity-0';
+        let html = `<span class="text-xs font-bold text-[#ffd700] tracking-wider uppercase px-2 mb-2 block">Talking about...</span><div class="space-y-1">`;
+        
+        topicsEnglish.forEach((t, index) => {
+          const activeClass = index === 0 ? 'bg-[#ffd700]/10 text-[#ffd700]' : 'text-[#e2d1f0]';
+          const iconOpacity = index === 0 ? '' : 'opacity-0';
 
-      html += `
-        <button onclick="changePage('${t.url}', '${t.title}', event)" 
-                class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all ${activeClass}">
-          <span>${t.title}</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 ${iconOpacity}"></i>
-        </button>`;
-    });
-    
-    html += `</div>`;
-    container.innerHTML = html;
-  }
-  if (window.lucide) lucide.createIcons();
-}
+          html += `
+            <button onclick="changePage('${t.url}', '${t.title}', event)" 
+                    class="topic-btn w-full text-left px-3 py-2 rounded-lg text-sm hover:bg-[#ffd700]/10 hover:text-[#ffd700] flex items-center justify-between transition-all ${activeClass}">
+              <span>${t.title}</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 ${iconOpacity}"></i>
+            </button>`;
+        });
+        
+        html += `</div>`;
+        if (container) container.innerHTML = html;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
 
-function changePage(url, title, event) {
-  const iframe = document.getElementById('resource-iframe');
-  if (iframe) iframe.src = url;
+    function changePage(url, title, event) {
+      const iframe = document.getElementById('resource-iframe');
+      if (iframe) iframe.src = url;
 
-  const titleElement = document.getElementById('current-topic-title');
-  if (titleElement) {
-    titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
-  }
+      const titleElement = document.getElementById('current-topic-title');
+      if (titleElement) {
+        titleElement.innerHTML = `<i data-lucide="file-text" class="w-5 h-5 text-[#ffd700]"></i> ${title}`;
+      }
 
-  document.querySelectorAll('.topic-btn').forEach(btn => {
-    btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
-    btn.classList.add('text-[#e2d1f0]');
-    const icon = btn.querySelector('i');
-    if (icon) icon.classList.add('opacity-0');
-  });
+      document.querySelectorAll('.topic-btn').forEach(btn => {
+        btn.classList.remove('bg-[#ffd700]/10', 'text-[#ffd700]');
+        btn.classList.add('text-[#e2d1f0]');
+        const icon = btn.querySelector('i');
+        if (icon) icon.classList.add('opacity-0');
+      });
 
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
-    event.currentTarget.classList.remove('text-[#e2d1f0]');
-    const activeIcon = event.currentTarget.querySelector('i');
-    if (activeIcon) activeIcon.classList.remove('opacity-0');
-  }
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('bg-[#ffd700]/10', 'text-[#ffd700]');
+        event.currentTarget.classList.remove('text-[#e2d1f0]');
+        const activeIcon = event.currentTarget.querySelector('i');
+        if (activeIcon) activeIcon.classList.remove('opacity-0');
+      }
 
-  if (window.lucide) lucide.createIcons();
-}
+      if (window.lucide) lucide.createIcons();
+    }
   </script>
  </body>
 </html>
