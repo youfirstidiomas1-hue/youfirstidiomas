@@ -227,29 +227,7 @@
        </section>
 
        <!-- 1. SALAS DE SESSÕES (PRIMERO) -->
-       <section id="salas" class="mb-10">
-        <div class="mb-4">
-         <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
-          <i data-lucide="door-open" class="h-5 w-5"></i>
-          <div class="gold-line"></div>
-         </div>
-         <h2 class="font-bold text-xl text-[#ffffff]">Sessões Virtuais</h2>
-         <p class="mt-1 text-xs text-[#e2d1f0]">Entre na sua sala virtual para sua sessão ao vivo</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-         <a id="room-english" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/chattool-english/" target="_blank" rel="noopener">
-          <img src="assets/english-room.png" alt="English Room" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
-         </a> 
-
-         <a id="room-spanish" class="room-card glass-panel hidden block overflow-hidden rounded-xl" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" target="_blank" rel="noopener">
-          <img src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
-         </a>
-        </div>
-       </section>
-
-       <!-- 2. AGENDA (SEGUNDO) -->
-       <!-- SUA AGENDA DE AULAS -->
+      <!-- SUA AGENDA DE AULAS -->
 <div class="bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 border border-yellow-500/20 mb-8 shadow-xl">
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
     <div>
@@ -435,21 +413,16 @@
         resEng.classList.remove("hidden");
       }
 
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-wrapper").style.display = "block";
-      document.getElementById("main-nav").style.display = "flex";
-      if (window.lucide) lucide.createIcons();
-     // Asigna los textos de las fechas
-document.getElementById('txt-proxima-aula').textContent = data.dias || 'Sem agendamento';
-document.getElementById('txt-segunda-aula').textContent = data.horario || 'Sem agendamento';
+     // Asigna los textos con verificación para evitar crash de JS
+const txt1 = document.getElementById('txt-proxima-aula');
+const txt2 = document.getElementById('txt-segunda-aula');
+const btn1 = document.getElementById('btn-reagendar-1');
+const btn2 = document.getElementById('btn-reagendar-2');
 
-// Asigna los enlaces directos a los botones de reagendar
-if (data.link1) {
-  document.getElementById('btn-reagendar-1').href = data.link1;
-}
-if (data.link2) {
-  document.getElementById('btn-reagendar-2').href = data.link2;
-}
+if (txt1) txt1.textContent = data.dias || 'Sem agendamento';
+if (txt2) txt2.textContent = data.horario || 'Sem agendamento';
+if (btn1 && data.link1) btn1.href = data.link1;
+if (btn2 && data.link2) btn2.href = data.link2;
     }
   </script>
  </body>
