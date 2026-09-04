@@ -413,8 +413,8 @@
         resEng.classList.remove("hidden");
       }
 
-     // Asigna los textos con verificación para evitar crash de JS
-welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
+if (res.idioma === "Español") {
+        welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
         roomEsp.classList.remove("hidden");
         resEsp.classList.remove("hidden");
       } else {
@@ -438,8 +438,6 @@ welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
       if (elSegunda) elSegunda.textContent = res.horario || 'Sem agendamento';
 
       if (btn1 && res.link1) btn1.href = res.link1;
-      if (btn2 && res.link2) btn2.href = res.link2;
-   if (btn1 && res.link1) btn1.href = res.link1;
       if (btn2 && res.link2) btn2.href = res.link2;
     })
     .catch(err => console.error(err));
