@@ -414,16 +414,17 @@
       }
 
      // Asigna los textos con verificación para evitar crash de JS
-const txt1 = document.getElementById('txt-proxima-aula');
-const txt2 = document.getElementById('txt-segunda-aula');
+// Asignación segura con verificación de elementos
+const elProxima = document.getElementById('txt-proxima-aula');
+const elSegunda = document.getElementById('txt-segunda-aula');
 const btn1 = document.getElementById('btn-reagendar-1');
 const btn2 = document.getElementById('btn-reagendar-2');
 
-if (txt1) txt1.textContent = data.dias || 'Sem agendamento';
-if (txt2) txt2.textContent = data.horario || 'Sem agendamento';
+if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
+if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
+
 if (btn1 && data.link1) btn1.href = data.link1;
 if (btn2 && data.link2) btn2.href = data.link2;
-    }
   </script>
  </body>
 </html>
