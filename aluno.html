@@ -439,6 +439,17 @@
       document.getElementById("dashboard-wrapper").style.display = "block";
       document.getElementById("main-nav").style.display = "flex";
       if (window.lucide) lucide.createIcons();
+     // Asigna los textos de las fechas
+document.getElementById('txt-proxima-aula').textContent = data.dias || 'Sem agendamento';
+document.getElementById('txt-segunda-aula').textContent = data.horario || 'Sem agendamento';
+
+// Asigna los enlaces directos a los botones de reagendar
+if (data.link1) {
+  document.getElementById('btn-reagendar-1').href = data.link1;
+}
+if (data.link2) {
+  document.getElementById('btn-reagendar-2').href = data.link2;
+}
     }
   </script>
  </body>
