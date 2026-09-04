@@ -414,17 +414,34 @@
       }
 
      // Asigna los textos con verificación para evitar crash de JS
-// Asignación segura con verificación de elementos
-const elProxima = document.getElementById('txt-proxima-aula');
-const elSegunda = document.getElementById('txt-segunda-aula');
-const btn1 = document.getElementById('btn-reagendar-1');
-const btn2 = document.getElementById('btn-reagendar-2');
+welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
+        roomEsp.classList.remove("hidden");
+        resEsp.classList.remove("hidden");
+      } else {
+        welcome.textContent = `Welcome, ${nombre}!`;
+        roomEng.classList.remove("hidden");
+        resEng.classList.remove("hidden");
+      }
 
-if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
-if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("dashboard-wrapper").style.display = "block";
+      document.getElementById("main-nav").style.display = "flex";
+      if (window.lucide) lucide.createIcons();
 
-if (btn1 && data.link1) btn1.href = data.link1;
-if (btn2 && data.link2) btn2.href = data.link2;
-  </script>
- </body>
+      // Asignación de la agenda usando la variable res
+      const elProxima = document.getElementById('txt-proxima-aula');
+      const elSegunda = document.getElementById('txt-segunda-aula');
+      const btn1 = document.getElementById('btn-reagendar-1');
+      const btn2 = document.getElementById('btn-reagendar-2');
+
+      if (elProxima) elProxima.textContent = res.dias || 'Sem agendamento';
+      if (elSegunda) elSegunda.textContent = res.horario || 'Sem agendamento';
+
+      if (btn1 && res.link1) btn1.href = res.link1;
+      if (btn2 && res.link2) btn2.href = res.link2;
+    })
+    .catch(err => console.error(err));
+}
+</script>
+</body>
 </html>
