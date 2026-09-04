@@ -249,47 +249,50 @@
        </section>
 
        <!-- 2. AGENDA (SEGUNDO) -->
-       <section id="agenda" class="mb-10 glass-panel rounded-2xl p-6">
-        <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-         <div>
-          <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
-           <i data-lucide="calendar" class="h-5 w-5"></i>
-           <div class="gold-line"></div>
-          </div>
-          <h2 class="font-bold text-xl text-[#ffffff]">Sua Agenda de Aulas</h2>
-          <p class="mt-1 text-xs text-[#e2d1f0]">Confira seus dias e horários fixos de sessão</p>
-         </div>
+       <!-- SUA AGENDA DE AULAS -->
+<div class="bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 border border-yellow-500/20 mb-8 shadow-xl">
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+    <div>
+      <div class="flex items-center gap-2 text-yellow-400 mb-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span class="text-xs font-bold tracking-wider uppercase">Sessões Marcadas</span>
+      </div>
+      <h3 class="text-xl font-bold text-white">Sua Agenda de Aulas</h3>
+      <p class="text-gray-400 text-xs">Confira seus próximos horários agendados no Google Calendar</p>
+    </div>
+    
+    <a href="https://calendar.google.com/" target="_blank" class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+      Abrir Google Calendar
+    </a>
+  </div>
 
-         <div class="flex flex-wrap gap-2">
-          <a class="action-button px-4 py-2 text-xs font-bold bg-[#ffd700] text-[#2c0439]" href="https://calendar.app.google/LkSmxV3kD2Jrn33y6" target="_blank" rel="noopener"> 
-           <i data-lucide="calendar-plus" class="h-4 w-4"></i> <span>Agendar / Reagendar</span> 
-          </a>
-         </div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-          <div class="bg-[#16001d] border border-[#ffd700]/30 rounded-xl p-4 flex items-center gap-4">
-            <div class="p-3 rounded-lg bg-[#ffd700]/10 text-[#ffd700]">
-              <i data-lucide="clock" class="h-6 w-6"></i>
-            </div>
-            <div>
-              <p class="text-xs text-[#ffd700] font-semibold uppercase tracking-wider">Dias da Semana</p>
-              <p id="student-days" class="text-base font-bold text-white">Carregando...</p>
-            </div>
-          </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- PRÓXIMA AULA -->
+    <div class="bg-black/40 rounded-xl p-4 border border-gray-800 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">PRÓXIMA AULA</span>
+        <div id="txt-proxima-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
+      </div>
+      <a id="btn-reagendar-1" href="https://calendar.google.com/" target="_blank" class="w-full bg-gray-800 hover:bg-gray-700 text-yellow-400 font-semibold py-2 px-3 rounded-lg text-xs text-center border border-yellow-500/30 transition flex items-center justify-center gap-2">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+        Reagendar / Cancelar
+      </a>
+    </div>
 
-          <div class="bg-[#16001d] border border-[#ffd700]/30 rounded-xl p-4 flex items-center gap-4">
-            <div class="p-3 rounded-lg bg-[#ffd700]/10 text-[#ffd700]">
-              <i data-lucide="alarm-clock" class="h-6 w-6"></i>
-            </div>
-            <div>
-              <p class="text-xs text-[#ffd700] font-semibold uppercase tracking-wider">Horário da Sessão</p>
-              <p id="student-time" class="text-base font-bold text-white">Carregando...</p>
-            </div>
-          </div>
-        </div>
-       </section>
-
+    <!-- SEGUNDA AULA -->
+    <div class="bg-black/40 rounded-xl p-4 border border-gray-800 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">SEGUNDA AULA</span>
+        <div id="txt-segunda-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
+      </div>
+      <a id="btn-reagendar-2" href="https://calendar.google.com/" target="_blank" class="w-full bg-gray-800 hover:bg-gray-700 text-yellow-400 font-semibold py-2 px-3 rounded-lg text-xs text-center border border-yellow-500/30 transition flex items-center justify-center gap-2">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+        Reagendar / Cancelar
+      </a>
+    </div>
+  </div>
+</div>
        <!-- 3. RECURSOS DE ESTUDO (CANVA EMBED) -->
        <section id="recursos" class="mb-10 glass-panel rounded-2xl p-6">
          <div class="mb-4">
@@ -371,7 +374,7 @@
   </div>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzT54pcbv7_JpKS47Prl-Oq9O2V-QCr4ec5mG8XCzvEbzTqoRm_QSErejiwd3WqkTV3/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5wLAYgEZq3DcIu1vbmoXVAic5IWopIV3O0WTnWQ3XUMZUH2engDc89XYtKV7iHeg2/exec";
 
     async function validarLogin(e) {
       if (e) e.preventDefault();
