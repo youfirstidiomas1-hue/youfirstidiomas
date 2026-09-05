@@ -393,55 +393,44 @@
       const welcome = document.getElementById("welcomeGreeting");
 
       // Cargar datos de la agenda
-      document.getElementById("student-days").textContent = data.dias || "A definir";
-      document.getElementById("student-time").textContent = data.horario || "A definir";
+      document.getElementById("student-days").textContent = data.dias || "Sem agendamento";
+      document.getElementById("student-time").textContent = data.horario || "Sem agendamento";
 
-      // Lógica de visualización según idioma (Inglés, Español o Ambos/Both)
+      // Lógica de visualización según idioma
       if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
         welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
-        roomEng.classList.remove("hidden");
-        roomEsp.classList.remove("hidden");
-        resEng.classList.remove("hidden");
-        resEsp.classList.remove("hidden");
+        if (roomEng) roomEng.classList.remove("hidden");
+        if (roomEsp) roomEsp.classList.remove("hidden");
+        if (resEng) resEng.classList.remove("hidden");
+        if (resEsp) resEsp.classList.remove("hidden");
       } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
         welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
-        roomEsp.classList.remove("hidden");
-        resEsp.classList.remove("hidden");
+        if (roomEsp) roomEsp.classList.remove("hidden");
+        if (resEsp) resEsp.classList.remove("hidden");
       } else {
         welcome.textContent = `Welcome, ${nombre}!`;
-        roomEng.classList.remove("hidden");
-        resEng.classList.remove("hidden");
+        if (roomEng) roomEng.classList.remove("hidden");
+        if (resEng) resEng.classList.remove("hidden");
       }
 
-if (res.idioma === "Español") {
-        welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
-        roomEsp.classList.remove("hidden");
-        resEsp.classList.remove("hidden");
-      } else {
-        welcome.textContent = `Welcome, ${nombre}!`;
-        roomEng.classList.remove("hidden");
-        resEng.classList.remove("hidden");
-      }
-
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-wrapper").style.display = "block";
-      document.getElementById("main-nav").style.display = "flex";
-      if (window.lucide) lucide.createIcons();
-
-      // Asignación de la agenda usando la variable res
+      // Asignación segura de la agenda y botones
       const elProxima = document.getElementById('txt-proxima-aula');
       const elSegunda = document.getElementById('txt-segunda-aula');
       const btn1 = document.getElementById('btn-reagendar-1');
       const btn2 = document.getElementById('btn-reagendar-2');
 
-     if (elProxima) elProxima.textContent = res.dias || 'Sem agendamento';
-      if (elSegunda) elSegunda.textContent = res.horario || 'Sem agendamento';
+      if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
+      if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
 
-      if (btn1 && res.link1) btn1.href = res.link1;
-      if (btn2 && res.link2) btn2.href = res.link2;
-    })
-    .catch(err => console.error(err));
-}
+      if (btn1 && data.link1) btn1.href = data.link1;
+      if (btn2 && data.link2) btn2.href = data.link2;
+
+      // Muestra el Dashboard y oculta el Login
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("dashboard-wrapper").style.display = "block";
+      document.getElementById("main-nav").style.display = "flex";
+      if (window.lucide) lucide.createIcons();
+    }
 </script>
 </body>
 </html>
