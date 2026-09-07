@@ -351,34 +351,47 @@
    </footer>
   </div>
 
-  <script>
+ <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5wLAYgEZq3DcIu1vbmoXVAic5IWopIV3O0WTnWQ3XUMZUH2engDc89XYtKV7iHeg2/exec";
 
     async function validarLogin(e) {
-      if (e) e.preventDefault();
-      const email = document.getElementById("emailInput").value.trim().toLowerCase();
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      const emailInput = document.getElementById("emailInput") || document.getElementById("email");
+      if (!emailInput) return;
+
+      const email = emailInput.value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const btnLogin = document.getElementById("btnLogin");
 
-      errorMsg.classList.add("hidden");
-      btnLogin.textContent = "VERIFICANDO...";
-      btnLogin.disabled = true;
+      if (errorMsg) errorMsg.classList.add("hidden");
+      if (btnLogin) {
+        btnLogin.value = "VERIFICANDO...";
+        btnLogin.innerText = "VERIFICANDO...";
+        btnLogin.disabled = true;
+      }
 
       try {
         const response = await fetch(`${GOOGLE_SCRIPT_URL}?email=${encodeURIComponent(email)}`);
         const data = await response.json();
 
-        if (data.autorizado) {
+        if (data && data.autorizado) {
           mostrarDashboard(data);
         } else {
-          errorMsg.classList.remove("hidden");
+          if (errorMsg) errorMsg.classList.remove("hidden");
         }
       } catch (err) {
-        console.error(err);
-        errorMsg.classList.remove("hidden");
+        console.error("Error en autenticación:", err);
+        if (errorMsg) errorMsg.classList.remove("hidden");
       } finally {
-        btnLogin.textContent = "ENTRAR";
-        btnLogin.disabled = false;
+        if (btnLogin) {
+          btnLogin.value = "ENTRAR";
+          btnLogin.innerText = "ENTRAR";
+          btnLogin.disabled = false;
+        }
       }
     }
 
@@ -386,34 +399,44 @@
       const nombre = data.nombre || "Aluno";
       const idioma = (data.idioma || "").toLowerCase();
       
-      const roomEng = document.getElementById("room-english");
-      const roomEsp = document.getElementById("room-spanish");
-      const resEng = document.getElementById("resource-english");
-      const resEsp = document.getElementById("resource-spanish");
-      const welcome = document.getElementById("welcomeGreeting");
+      const roomEng = document.getElementById("room-english") || document.getElementById("room-eng");
+      const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp");
+      const resEng = document.getElementById("resource-english") || document.getElementById("res-eng");
+      const resEsp = document.getElementById("resource-spanish") || document.getElementById("res-esp");
+      const welcome = document.getElementById("welcomeGreeting") || document.getElementById("txt-welcome");
 
       // Cargar datos de la agenda
-      document.getElementById("student-days").textContent = data.dias || "Sem agendamento";
-      document.getElementById("student-time").textContent = data.horario || "Sem agendamento";
+      const elStudentDays = document.getElementById("student-days");
+      const elStudentTime = document.getElementById("student-time");
+      if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
+      if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
 
-      // Lógica de visualización según idioma
+      // Saludo personalizado
+      if (welcome) {
+        if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
+          welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
+        } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
+          welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
+        } else {
+          welcome.textContent = `Welcome, ${nombre}!`;
+        }
+      }
+
+      // Visibilidad de secciones
       if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
-        welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
         if (roomEng) roomEng.classList.remove("hidden");
         if (roomEsp) roomEsp.classList.remove("hidden");
         if (resEng) resEng.classList.remove("hidden");
         if (resEsp) resEsp.classList.remove("hidden");
       } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
-        welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
         if (roomEsp) roomEsp.classList.remove("hidden");
         if (resEsp) resEsp.classList.remove("hidden");
       } else {
-        welcome.textContent = `Welcome, ${nombre}!`;
         if (roomEng) roomEng.classList.remove("hidden");
         if (resEng) resEng.classList.remove("hidden");
       }
 
-      // Asignación segura de la agenda y botones
+      // Agenda y enlaces
       const elProxima = document.getElementById('txt-proxima-aula');
       const elSegunda = document.getElementById('txt-segunda-aula');
       const btn1 = document.getElementById('btn-reagendar-1');
@@ -425,10 +448,15 @@
       if (btn1 && data.link1) btn1.href = data.link1;
       if (btn2 && data.link2) btn2.href = data.link2;
 
-      // Muestra el Dashboard y oculta el Login
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-wrapper").style.display = "block";
-      document.getElementById("main-nav").style.display = "flex";
+      // Ocultar login y mostrar dashboard
+      const loginSection = document.getElementById("login-section");
+      const dashboardWrapper = document.getElementById("dashboard-wrapper");
+      const mainNav = document.getElementById("main-nav");
+
+      if (loginSection) loginSection.style.display = "none";
+      if (dashboardWrapper) dashboardWrapper.style.display = "block";
+      if (mainNav) mainNav.style.display = "flex";
+
       if (window.lucide) lucide.createIcons();
     }
 </script>
