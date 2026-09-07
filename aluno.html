@@ -351,7 +351,7 @@
    </footer>
   </div>
 
- <script>
+<script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5wLAYgEZq3DcIu1vbmoXVAic5IWopIV3O0WTnWQ3XUMZUH2engDc89XYtKV7iHeg2/exec";
 
     async function validarLogin(e) {
@@ -405,13 +405,7 @@
       const resEsp = document.getElementById("resource-spanish") || document.getElementById("res-esp");
       const welcome = document.getElementById("welcomeGreeting") || document.getElementById("txt-welcome");
 
-      // Cargar datos de la agenda
-      const elStudentDays = document.getElementById("student-days");
-      const elStudentTime = document.getElementById("student-time");
-      if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
-      if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
-
-      // Saludo personalizado
+      // 1. Saludo personalizado
       if (welcome) {
         if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
           welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
@@ -422,7 +416,7 @@
         }
       }
 
-      // Visibilidad de secciones
+      // 2. Visibilidad de secciones según idioma
       if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
         if (roomEng) roomEng.classList.remove("hidden");
         if (roomEsp) roomEsp.classList.remove("hidden");
@@ -436,19 +430,32 @@
         if (resEng) resEng.classList.remove("hidden");
       }
 
-      // Agenda y enlaces
+      // 3. Enlaces a las Salas de Clase (Sessões)
+      const btnRoomEng = document.getElementById("btn-room-eng") || document.getElementById("link-room-english");
+      const btnRoomEsp = document.getElementById("btn-room-esp") || document.getElementById("link-room-spanish");
+      const btnSalaUnica = document.getElementById("btn-sala-aula");
+
+      if (btnRoomEng && data.linkIngles) btnRoomEng.href = data.linkIngles;
+      if (btnRoomEsp && data.linkEspanhol) btnRoomEsp.href = data.linkEspanhol;
+      if (btnSalaUnica && data.linkSala) btnSalaUnica.href = data.linkSala;
+
+      // 4. Datos de Agenda y Botones de Reagendamiento
+      const elStudentDays = document.getElementById("student-days");
+      const elStudentTime = document.getElementById("student-time");
       const elProxima = document.getElementById('txt-proxima-aula');
       const elSegunda = document.getElementById('txt-segunda-aula');
       const btn1 = document.getElementById('btn-reagendar-1');
       const btn2 = document.getElementById('btn-reagendar-2');
 
+      if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
+      if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
       if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
       if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
 
       if (btn1 && data.link1) btn1.href = data.link1;
       if (btn2 && data.link2) btn2.href = data.link2;
 
-      // Ocultar login y mostrar dashboard
+      // 5. Transición gráfica de pantallas
       const loginSection = document.getElementById("login-section");
       const dashboardWrapper = document.getElementById("dashboard-wrapper");
       const mainNav = document.getElementById("main-nav");
