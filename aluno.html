@@ -399,8 +399,9 @@
       const nombre = data.nombre || "Aluno";
       const idioma = (data.idioma || "").toLowerCase();
       
-      const roomEng = document.getElementById("room-english") || document.getElementById("room-eng");
-      const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp");
+      // Buscar elementos de Salas y Recursos por ID alternativos
+      const roomEng = document.getElementById("room-english") || document.getElementById("room-eng") || document.getElementById("sessoes-ingles");
+      const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp") || document.getElementById("sessoes-espanhol");
       const resEng = document.getElementById("resource-english") || document.getElementById("res-eng");
       const resEsp = document.getElementById("resource-spanish") || document.getElementById("res-esp");
       const welcome = document.getElementById("welcomeGreeting") || document.getElementById("txt-welcome");
@@ -416,21 +417,25 @@
         }
       }
 
-      // 2. Visibilidad de secciones según idioma
-      if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
+      // 2. Visibilidad de Salas y Recursos seguras
+      const esAmbos = idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas");
+      const esEspanol = idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish") || idioma.includes("espanol");
+
+      if (esAmbos) {
         if (roomEng) roomEng.classList.remove("hidden");
         if (roomEsp) roomEsp.classList.remove("hidden");
         if (resEng) resEng.classList.remove("hidden");
         if (resEsp) resEsp.classList.remove("hidden");
-      } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
+      } else if (esEspanol) {
         if (roomEsp) roomEsp.classList.remove("hidden");
         if (resEsp) resEsp.classList.remove("hidden");
       } else {
+        // Por defecto (Inglés)
         if (roomEng) roomEng.classList.remove("hidden");
         if (resEng) resEng.classList.remove("hidden");
       }
 
-      // 3. Enlaces a las Salas de Clase (Sessões)
+      // 3. Enlaces directos a las Salas
       const btnRoomEng = document.getElementById("btn-room-eng") || document.getElementById("link-room-english");
       const btnRoomEsp = document.getElementById("btn-room-esp") || document.getElementById("link-room-spanish");
       const btnSalaUnica = document.getElementById("btn-sala-aula");
@@ -439,7 +444,7 @@
       if (btnRoomEsp && data.linkEspanhol) btnRoomEsp.href = data.linkEspanhol;
       if (btnSalaUnica && data.linkSala) btnSalaUnica.href = data.linkSala;
 
-      // 4. Datos de Agenda y Botones de Reagendamiento
+      // 4. Datos de Agenda
       const elStudentDays = document.getElementById("student-days");
       const elStudentTime = document.getElementById("student-time");
       const elProxima = document.getElementById('txt-proxima-aula');
@@ -455,7 +460,7 @@
       if (btn1 && data.link1) btn1.href = data.link1;
       if (btn2 && data.link2) btn2.href = data.link2;
 
-      // 5. Transición gráfica de pantallas
+      // 5. Mostrar Dashboard
       const loginSection = document.getElementById("login-section");
       const dashboardWrapper = document.getElementById("dashboard-wrapper");
       const mainNav = document.getElementById("main-nav");
