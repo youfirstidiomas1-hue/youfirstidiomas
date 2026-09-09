@@ -377,7 +377,7 @@
   </div>
 
 <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqgTCTJCWtA1v-x2gV4Sx8ZBE5jOxAmbbRIaE9wulRbZhOgw4opsD27UewHUG9fnUr/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxvcNVG_lvut3uvY0gfU3u0Ic75OqwllAmp8fPFfipvVx9_v4WB0E_kS_ht2ca-t98L/exec";
 
     async function validarLogin(e) {
       if (e) {
@@ -470,7 +470,42 @@
       if (btnSalaUnica && data.linkSala) btnSalaUnica.href = data.linkSala;
 
       // 4. Datos de Agenda
-      https://script.google.com/macros/s/AKfycbxqgTCTJCWtA1v-x2gV4Sx8ZBE5jOxAmbbRIaE9wulRbZhOgw4opsD27UewHUG9fnUr/exec
+      // 4. Datos de Agenda
+    const elStudentDays = document.getElementById("student-days");
+    const elStudentTime = document.getElementById("student-time");
+    const elProxima = document.getElementById('txt-proxima-aula');
+    const elSegunda = document.getElementById('txt-segunda-aula');
+    const btn1 = document.getElementById('btn-reagendar-1');
+    const btn2 = document.getElementById('btn-reagendar-2');
+
+    if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
+    if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
+    if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
+    if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
+
+    if (btn1) {
+      if (data.link1 && data.link1.startsWith('http')) {
+        btn1.href = data.link1;
+        btn1.target = "_blank";
+        btn1.rel = "noopener noreferrer";
+        btn1.classList.remove("opacity-50", "pointer-events-none");
+      } else {
+        btn1.href = "#";
+        btn1.classList.add("opacity-50", "pointer-events-none");
+      }
+    }
+
+    if (btn2) {
+      if (data.link2 && data.link2.startsWith('http')) {
+        btn2.href = data.link2;
+        btn2.target = "_blank";
+        btn2.rel = "noopener noreferrer";
+        btn2.classList.remove("opacity-50", "pointer-events-none");
+      } else {
+        btn2.href = "#";
+        btn2.classList.add("opacity-50", "pointer-events-none");
+      }
+    }
       // 5. Mostrar Dashboard
       const loginSection = document.getElementById("login-section");
       const dashboardWrapper = document.getElementById("dashboard-wrapper");
