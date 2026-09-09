@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
  <head>
+  <!-- Carga Nativa de Widget de Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  
   <link rel="icon" type="image/png" href="assets/icono.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -373,7 +377,7 @@
   </div>
 
 <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkZx_GaauA_H4u7yCyDZW4EWjabulalyj5xSTCAuRfLWBQHToPHgb5vUhcvEC7Frme/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqgTCTJCWtA1v-x2gV4Sx8ZBE5jOxAmbbRIaE9wulRbZhOgw4opsD27UewHUG9fnUr/exec";
 
     async function validarLogin(e) {
       if (e) {
@@ -466,21 +470,7 @@
       if (btnSalaUnica && data.linkSala) btnSalaUnica.href = data.linkSala;
 
       // 4. Datos de Agenda
-      const elStudentDays = document.getElementById("student-days");
-      const elStudentTime = document.getElementById("student-time");
-      const elProxima = document.getElementById('txt-proxima-aula');
-      const elSegunda = document.getElementById('txt-segunda-aula');
-      const btn1 = document.getElementById('btn-reagendar-1');
-      const btn2 = document.getElementById('btn-reagendar-2');
-
-      if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
-      if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
-      if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
-      if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
-
-      if (btn1 && data.link1) btn1.href = data.link1;
-      if (btn2 && data.link2) btn2.href = data.link2;
-
+      https://script.google.com/macros/s/AKfycbxqgTCTJCWtA1v-x2gV4Sx8ZBE5jOxAmbbRIaE9wulRbZhOgw4opsD27UewHUG9fnUr/exec
       // 5. Mostrar Dashboard
       const loginSection = document.getElementById("login-section");
       const dashboardWrapper = document.getElementById("dashboard-wrapper");
