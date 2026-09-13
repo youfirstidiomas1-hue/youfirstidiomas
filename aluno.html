@@ -415,20 +415,19 @@
       }
     }
 
-    function mostrarDashboard(data) {
+  function mostrarDashboard(data) {
   const nombre = data.nombre || "Aluno";
   const idioma = (data.idioma || "").toLowerCase();
 
-  // Buscar elementos de Salas y Recursos por ID alternativos
-  const roomEng = document.getElementById("room-english") || document.getElementById("room-eng") || document.getElementById("sessoes-ingles");
-  const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp") || document.getElementById("sessoes-espanhol");
+  // Visibilidad de salas y recursos
+  const roomEng = document.getElementById("room-english") || document.getElementById("room-eng");
+  const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp");
   const resEng = document.getElementById("resource-english") || document.getElementById("res-eng");
   const resEsp = document.getElementById("resource-spanish") || document.getElementById("res-esp");
-  const welcome = document.getElementById("welcomeGreeting") || document.getElementById("txt-welcome");
+  const welcome = document.getElementById("welcomeGreeting");
 
-  // 1. Saludo personalizado
   if (welcome) {
-    if (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("ambas")) {
+    if (idioma.includes("both") || idioma.includes("ambos")) {
       welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
     } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
       welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
@@ -437,32 +436,24 @@
     }
   }
 
-  // 2. Visibilidad de Salas y Recursos
   if (roomEng) roomEng.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("english") || idioma.includes("ingl")) ? "block" : "none";
   if (roomEsp) roomEsp.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) ? "block" : "none";
-
   if (resEng) resEng.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("english") || idioma.includes("ingl")) ? "block" : "none";
   if (resEsp) resEsp.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) ? "block" : "none";
 
-  // 3. Datos de Agenda
-  const elStudentDays = document.getElementById("student-days");
-  const elStudentTime = document.getElementById("student-time");
+  // Mostrar Fechas de la Planilla (Reserva 1 y Reserva 2)
   const elProxima = document.getElementById('txt-proxima-aula');
   const elSegunda = document.getElementById('txt-segunda-aula');
   const btn1 = document.getElementById('btn-reagendar-1');
   const btn2 = document.getElementById('btn-reagendar-2');
 
-  if (elStudentDays) elStudentDays.textContent = data.dias || "Sem agendamento";
-  if (elStudentTime) elStudentTime.textContent = data.horario || "Sem agendamento";
-  if (elProxima) elProxima.textContent = data.dias || 'Sem agendamento';
-  if (elSegunda) elSegunda.textContent = data.horario || 'Sem agendamento';
+  if (elProxima) elProxima.textContent = data.reserva1 || "Sem agendamento";
+  if (elSegunda) elSegunda.textContent = data.reserva2 || "Sem agendamento";
 
-  // Configurar botones de reagendamiento con links de Calendly
+  // Configurar Botón 1 (Reserva 1)
   if (btn1) {
     if (data.link1 && data.link1.startsWith('http')) {
       btn1.href = data.link1;
-      btn1.target = "_blank";
-      btn1.rel = "noopener noreferrer";
       btn1.classList.remove("opacity-50", "pointer-events-none");
     } else {
       btn1.href = "#";
@@ -470,11 +461,10 @@
     }
   }
 
+  // Configurar Botón 2 (Reserva 2)
   if (btn2) {
     if (data.link2 && data.link2.startsWith('http')) {
       btn2.href = data.link2;
-      btn2.target = "_blank";
-      btn2.rel = "noopener noreferrer";
       btn2.classList.remove("opacity-50", "pointer-events-none");
     } else {
       btn2.href = "#";
@@ -482,7 +472,7 @@
     }
   }
 
-  // 4. Mostrar Dashboard y ocultar Login
+  // Mostrar Dashboard y ocultar Login
   const loginSection = document.getElementById("login-section");
   const dashboardWrapper = document.getElementById("dashboard-wrapper");
   const mainNav = document.getElementById("main-nav");
