@@ -253,44 +253,39 @@
 </div>
     
       <!-- SUA AGENDA DE AULAS -->
-<div class="bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 border border-yellow-500/20 mb-8 shadow-xl">
-  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+<!-- SESSÕES MARCADAS -->
+<div class="mb-8 p-6 bg-slate-900/60 border border-slate-800 rounded-2xl backdrop-blur-md">
+  <div class="flex items-center justify-between mb-4">
     <div>
-      <div class="flex items-center gap-2 text-yellow-400 mb-1">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-        <span class="text-xs font-bold tracking-wider uppercase">Sessões Marcadas</span>
-      </div>
+      <span class="text-xs font-semibold tracking-wider text-amber-400 uppercase">Sessões Marcadas</span>
       <h3 class="text-xl font-bold text-white">Sua Agenda de Aulas</h3>
-      <p class="text-gray-400 text-xs">Confira seus próximos horários agendados no Google Calendar</p>
+      <p class="text-xs text-slate-400">Confira seus próximos horários agendados no Google Calendar</p>
     </div>
-    
-    <a href="https://calendar.google.com/" target="_blank" class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-      Abrir Google Calendar
-    </a>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <!-- PRÓXIMA AULA -->
-    <div class="bg-black/40 rounded-xl p-4 border border-gray-800 flex flex-col justify-between">
+    <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
       <div>
-        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">PRÓXIMA AULA</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Próxima Aula</span>
         <div id="txt-proxima-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
       </div>
-      <a id="btn-reagendar-1" href="https://calendar.google.com/" target="_blank" class="w-full bg-gray-800 hover:bg-gray-700 text-yellow-400 font-semibold py-2 px-3 rounded-lg text-xs text-center border border-yellow-500/30 transition flex items-center justify-center gap-2">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+      <a id="btn-reagendar-1" href="#" target="_blank" rel="noopener noreferrer" 
+         class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Reagendar / Cancelar
       </a>
     </div>
 
     <!-- SEGUNDA AULA -->
-    <div class="bg-black/40 rounded-xl p-4 border border-gray-800 flex flex-col justify-between">
+    <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
       <div>
-        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">SEGUNDA AULA</span>
+        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Segunda Aula</span>
         <div id="txt-segunda-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
       </div>
-      <a id="btn-reagendar-2" href="https://calendar.google.com/" target="_blank" class="w-full bg-gray-800 hover:bg-gray-700 text-yellow-400 font-semibold py-2 px-3 rounded-lg text-xs text-center border border-yellow-500/30 transition flex items-center justify-center gap-2">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+      <a id="btn-reagendar-2" href="#" target="_blank" rel="noopener noreferrer" 
+         class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
         Reagendar / Cancelar
       </a>
     </div>
