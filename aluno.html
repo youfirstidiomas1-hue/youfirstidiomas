@@ -2,8 +2,8 @@
 <html lang="pt-BR">
  <head>
   <!-- Carga Nativa de Widget de Calendly -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   
   <link rel="icon" type="image/png" href="assets/icono.png">
   <meta charset="UTF-8">
@@ -93,31 +93,11 @@
 
     .action-button:hover { transform: translateY(-2px); filter: brightness(1.06); }
 
-    .room-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 215, 0, .4);
-      transition: transform .25s ease, border-color .25s ease;
-    }
-
-    .room-card:hover {
-      transform: translateY(-4px);
-      border-color: #ffd700;
-    }
-
     .gold-line {
       width: 44px;
       height: 2px;
       background: #ffd700;
       border-radius: 99px;
-    }
-
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 65vh;
     }
 
     .login-card {
@@ -193,8 +173,8 @@
        <h1 class="m-0 font-bold leading-tight text-white text-lg">Área do Aluno</h1>
       </div>
      </div>
-     <nav aria-label="Navegação principal" class="flex flex-wrap items-center gap-1" id="main-nav" style="display: none;">
-      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#salas">SESSÕES</a> 
+     <nav aria-label="Navegação principal" class="hidden flex-wrap items-center gap-1" id="main-nav">
+      <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#sessoes">SESSÕES</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#agenda">AGENDA</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#recursos">RECURSOS</a> 
       <a class="nav-link rounded-lg px-3 py-2 text-sm font-medium" href="#pagamentos">PAGAMENTO</a>
@@ -219,10 +199,10 @@
         </form>
         <p id="errorMsg" class="mt-4 text-sm text-red-400 hidden">E-mail não encontrado na base de alunos. Chama no WhatsApp para trocar o email</p>
       </div>
-    </div>
+    </section>
 
     <!-- DASHBOARD CONTAINER (OCULTO INICIALMENTE) -->
-    <div id="dashboard-wrapper" style="display: none;">
+    <div id="dashboard-wrapper" class="hidden">
        
        <section class="mb-8 pt-2">
         <p class="mb-1 text-xs font-semibold uppercase tracking-[.18em] text-[#ffd700]">BEM-VINDO(A)</p>
@@ -230,68 +210,67 @@
         <p class="mt-2 text-base text-[#e2d1f0]">Acesse suas aulas, salas virtuais de prática e recursos de estudo abaixo.</p>
        </section>
 
+       <!-- SEÇÃO DE SESSÕES (SALAS VIRTUAIS) -->
+       <div id="section-sessoes" class="mb-8">
+         <div class="flex flex-wrap justify-center gap-6">
+           
+           <!-- Sala de Inglês -->
+           <div id="room-english" class="hidden w-full max-w-sm mr-auto">
+             <a id="btn-room-eng" href="https://youfirstidiomas1-hue.github.io/chattool-english/" class="block transition-transform hover:scale-[1.02]">
+               <img id="img-room-eng" src="assets/english-room.png" alt="English Room" class="w-full h-auto rounded-xl shadow-lg border border-neutral-800" />
+             </a>
+           </div>
 
-    <!-- SEÇÃO DE SESSÕES (SALAS VIRTUAIS) -->
-<div id="section-sessoes" class="mb-8">
-  <div class="flex flex-wrap justify-center gap-6">
-    
-    <!-- Sala de Inglês -->
-    <div id="room-english" class="hidden w-full max-w-sm mr-auto">
-      <a id="btn-room-eng"href="https://youfirstidiomas1-hue.github.io/chattool-english/" class="block transition-transform hover:scale-[1.02]">
-        <img id="img-room-eng" src="assets/english-room.png" alt="English Room" class="w-full h-auto rounded-xl shadow-lg border border-neutral-800" />
-      </a>
-    </div>
+           <!-- Sala de Espanhol -->
+           <div id="room-spanish" class="hidden w-full max-w-sm mr-auto">
+             <a id="btn-room-esp" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" class="block transition-transform hover:scale-[1.02]">
+               <img id="img-room-esp" src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto rounded-xl shadow-lg border border-neutral-800" />
+             </a>
+           </div>
 
-    <!-- Sala de Espanhol -->
-    <div id="room-spanish" class="hidden w-full max-w-sm mr-auto">
-      <a id="btn-room-esp" href="https://youfirstidiomas1-hue.github.io/saladeespa-ol/" class="block transition-transform hover:scale-[1.02]">
-        <img id="img-room-esp" src="assets/sala-espanol.png" alt="Sala de Español" class="w-full h-auto rounded-xl shadow-lg border border-neutral-800" />
-      </a>
-    </div>
+         </div>
+       </div>
+          
+       <!-- SUA AGENDA DE AULAS -->
+       <div id="agenda" class="mb-8 p-6 bg-slate-900/60 border border-slate-800 rounded-2xl backdrop-blur-md">
+         <div class="flex items-center justify-between mb-4">
+           <div>
+             <span class="text-xs font-semibold tracking-wider text-amber-400 uppercase">Sessões Marcadas</span>
+             <h3 class="text-xl font-bold text-white">Sua Agenda de Aulas</h3>
+             <p class="text-xs text-slate-400">Confira seus próximos horários agendados no Google Calendar</p>
+           </div>
+         </div>
 
-  </div>
-</div>
-    
-      <!-- SUA AGENDA DE AULAS -->
-<!-- SESSÕES MARCADAS -->
-<div class="mb-8 p-6 bg-slate-900/60 border border-slate-800 rounded-2xl backdrop-blur-md">
-  <div class="flex items-center justify-between mb-4">
-    <div>
-      <span class="text-xs font-semibold tracking-wider text-amber-400 uppercase">Sessões Marcadas</span>
-      <h3 class="text-xl font-bold text-white">Sua Agenda de Aulas</h3>
-      <p class="text-xs text-slate-400">Confira seus próximos horários agendados no Google Calendar</p>
-    </div>
-  </div>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <!-- PRÓXIMA AULA -->
+           <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
+             <div>
+               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Próxima Aula</span>
+               <div id="txt-proxima-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
+             </div>
+             <a id="btn-reagendar-1" href="#" target="_blank" rel="noopener noreferrer" 
+                class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
+               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+               Reagendar / Cancelar
+             </a>
+           </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <!-- PRÓXIMA AULA -->
-    <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
-      <div>
-        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Próxima Aula</span>
-        <div id="txt-proxima-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
-      </div>
-      <a id="btn-reagendar-1" href="#" target="_blank" rel="noopener noreferrer" 
-         class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Reagendar / Cancelar
-      </a>
-    </div>
+           <!-- SEGUNDA AULA -->
+           <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
+             <div>
+               <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Segunda Aula</span>
+               <div id="txt-segunda-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
+             </div>
+             <a id="btn-reagendar-2" href="#" target="_blank" rel="noopener noreferrer" 
+                class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
+               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+               Reagendar / Cancelar
+             </a>
+           </div>
+         </div>
+       </div>
 
-    <!-- SEGUNDA AULA -->
-    <div class="p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl flex flex-col justify-between">
-      <div>
-        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Segunda Aula</span>
-        <div id="txt-segunda-aula" class="text-lg font-bold text-white mb-3">Carregando...</div>
-      </div>
-      <a id="btn-reagendar-2" href="#" target="_blank" rel="noopener noreferrer" 
-         class="w-full py-2 px-3 bg-slate-700/50 hover:bg-slate-700 text-amber-400 text-xs font-medium rounded-lg text-center transition flex items-center justify-center gap-2 opacity-50 pointer-events-none">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Reagendar / Cancelar
-      </a>
-    </div>
-  </div>
-</div>
-       <!-- 3. RECURSOS DE ESTUDO (CANVA EMBED) -->
+       <!-- RECURSOS DE ESTUDO (CANVA EMBED) -->
        <section id="recursos" class="mb-10 glass-panel rounded-2xl p-6">
          <div class="mb-4">
            <div class="mb-2 flex items-center gap-3 text-[#ffd700]">
@@ -319,7 +298,7 @@
          </div>
        </section>
        
-       <!-- 4. PAGAMENTOS -->
+       <!-- PAGAMENTOS -->
        <section id="pagamentos" class="mb-10">
         <div class="mb-5">
          <div class="mb-3 flex items-center gap-3 text-[#ffd700]">
@@ -374,13 +353,18 @@
 <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyt3rVu2ZjiyaR50Fi2KhGJU_DfrtN-NXEXk6ZeSvteP9U55ACjmFAam0dYOw3dWtpS/exec";
 
+    // Inicializar Iconos de Lucide
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+
     async function validarLogin(e) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
       }
 
-      const emailInput = document.getElementById("emailInput") || document.getElementById("email");
+      const emailInput = document.getElementById("emailInput");
       if (!emailInput) return;
 
       const email = emailInput.value.trim().toLowerCase();
@@ -389,7 +373,6 @@
 
       if (errorMsg) errorMsg.classList.add("hidden");
       if (btnLogin) {
-        btnLogin.value = "VERIFICANDO...";
         btnLogin.innerText = "VERIFICANDO...";
         btnLogin.disabled = true;
       }
@@ -408,79 +391,86 @@
         if (errorMsg) errorMsg.classList.remove("hidden");
       } finally {
         if (btnLogin) {
-          btnLogin.value = "ENTRAR";
           btnLogin.innerText = "ENTRAR";
           btnLogin.disabled = false;
         }
       }
     }
 
-  function mostrarDashboard(data) {
-  const nombre = data.nombre || "Aluno";
-  const idioma = (data.idioma || "").toLowerCase();
+    function mostrarDashboard(data) {
+      const nombre = data.nombre || "Aluno";
+      const idioma = (data.idioma || "").toLowerCase();
 
-  // Visibilidad de salas y recursos
-  const roomEng = document.getElementById("room-english") || document.getElementById("room-eng");
-  const roomEsp = document.getElementById("room-spanish") || document.getElementById("room-esp");
-  const resEng = document.getElementById("resource-english") || document.getElementById("res-eng");
-  const resEsp = document.getElementById("resource-spanish") || document.getElementById("res-esp");
-  const welcome = document.getElementById("welcomeGreeting");
+      // Control de visibilidad mediante Tailwind
+      const roomEng = document.getElementById("room-english");
+      const roomEsp = document.getElementById("room-spanish");
+      const resEng = document.getElementById("resource-english");
+      const resEsp = document.getElementById("resource-spanish");
+      const welcome = document.getElementById("welcomeGreeting");
 
-  if (welcome) {
-    if (idioma.includes("both") || idioma.includes("ambos")) {
-      welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
-    } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
-      welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
-    } else {
-      welcome.textContent = `Welcome, ${nombre}!`;
+      if (welcome) {
+        if (idioma.includes("both") || idioma.includes("ambos")) {
+          welcome.textContent = `Welcome / Bienvenido/a, ${nombre}!`;
+        } else if (idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) {
+          welcome.textContent = `¡Bienvenido/a, ${nombre}!`;
+        } else {
+          welcome.textContent = `Welcome, ${nombre}!`;
+        }
+      }
+
+      const showEng = idioma.includes("both") || idioma.includes("ambos") || idioma.includes("english") || idioma.includes("ingl");
+      const showEsp = idioma.includes("both") || idioma.includes("ambos") || idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish");
+
+      if (roomEng) roomEng.classList.toggle("hidden", !showEng);
+      if (roomEsp) roomEsp.classList.toggle("hidden", !showEsp);
+      if (resEng) resEng.classList.toggle("hidden", !showEng);
+      if (resEsp) resEsp.classList.toggle("hidden", !showEsp);
+
+      // Mostrar Fechas de la Planilla
+      const elProxima = document.getElementById('txt-proxima-aula');
+      const elSegunda = document.getElementById('txt-segunda-aula');
+      const btn1 = document.getElementById('btn-reagendar-1');
+      const btn2 = document.getElementById('btn-reagendar-2');
+
+      if (elProxima) elProxima.textContent = data.reserva1 || "Sem agendamento";
+      if (elSegunda) elSegunda.textContent = data.reserva2 || "Sem agendamento";
+
+      // Configurar Botón 1
+      if (btn1) {
+        if (data.link1 && data.link1.startsWith('http')) {
+          btn1.href = data.link1;
+          btn1.classList.remove("opacity-50", "pointer-events-none");
+        } else {
+          btn1.href = "#";
+          btn1.classList.add("opacity-50", "pointer-events-none");
+        }
+      }
+
+      // Configurar Botón 2
+      if (btn2) {
+        if (data.link2 && data.link2.startsWith('http')) {
+          btn2.href = data.link2;
+          btn2.classList.remove("opacity-50", "pointer-events-none");
+        } else {
+          btn2.href = "#";
+          btn2.classList.add("opacity-50", "pointer-events-none");
+        }
+      }
+
+      // Transición UI
+      const loginSection = document.getElementById("login-section");
+      const dashboardWrapper = document.getElementById("dashboard-wrapper");
+      const mainNav = document.getElementById("main-nav");
+
+      if (loginSection) loginSection.classList.add("hidden");
+      if (dashboardWrapper) dashboardWrapper.classList.remove("hidden");
+      if (mainNav) mainNav.classList.remove("hidden");
+      
+      // Re-inicializar iconos dentro del dashboard visible
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
-  }
-
-  if (roomEng) roomEng.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("english") || idioma.includes("ingl")) ? "block" : "none";
-  if (roomEsp) roomEsp.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) ? "block" : "none";
-  if (resEng) resEng.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("english") || idioma.includes("ingl")) ? "block" : "none";
-  if (resEsp) resEsp.style.display = (idioma.includes("both") || idioma.includes("ambos") || idioma.includes("español") || idioma.includes("espanhol") || idioma.includes("spanish")) ? "block" : "none";
-
-  // Mostrar Fechas de la Planilla (Reserva 1 y Reserva 2)
-  const elProxima = document.getElementById('txt-proxima-aula');
-  const elSegunda = document.getElementById('txt-segunda-aula');
-  const btn1 = document.getElementById('btn-reagendar-1');
-  const btn2 = document.getElementById('btn-reagendar-2');
-
-  if (elProxima) elProxima.textContent = data.reserva1 || "Sem agendamento";
-  if (elSegunda) elSegunda.textContent = data.reserva2 || "Sem agendamento";
-
-  // Configurar Botón 1 (Reserva 1)
-  if (btn1) {
-    if (data.link1 && data.link1.startsWith('http')) {
-      btn1.href = data.link1;
-      btn1.classList.remove("opacity-50", "pointer-events-none");
-    } else {
-      btn1.href = "#";
-      btn1.classList.add("opacity-50", "pointer-events-none");
-    }
-  }
-
-  // Configurar Botón 2 (Reserva 2)
-  if (btn2) {
-    if (data.link2 && data.link2.startsWith('http')) {
-      btn2.href = data.link2;
-      btn2.classList.remove("opacity-50", "pointer-events-none");
-    } else {
-      btn2.href = "#";
-      btn2.classList.add("opacity-50", "pointer-events-none");
-    }
-  }
-
-  // Mostrar Dashboard y ocultar Login
-  const loginSection = document.getElementById("login-section");
-  const dashboardWrapper = document.getElementById("dashboard-wrapper");
-  const mainNav = document.getElementById("main-nav");
-
-  if (loginSection) loginSection.classList.add("hidden");
-  if (dashboardWrapper) dashboardWrapper.classList.remove("hidden");
-  if (mainNav) mainNav.classList.remove("hidden");
-}
 </script>
 </body>
 </html>
