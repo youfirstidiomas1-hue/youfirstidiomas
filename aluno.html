@@ -353,7 +353,6 @@
 <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxLY9Q8teNe3Z0KGrDV_J-FsK5gSHxnmUzEtjrBqyF--VkPIRjpzr8TyDvB87dohAU_/exec";
 
-    // Inicializar Iconos de Lucide
     if (window.lucide) {
       lucide.createIcons();
     }
@@ -401,7 +400,6 @@
       const nombre = data.nombre || "Aluno";
       const idioma = (data.idioma || "").toLowerCase();
 
-      // Control de visibilidad mediante Tailwind
       const roomEng = document.getElementById("room-english");
       const roomEsp = document.getElementById("room-spanish");
       const resEng = document.getElementById("resource-english");
@@ -426,7 +424,7 @@
       if (resEng) resEng.classList.toggle("hidden", !showEng);
       if (resEsp) resEsp.classList.toggle("hidden", !showEsp);
 
-      // Mostrar Fechas de la Planilla
+      // Fechas y links de Agenda
       const elProxima = document.getElementById('txt-proxima-aula');
       const elSegunda = document.getElementById('txt-segunda-aula');
       const btn1 = document.getElementById('btn-reagendar-1');
@@ -435,7 +433,7 @@
       if (elProxima) elProxima.textContent = data.reserva1 || "Sem agendamento";
       if (elSegunda) elSegunda.textContent = data.reserva2 || "Sem agendamento";
 
-      // Configurar Botón 1
+      // Configurar Botón 1 de Reagendamiento
       if (btn1) {
         if (data.link1 && data.link1.startsWith('http')) {
           btn1.href = data.link1;
@@ -446,7 +444,7 @@
         }
       }
 
-      // Configurar Botón 2
+      // Configurar Botón 2 de Reagendamiento
       if (btn2) {
         if (data.link2 && data.link2.startsWith('http')) {
           btn2.href = data.link2;
@@ -457,7 +455,6 @@
         }
       }
 
-      // Transición UI
       const loginSection = document.getElementById("login-section");
       const dashboardWrapper = document.getElementById("dashboard-wrapper");
       const mainNav = document.getElementById("main-nav");
@@ -466,7 +463,6 @@
       if (dashboardWrapper) dashboardWrapper.classList.remove("hidden");
       if (mainNav) mainNav.classList.remove("hidden");
       
-      // Re-inicializar iconos dentro del dashboard visible
       if (window.lucide) {
         lucide.createIcons();
       }
